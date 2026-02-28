@@ -1,0 +1,163 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "caseStudies": "Case Studies",
+    "blog": "Blog",
+    "contact": "Contact",
+    "seoServices": "SEO Services",
+    "resume": "Resume",
+    "bookConsultation": "Book a Consultation"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Azzam Aziz Ali",
+    "title": "Senior Full Stack Developer",
+    "subtitle": "& SEO Specialist",
+    "tagline": "I build SaaS platforms that scale globally and rank on Google.",
+    "cta": "View My Work",
+    "ctaSecondary": "Book a Consultation",
+    "availableForWork": "Available for new projects",
+    "scrollDown": "Scroll Down"
+  },
+  "stats": {
+    "experience": "Years of Experience",
+    "projects": "Completed Projects",
+    "clients": "Happy Clients",
+    "userGrowth": "Weekly User Growth"
+  },
+  "about": {
+    "subtitle": "About Me",
+    "title": "Senior Full Stack Developer & SEO Specialist",
+    "bio1": "With 10+ years of engineering experience, I build high-performance web applications and SaaS platforms that solve real business problems. My stack spans Laravel, React, Vue, and Django — always paired with data-driven SEO that turns organic traffic into revenue.",
+    "bio2": "I co-built FastCaisse — a multi-restaurant SaaS ordering platform now serving users across Belgium, Singapore, China, and the US, with 34% weekly user growth and 75% organic traffic increase through technical SEO.",
+    "stack": "Core Stack",
+    "downloadResume": "Download Resume",
+    "viewCertificates": "View Certificates",
+    "experienceCert": "Experience Certificate",
+    "seoCert": "SEO Certificate"
+  },
+  "skills": {
+    "subtitle": "My Expertise",
+    "title": "Full Stack + SEO Mastery",
+    "description": "A decade of experience across the entire stack — from database architecture to frontend performance and search engine optimization.",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "seo": "SEO & Analytics",
+    "tools": "Tools & DevOps",
+    "databases": "Databases"
+  },
+  "projects": {
+    "subtitle": "My Work",
+    "title": "22+ Projects Delivered",
+    "description": "From SaaS platforms to e-commerce, pharmacy systems to SEO-optimized marketing sites — clean code, real results.",
+    "viewLive": "View Live",
+    "viewCode": "View Code",
+    "all": "All",
+    "saas": "SaaS",
+    "ecommerce": "E-Commerce",
+    "web": "Web Apps",
+    "design": "Design",
+    "featured": "Featured Projects"
+  },
+  "caseStudies": {
+    "subtitle": "Case Studies",
+    "title": "Real Problems. Measurable Results.",
+    "description": "Deep dives into how I diagnose complex problems, engineer solutions, and deliver quantifiable business outcomes.",
+    "problem": "The Problem",
+    "strategy": "Strategy & Approach",
+    "stack": "Tech Stack",
+    "results": "Results & Metrics",
+    "readCaseStudy": "Read Full Case Study"
+  },
+  "seoServices": {
+    "subtitle": "SEO Services",
+    "title": "Technical SEO That Drives Revenue",
+    "description": "I don't just fix broken links — I build organic growth engines. As an SEO Specialist with a developer background, I deliver what agencies can't: deep technical audits + full implementation.",
+    "cta": "Get a Free SEO Audit",
+    "certified": "Google-Certified SEO Specialist"
+  },
+  "contact": {
+    "subtitle": "Contact",
+    "title": "Let's Build Something Great",
+    "description": "Whether you need a full stack developer, an SEO audit, or a technical co-founder — I'm open to conversations.",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "subject": "Subject",
+      "message": "Your Message",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent! I'll reply within 24 hours.",
+      "error": "Something went wrong. Please try again."
+    },
+    "info": {
+      "location": "Tartus, Syria (Remote-first)",
+      "email": "azzam[at]azzamazizali.com",
+      "whatsapp": "+963 991 576 641",
+      "response": "Usually responds within 24h"
+    }
+  },
+  "resume": {
+    "subtitle": "Resume",
+    "title": "Eng. Azzam Aziz Ali",
+    "jobTitle": "Senior Full Stack Developer & SEO Specialist",
+    "download": "Download PDF Resume",
+    "experience": "Work Experience",
+    "education": "Education",
+    "certifications": "Certifications",
+    "skills": "Technical Skills"
+  },
+  "blog": {
+    "subtitle": "Technical Blog",
+    "title": "Insights on Full Stack Dev & SEO",
+    "description": "Practical guides, case studies, and deep dives on Laravel, React, Vue, Django, and technical SEO.",
+    "readMore": "Read Article",
+    "minuteRead": "min read",
+    "noPosts": "Articles coming soon. Stay tuned!"
+  },
+  "theme": {
+    "dark": "Switch to dark mode",
+    "light": "Switch to light mode"
+  },
+  "footer": {
+    "tagline": "Building products that scale and rank.",
+    "rights": "All rights reserved.",
+    "madeWith": "Built with Nuxt 3 + TypeScript"
+  },
+  "meta": {
+    "home": {
+      "title": "Azzam Aziz Ali | Senior Full Stack Developer & SEO Specialist",
+      "description": "10+ years building SaaS with Laravel, React, Vue & Django. FastCaisse: 34% weekly user growth, 75% organic traffic increase. Available for projects & consulting."
+    },
+    "about": {
+      "title": "About | Azzam Aziz Ali – Full Stack Developer & SEO Expert",
+      "description": "Senior Full Stack Developer with 10+ years experience. SEO Specialist who grew organic traffic 75% for a multi-country SaaS product."
+    },
+    "projects": {
+      "title": "Projects | Full Stack Portfolio – Azzam Aziz Ali",
+      "description": "22+ delivered projects: SaaS, restaurant ordering, e-commerce, pharmacy systems across Belgium, Germany, and the Middle East."
+    },
+    "caseStudies": {
+      "title": "Case Studies | FastCaisse SaaS – Azzam Aziz Ali",
+      "description": "FastCaisse: 34% weekly user growth, 75% organic search increase. Full case study on building and scaling a multi-restaurant SaaS platform."
+    },
+    "seoServices": {
+      "title": "Technical SEO Services | Google-Certified – Azzam Aziz Ali",
+      "description": "Technical SEO audits, Core Web Vitals optimization, and content strategy from a certified SEO specialist with full-stack development skills."
+    },
+    "contact": {
+      "title": "Contact | Hire a Full Stack Developer & SEO Specialist – Azzam Aziz Ali",
+      "description": "Available for full stack development, SEO consulting, and technical co-founder roles. Response within 24 hours."
+    },
+    "resume": {
+      "title": "Resume – Azzam Aziz Ali | Senior Full Stack Developer",
+      "description": "10+ years full stack development, Laravel, React, Vue, Django, technical SEO. 20+ projects, 40+ satisfied clients."
+    },
+    "blog": {
+      "title": "Blog | Full Stack Dev & SEO Insights – Azzam Aziz Ali",
+      "description": "Technical articles on Laravel, React, Vue, Django, technical SEO, and SaaS development from a senior full stack developer."
+    }
+  }
+}
