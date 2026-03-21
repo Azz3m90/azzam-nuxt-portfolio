@@ -22,14 +22,14 @@ const socials = [
 </script>
 
 <template>
-  <footer class="bg-slate-950 text-slate-300 pt-16 pb-8 mt-24">
+  <footer class="bg-slate-100 dark:bg-slate-950 text-slate-600 dark:text-slate-300 pt-12 sm:pt-16 pb-8 mt-12 sm:mt-24 border-t border-slate-200 dark:border-transparent">
     <div class="container-custom">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 mb-8 sm:mb-12">
         <div>
           <div class="text-2xl font-extrabold mb-3">
-            <span class="gradient-text">Azzam</span><span class="text-white">.</span>
+            <span class="gradient-text">Azzam</span><span class="text-slate-800 dark:text-white">.</span>
           </div>
-          <p class="text-slate-400 text-sm leading-relaxed mb-4">{{ t('footer.tagline') }}</p>
+          <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-4">{{ t('footer.tagline') }}</p>
           <div class="flex gap-3">
             <a
               v-for="s in socials"
@@ -38,7 +38,7 @@ const socials = [
               target="_blank"
               rel="noopener noreferrer"
               :aria-label="s.name"
-              class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-primary-600 flex items-center justify-center transition-colors duration-200"
+              class="w-9 h-9 rounded-lg bg-slate-200 dark:bg-slate-800 hover:bg-primary-600 hover:text-white dark:hover:bg-primary-600 text-slate-600 dark:text-slate-300 flex items-center justify-center transition-colors duration-200"
             >
               <svg v-if="s.icon === 'linkedin'" class="w-4 h-4 fill-current" viewBox="0 0 24 24">
                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
@@ -57,12 +57,12 @@ const socials = [
         </div>
 
         <div>
-          <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-widest">Navigation</h3>
+          <h3 class="text-slate-800 dark:text-white font-semibold mb-4 text-sm uppercase tracking-widest">Navigation</h3>
           <ul class="space-y-2">
             <li v-for="link in navLinks" :key="link.key">
               <NuxtLink
                 :to="localePath(link.to)"
-                class="text-slate-400 hover:text-primary-400 text-sm transition-colors duration-200"
+                class="text-slate-500 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 text-sm transition-colors duration-200"
               >
                 {{ t(`nav.${link.key}`) }}
               </NuxtLink>
@@ -71,8 +71,8 @@ const socials = [
         </div>
 
         <div>
-          <h3 class="text-white font-semibold mb-4 text-sm uppercase tracking-widest">Quick Contact</h3>
-          <ul class="space-y-3 text-sm text-slate-400">
+          <h3 class="text-slate-800 dark:text-white font-semibold mb-4 text-sm uppercase tracking-widest">Quick Contact</h3>
+          <ul class="space-y-3 text-sm text-slate-500 dark:text-slate-400">
             <li class="flex items-center gap-2">
               <svg class="w-4 h-4 text-primary-400 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
@@ -96,7 +96,7 @@ const socials = [
         </div>
       </div>
 
-      <div class="border-t border-slate-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <div class="border-t border-slate-200 dark:border-slate-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
         <p>© {{ currentYear }} Azzam Aziz Ali. {{ t('footer.rights') }}</p>
         <p>{{ t('footer.madeWith') }}</p>
       </div>

@@ -67,11 +67,11 @@ const certificates = [
 </script>
 
 <template>
-  <div class="py-20">
+  <div class="py-12 sm:py-16 lg:py-20">
     <div class="container-custom">
-      <div class="max-w-4xl mx-auto mb-20">
+      <div class="max-w-4xl mx-auto mb-12 sm:mb-16 lg:mb-20">
         <p class="section-label">{{ t('about.subtitle') }}</p>
-        <h1 class="text-5xl font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">
           {{ t('about.title') }}
         </h1>
         <div class="grid md:grid-cols-3 gap-8 items-start">
@@ -103,8 +103,8 @@ const certificates = [
         </div>
       </div>
 
-      <div class="mb-20">
-        <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mb-10">
+      <div class="mb-12 sm:mb-16 lg:mb-20">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mb-6 sm:mb-10">
           {{ t('resume.experience') }}
         </h2>
         <div class="space-y-0">
@@ -141,11 +141,11 @@ const certificates = [
         </div>
       </div>
 
-      <div class="mb-20">
-        <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mb-10">
+      <div class="mb-12 sm:mb-16 lg:mb-20">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mb-6 sm:mb-10">
           {{ t('resume.certifications') }}
         </h2>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           <a
             v-for="cert in certificates"
             :key="cert.title"
@@ -168,7 +168,7 @@ const certificates = [
       </div>
 
       <div class="card p-8 text-center bg-gradient-to-br from-primary-50 to-accent/5 dark:from-primary-900/20 dark:to-accent/10 border-primary-200 dark:border-primary-800">
-        <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mb-4">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mb-4">
           Let's Build Something Together
         </h2>
         <p class="text-slate-600 dark:text-slate-300 mb-8 max-w-xl mx-auto">

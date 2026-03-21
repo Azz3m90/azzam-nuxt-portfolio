@@ -59,30 +59,30 @@ onMounted(() => {
               </span>
             </div>
 
-            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold mb-4 leading-[1.05]">
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold mb-4 leading-[1.05]">
               <span class="text-slate-800 dark:text-white">{{ t('hero.greeting') }}</span><br>
               <span class="gradient-text">{{ t('hero.name') }}</span>
             </h1>
 
-            <p class="text-2xl sm:text-3xl font-semibold text-slate-600 dark:text-slate-300 mb-2">
+            <p class="text-xl sm:text-2xl lg:text-3xl font-semibold text-slate-600 dark:text-slate-300 mb-2">
               {{ t('hero.title') }}
             </p>
-            <p class="text-xl text-primary-600 dark:text-primary-400 font-medium mb-6">
+            <p class="text-lg sm:text-xl text-primary-600 dark:text-primary-400 font-medium mb-6">
               {{ t('hero.subtitle') }}
             </p>
 
-            <p class="text-lg text-slate-500 dark:text-slate-400 mb-10 max-w-xl leading-relaxed text-balance">
+            <p class="text-base sm:text-lg text-slate-500 dark:text-slate-400 mb-8 sm:mb-10 max-w-xl leading-relaxed text-balance">
               {{ t('hero.tagline') }}
             </p>
 
             <div class="flex flex-wrap gap-4">
-              <NuxtLink :to="localePath('/projects')" class="btn-primary text-base px-8 py-3.5">
+              <NuxtLink :to="localePath('/projects')" class="btn-primary text-sm sm:text-base px-6 sm:px-8 py-3">
                 {{ t('hero.cta') }}
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                 </svg>
               </NuxtLink>
-              <NuxtLink :to="localePath('/contact')" class="btn-secondary text-base px-8 py-3.5">
+              <NuxtLink :to="localePath('/contact')" class="btn-secondary text-sm sm:text-base px-6 sm:px-8 py-3">
                 {{ t('hero.ctaSecondary') }}
               </NuxtLink>
             </div>
@@ -97,7 +97,7 @@ onMounted(() => {
           <div :class="['transition-all duration-700 delay-200 flex justify-center', isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8']">
             <div class="relative">
               <div class="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-accent/20 rounded-3xl blur-2xl scale-110"></div>
-              <div class="relative w-80 h-80 lg:w-96 lg:h-96 rounded-3xl overflow-hidden border-4 border-white/10 shadow-2xl">
+              <div class="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-3xl overflow-hidden border-4 border-white/10 shadow-2xl">
                 <NuxtImg
                   src="/images/Azzam.jpg"
                   alt="Azzam Aziz Ali - Senior Full Stack Developer & SEO Specialist"
@@ -108,7 +108,7 @@ onMounted(() => {
                 />
               </div>
 
-              <div class="absolute -bottom-4 -left-4 card px-4 py-3 shadow-xl">
+              <div class="absolute -bottom-4 -left-4 card px-3 py-2 sm:px-4 sm:py-3 shadow-xl hidden sm:block">
                 <div class="flex items-center gap-3">
                   <div class="w-10 h-10 rounded-xl bg-primary-600 flex items-center justify-center text-white text-sm font-bold">FC</div>
                   <div>
@@ -118,7 +118,7 @@ onMounted(() => {
                 </div>
               </div>
 
-              <div class="absolute -top-4 -right-4 card px-4 py-3 shadow-xl">
+              <div class="absolute -top-4 -right-4 card px-3 py-2 sm:px-4 sm:py-3 shadow-xl hidden sm:block">
                 <div class="text-center">
                   <p class="text-2xl font-extrabold gradient-text">75%</p>
                   <p class="text-xs text-slate-500 dark:text-slate-400">Organic traffic ↑</p>
@@ -139,7 +139,7 @@ onMounted(() => {
 
     <section class="py-16 bg-slate-50 dark:bg-slate-900/50" id="stats">
       <div class="container-custom">
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
           <div v-for="stat in stats" :key="stat.label" class="metric-card card-hover">
             <div class="text-3xl mb-2">{{ stat.icon }}</div>
             <div class="metric-value">{{ stat.value }}</div>
@@ -149,12 +149,12 @@ onMounted(() => {
       </div>
     </section>
 
-    <section class="py-24" id="about-preview">
+    <section class="py-12 sm:py-16 lg:py-24" id="about-preview">
       <div class="container-custom">
         <div class="grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <p class="section-label">{{ t('about.subtitle') }}</p>
-            <h2 class="text-4xl font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">
               {{ t('about.title') }}
             </h2>
             <p class="text-lg text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
@@ -176,7 +176,7 @@ onMounted(() => {
             </div>
           </div>
 
-          <div class="grid grid-cols-2 gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             <div v-for="group in skillGroups" :key="group.key" class="card p-5">
               <h3 class="text-xs font-bold uppercase tracking-widest text-primary-600 dark:text-primary-400 mb-3">{{ group.label }}</h3>
               <div class="flex flex-wrap gap-1.5">
@@ -190,11 +190,11 @@ onMounted(() => {
       </div>
     </section>
 
-    <section class="py-24 bg-slate-50 dark:bg-slate-900/50" id="fastcaisse-metrics">
+    <section class="py-12 sm:py-16 lg:py-24 bg-slate-50 dark:bg-slate-900/50" id="fastcaisse-metrics">
       <div class="container-custom">
         <div class="text-center mb-12">
           <p class="section-label mx-auto justify-center">Featured Case Study</p>
-          <h2 class="text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
             FastCaisse — Multi-Restaurant SaaS Platform
           </h2>
           <p class="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
@@ -238,12 +238,12 @@ onMounted(() => {
       </div>
     </section>
 
-    <section class="py-24" id="featured-projects">
+    <section class="py-12 sm:py-16 lg:py-24" id="featured-projects">
       <div class="container-custom">
         <div class="flex items-end justify-between mb-12">
           <div>
             <p class="section-label">{{ t('projects.featured') }}</p>
-            <h2 class="text-4xl font-extrabold text-slate-900 dark:text-white">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white">
               {{ t('projects.title') }}
             </h2>
           </div>
@@ -255,7 +255,7 @@ onMounted(() => {
           </NuxtLink>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           <a
             v-for="project in featuredProjects"
             :key="project.id"
@@ -301,10 +301,10 @@ onMounted(() => {
       </div>
     </section>
 
-    <section class="py-24 bg-slate-50 dark:bg-slate-900/50" id="testimonials">
+    <section class="py-12 sm:py-16 lg:py-24 bg-slate-50 dark:bg-slate-900/50" id="testimonials">
       <div class="container-custom">
         <p class="section-label justify-center">Social Proof</p>
-        <h2 class="text-4xl font-extrabold text-slate-900 dark:text-white text-center mb-12">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white text-center mb-8 sm:mb-12">
           Trusted by Teams Across Europe & Beyond
         </h2>
         <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -322,21 +322,21 @@ onMounted(() => {
       </div>
     </section>
 
-    <section class="py-24 relative overflow-hidden" id="cta">
+    <section class="py-12 sm:py-16 lg:py-24 relative overflow-hidden" id="cta">
       <div class="absolute inset-0 bg-gradient-to-br from-primary-600 to-accent"></div>
       <div class="absolute inset-0 opacity-10" style="background-image: url(&quot;data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='white'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e&quot;)"></div>
       <div class="container-custom relative z-10 text-center">
-        <h2 class="text-4xl sm:text-5xl font-extrabold text-white mb-4">
+        <h2 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4">
           Ready to Scale Your Product?
         </h2>
         <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
           Let's discuss your project — full stack development, SEO audit, or technical co-founder role.
         </p>
         <div class="flex flex-wrap gap-4 justify-center">
-          <NuxtLink :to="localePath('/contact')" class="btn-secondary bg-white text-primary-700 border-white hover:bg-white/90 text-base px-8 py-3.5">
+          <NuxtLink :to="localePath('/contact')" class="btn-secondary bg-white text-primary-700 border-white hover:bg-white/90 text-sm sm:text-base px-6 sm:px-8 py-3">
             Get in Touch
           </NuxtLink>
-          <a href="https://wa.me/+963991576641" target="_blank" rel="noopener noreferrer" class="btn-secondary text-white border-white/40 hover:border-white hover:bg-white/10 text-base px-8 py-3.5">
+          <a href="https://wa.me/+963991576641" target="_blank" rel="noopener noreferrer" class="btn-secondary text-white border-white/40 hover:border-white hover:bg-white/10 text-sm sm:text-base px-6 sm:px-8 py-3">
             WhatsApp Me
           </a>
         </div>

@@ -12,7 +12,8 @@ watch(locale, (val) => {
   if (process.client) {
     document.documentElement.lang = val
     document.documentElement.dir = val === 'ar' ? 'rtl' : 'ltr'
-    document.documentElement.className = val === 'ar' ? 'rtl' : 'ltr'
+    document.documentElement.classList.remove('rtl', 'ltr')
+    document.documentElement.classList.add(val === 'ar' ? 'rtl' : 'ltr')
   }
 })
 </script>

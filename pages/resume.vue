@@ -61,12 +61,12 @@ const education = {
 </script>
 
 <template>
-  <div class="py-20">
+  <div class="py-12 sm:py-16 lg:py-20">
     <div class="container-custom max-w-4xl">
       <div class="flex flex-wrap items-start justify-between gap-6 mb-12">
         <div>
           <p class="section-label">{{ t('resume.subtitle') }}</p>
-          <h1 class="text-5xl font-extrabold text-slate-900 dark:text-white">{{ t('resume.title') }}</h1>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white">{{ t('resume.title') }}</h1>
           <p class="text-xl text-primary-600 dark:text-primary-400 font-semibold mt-2">{{ t('resume.jobTitle') }}</p>
           <div class="flex flex-wrap gap-3 mt-4 text-sm text-slate-500 dark:text-slate-400">
             <span class="flex items-center gap-1">📍 Tartus, Syria (Remote)</span>
@@ -86,22 +86,22 @@ const education = {
         </a>
       </div>
 
-      <div class="flex flex-wrap gap-4 mb-12 p-6 card">
+      <div class="grid grid-cols-2 sm:flex sm:flex-wrap gap-4 mb-8 sm:mb-12 p-4 sm:p-6 card">
         <div class="text-center px-4">
           <p class="text-3xl font-extrabold gradient-text">10+</p>
           <p class="text-xs text-slate-500 dark:text-slate-400">Years Experience</p>
         </div>
-        <div class="w-px bg-slate-200 dark:bg-slate-700"></div>
+        <div class="hidden sm:block w-px bg-slate-200 dark:bg-slate-700"></div>
         <div class="text-center px-4">
           <p class="text-3xl font-extrabold gradient-text">22+</p>
           <p class="text-xs text-slate-500 dark:text-slate-400">Projects Delivered</p>
         </div>
-        <div class="w-px bg-slate-200 dark:bg-slate-700"></div>
+        <div class="hidden sm:block w-px bg-slate-200 dark:bg-slate-700"></div>
         <div class="text-center px-4">
           <p class="text-3xl font-extrabold gradient-text">40+</p>
           <p class="text-xs text-slate-500 dark:text-slate-400">Happy Clients</p>
         </div>
-        <div class="w-px bg-slate-200 dark:bg-slate-700"></div>
+        <div class="hidden sm:block w-px bg-slate-200 dark:bg-slate-700"></div>
         <div class="text-center px-4">
           <p class="text-3xl font-extrabold gradient-text">75%</p>
           <p class="text-xs text-slate-500 dark:text-slate-400">Organic Traffic Growth</p>

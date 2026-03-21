@@ -1,12 +1,21 @@
-<script setup lang="ts">
+﻿<script setup lang="ts">
 const { locale } = useI18n()
 const colorMode = useColorMode()
+
+if (process.client) {
+  const updateThemeClass = () => {
+    const mode = colorMode.value
+    document.documentElement.classList.remove('light', 'dark')
+    document.documentElement.classList.add(mode)
+  }
+  
+  watch(() => colorMode.value, updateThemeClass, { immediate: true })
+}
 
 useHead({
   htmlAttrs: {
     lang: locale,
     dir: computed(() => locale.value === 'ar' ? 'rtl' : 'ltr'),
-    class: computed(() => colorMode.value === 'dark' ? 'dark' : ''),
   },
   script: [
     {
@@ -33,6 +42,7 @@ useHead({
           'https://github.com/Azz3m90',
           'https://stackoverflow.com/users/10049474/azzam-ali',
           'https://www.youtube.com/@azzamazizali',
+          'https://www.facebook.com/azzam.ali.9484',
         ],
         worksFor: { '@type': 'Organization', name: 'FastCaisse', url: 'https://fastcaisse.be' },
         address: { '@type': 'PostalAddress', addressLocality: 'Tartus', addressRegion: 'Syria' },
@@ -40,6 +50,7 @@ useHead({
     },
   ],
 })
+
 </script>
 
 <template>

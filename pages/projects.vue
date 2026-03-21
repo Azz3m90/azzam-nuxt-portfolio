@@ -20,11 +20,11 @@ const filteredProjects = computed(() => filterProjects(activeFilter.value))
 </script>
 
 <template>
-  <div class="py-20">
+  <div class="py-12 sm:py-16 lg:py-20">
     <div class="container-custom">
       <div class="text-center mb-14">
         <p class="section-label justify-center">{{ t('projects.subtitle') }}</p>
-        <h1 class="text-5xl font-extrabold text-slate-900 dark:text-white mb-4">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">
           {{ t('projects.title') }}
         </h1>
         <p class="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
@@ -32,7 +32,7 @@ const filteredProjects = computed(() => filterProjects(activeFilter.value))
         </p>
       </div>
 
-      <div class="flex flex-wrap gap-2 justify-center mb-10">
+      <div class="flex flex-wrap gap-2 justify-center mb-6 sm:mb-10">
         <button
           v-for="filter in filters"
           :key="filter.key"

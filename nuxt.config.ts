@@ -29,11 +29,7 @@ export default defineNuxtConfig({
     lazy: false,
     langDir: 'locales/',
     strategy: 'prefix_except_default',
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_redirected',
-      redirectOn: 'root',
-    },
+    detectBrowserLanguage: false,
   },
 
   image: {
@@ -45,11 +41,6 @@ export default defineNuxtConfig({
   content: {
     highlight: { theme: 'github-dark' },
     markdown: { toc: { depth: 3, searchDepth: 3 } },
-  },
-
-  sitemap: {
-    hostname: 'https://azzamazizali.com',
-    gzip: true,
   },
 
   app: {
@@ -75,7 +66,7 @@ export default defineNuxtConfig({
     turnstileSecret: process.env.TURNSTILE_SECRET_KEY || '',
     public: {
       turnstileSiteKey: process.env.NUXT_PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAACjhI98Fk0RqnlYp',
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://azzamazizali.com',
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://azzamazizali.sy',
     },
   },
 

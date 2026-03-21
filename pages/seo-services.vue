@@ -73,11 +73,11 @@ const faq = [
 </script>
 
 <template>
-  <div class="py-20">
+  <div class="py-12 sm:py-16 lg:py-20">
     <div class="container-custom">
       <div class="text-center mb-16 max-w-3xl mx-auto">
         <p class="section-label justify-center">{{ t('seoServices.subtitle') }}</p>
-        <h1 class="text-5xl font-extrabold text-slate-900 dark:text-white mb-4">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">
           {{ t('seoServices.title') }}
         </h1>
         <p class="text-lg text-slate-500 dark:text-slate-400 mb-6">
@@ -142,7 +142,7 @@ const faq = [
       </div>
 
       <div class="mb-20">
-        <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white text-center mb-10">Frequently Asked Questions</h2>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white text-center mb-6 sm:mb-10">Frequently Asked Questions</h2>
         <div class="max-w-3xl mx-auto space-y-4">
           <div v-for="item in faq" :key="item.q" class="card p-6">
             <h3 class="font-bold text-slate-900 dark:text-white mb-2">{{ item.q }}</h3>
@@ -151,8 +151,8 @@ const faq = [
         </div>
       </div>
 
-      <div class="card p-12 text-center bg-gradient-to-br from-primary-600 to-accent text-white rounded-3xl">
-        <h2 class="text-4xl font-extrabold mb-4">Ready to Grow Your Organic Traffic?</h2>
+      <div class="card p-6 sm:p-8 lg:p-12 text-center bg-gradient-to-br from-primary-600 to-accent text-white rounded-3xl">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold mb-4">Ready to Grow Your Organic Traffic?</h2>
         <p class="text-white/80 mb-8 max-w-xl mx-auto">
           Get a free 30-minute SEO audit call. I'll analyze your site and give you actionable insights — no strings attached.
         </p>

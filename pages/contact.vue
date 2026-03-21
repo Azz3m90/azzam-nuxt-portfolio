@@ -1,4 +1,4 @@
-<script setup lang="ts">
+﻿<script setup lang="ts">
 const { t } = useI18n()
 
 useSeo({
@@ -34,16 +34,17 @@ const socials = [
   { name: 'GitHub', url: 'https://github.com/Azz3m90', color: 'text-slate-800 dark:text-white' },
   { name: 'WhatsApp', url: 'https://wa.me/+963991576641', color: 'text-emerald-600' },
   { name: 'YouTube', url: 'https://www.youtube.com/@azzamazizali', color: 'text-red-600' },
+  { name: 'Facebook', url: 'https://www.facebook.com/azzam.ali.9484', color: 'text-blue-700' },
   { name: 'Stack Overflow', url: 'https://stackoverflow.com/users/10049474/azzam-ali', color: 'text-orange-500' },
 ]
 </script>
 
 <template>
-  <div class="py-20">
+  <div class="py-12 sm:py-16 lg:py-20">
     <div class="container-custom">
       <div class="text-center mb-14">
         <p class="section-label justify-center">{{ t('contact.subtitle') }}</p>
-        <h1 class="text-5xl font-extrabold text-slate-900 dark:text-white mb-4">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">
           {{ t('contact.title') }}
         </h1>
         <p class="text-lg text-slate-500 dark:text-slate-400 max-w-xl mx-auto">
