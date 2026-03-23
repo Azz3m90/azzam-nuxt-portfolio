@@ -1,16 +1,5 @@
 ﻿<script setup lang="ts">
 const { locale } = useI18n()
-const colorMode = useColorMode()
-
-if (process.client) {
-  const updateThemeClass = () => {
-    const mode = colorMode.value
-    document.documentElement.classList.remove('light', 'dark')
-    document.documentElement.classList.add(mode)
-  }
-  
-  watch(() => colorMode.value, updateThemeClass, { immediate: true })
-}
 
 useHead({
   htmlAttrs: {

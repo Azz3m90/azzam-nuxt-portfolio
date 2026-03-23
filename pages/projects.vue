@@ -14,9 +14,34 @@ const filters = [
   { key: 'web', label: t('projects.web') },
   { key: 'ecommerce', label: t('projects.ecommerce') },
   { key: 'design', label: t('projects.design') },
+  { key: 'ai', label: t('projects.ai') },
 ]
 
 const filteredProjects = computed(() => filterProjects(activeFilter.value))
+
+const sliderIndex = reactive<Record<number, number>>({})
+const sliderTimers = reactive<Record<number, ReturnType<typeof setInterval>>>({})
+
+function getActiveImage(project: { id: number; image: string; images?: string[] }): string {
+  if (project.images && project.images.length > 1) {
+    return project.images[sliderIndex[project.id] ?? 0] ?? project.image
+  }
+  return project.image
+}
+
+function startSlider(project: { id: number; images?: string[] }) {
+  if (!project.images || project.images.length <= 1) return
+  sliderIndex[project.id] = 0
+  sliderTimers[project.id] = setInterval(() => {
+    sliderIndex[project.id] = ((sliderIndex[project.id] ?? 0) + 1) % project.images!.length
+  }, 1200)
+}
+
+function stopSlider(project: { id: number; images?: string[] }) {
+  if (!project.images || project.images.length <= 1) return
+  clearInterval(sliderTimers[project.id])
+  sliderIndex[project.id] = 0
+}
 </script>
 
 <template>
@@ -58,16 +83,29 @@ const filteredProjects = computed(() => filterProjects(activeFilter.value))
             rel="noopener noreferrer"
             class="project-card group"
             :class="{ 'cursor-default pointer-events-none': project.url === '#' }"
+            @mouseenter="startSlider(project)"
+            @mouseleave="stopSlider(project)"
           >
-            <div class="h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden">
+            <div class="relative h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden">
               <NuxtImg
-                :src="project.image"
+                :src="getActiveImage(project)"
                 :alt="locale === 'ar' && project.titleAr ? project.titleAr : project.title"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                 width="600"
                 height="400"
                 loading="lazy"
               />
+              <div
+                v-if="project.images && project.images.length > 1"
+                class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5"
+              >
+                <span
+                  v-for="(_, i) in project.images"
+                  :key="i"
+                  class="w-1.5 h-1.5 rounded-full transition-colors duration-300"
+                  :class="(sliderIndex[project.id] ?? 0) === i ? 'bg-white' : 'bg-white/40'"
+                />
+              </div>
             </div>
             <div class="p-5">
               <div class="flex items-start justify-between mb-1.5">

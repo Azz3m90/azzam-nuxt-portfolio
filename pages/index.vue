@@ -16,10 +16,11 @@ const stats = [
 ]
 
 const skillGroups = computed(() => [
-  { key: 'backend', label: t('skills.backend'), items: ['Laravel', 'Django', 'PHP', 'Python', 'Go', 'Node.js', 'REST API'] },
-  { key: 'frontend', label: t('skills.frontend'), items: ['React', 'Vue 3', 'Nuxt 3', 'TypeScript', 'Tailwind CSS', 'Next.js'] },
-  { key: 'seo', label: t('skills.seo'), items: ['Technical SEO', 'Core Web Vitals', 'Schema Markup', 'Google Analytics', 'Screaming Frog'] },
-  { key: 'databases', label: t('skills.databases'), items: ['MySQL', 'PostgreSQL', 'Redis', 'Firebase'] },
+  { key: 'backend', label: t('skills.backend'), items: ['Laravel', 'Django', 'PHP', 'Python', 'Go', 'Ruby on Rails', 'Node.js', 'REST API'] },
+  { key: 'frontend', label: t('skills.frontend'), items: ['React', 'Vue 3', 'Nuxt 3', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Bootstrap', 'jQuery', 'SASS', 'Axios', 'Next.js', 'HTML5', 'CSS3'] },
+  { key: 'seo', label: t('skills.seo'), items: ['Technical SEO', 'Core Web Vitals', 'Schema Markup', 'Google Analytics', 'Screaming Frog', 'MOZ'] },
+  { key: 'databases', label: t('skills.databases'), items: ['MySQL', 'PostgreSQL', 'Redis', 'Firebase', 'SQLite'] },
+  { key: 'tools', label: t('skills.tools'), items: ['Git', 'NPM', 'Webpack', 'VS Code', 'ClickUp', 'Slack', 'DBeaver', 'FileZilla', 'Android Studio', 'Composer', 'WordPress', 'PrestaShop'] },
 ])
 
 const testimonials = [

@@ -59,7 +59,8 @@
     "ecommerce": "E-Commerce",
     "web": "Web Apps",
     "design": "Design",
-    "featured": "Featured Projects"
+    "featured": "Featured Projects",
+    "ai": "AI & ML"
   },
   "caseStudies": {
     "subtitle": "Case Studies",
@@ -85,6 +86,8 @@
     "form": {
       "name": "Your Name",
       "email": "Your Email",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+1 (555) 000-0000",
       "subject": "Subject",
       "message": "Your Message",
       "submit": "Send Message",

@@ -9,60 +9,128 @@ useSeo({
 
 const experience = [
   {
-    role: 'Senior Full Stack Developer & SEO Specialist',
+    role: 'Lead Web Developer & Project Manager',
+    company: 'AstraMind & Lindenberg-Apotheke',
+    url: 'https://astramind.de',
+    period: '11/2025 – Present',
+    location: 'Germany (Full-Time / Remote)',
+    description: 'Directed end-to-end development for AstraMind.de on Nuxt 3 and TypeScript, and orchestrated digital transformation of Lindenberg-Apotheke migrating to Next.js 14 with mobile-first Tailwind CSS.',
+    achievements: [
+      '40% improvement in Lighthouse scores',
+      'SEO architecture with Schema.org markup and i18n for the German market',
+      'Secure healthcare integrations using Nodemailer, EmailJS, and Cloudflare Turnstile',
+      '99.9% availability via Netlify and Vercel deployment with pnpm and Git',
+      '25% decrease in bounce rates with Framer Motion interactive UI',
+    ],
+    stack: ['Nuxt 3', 'Next.js 14', 'Vue.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vercel'],
+  },
+  {
+    role: 'Full-Stack Web Developer & SEO Specialist',
     company: 'FastCaisse',
     url: 'https://fastcaisse.be',
-    period: '2022 – Present',
-    location: 'Belgium (Remote)',
-    description: 'Built and scaled a multi-restaurant SaaS ordering platform serving customers in Belgium, Singapore, China, and the US. Architected the ordering system, kiosk mode, admin dashboard, payment integration, and SEO-optimized marketing pages.',
+    period: '01/2023 – Present',
+    location: 'Belgium (Freelance / Remote)',
+    description: 'Architected and executed SEO strategies and full-stack solutions for a restaurant SaaS platform. Delivered measurable improvements in organic search rankings, site speed, and mobile responsiveness.',
     achievements: [
-      '34.6% weekly active user growth',
-      '75% increase in organic search traffic',
-      '62.6% event count increase',
-      'Multi-language support (EN, FR, AR, NL)',
-      'Cross-country organic visibility (4+ countries)',
+      'Improved organic traffic and search rankings through keyword analysis and content optimization',
+      'Full-stack solutions using Node.js, Laravel, and PHP with measurable speed gains',
+      'Reduced customer acquisition costs and increased conversion rates via competitive analysis',
     ],
-    stack: ['Laravel', 'Vue 3', 'Nuxt', 'MySQL', 'Redis', 'Payment APIs'],
+    stack: ['Laravel', 'Node.js', 'PHP', 'Vue 3', 'MySQL', 'Redis'],
   },
   {
-    role: 'Full Stack Developer',
+    role: 'Full-Stack Web Developer',
+    company: 'Emtethal',
+    url: '#',
+    period: '06/2025 – 10/2025',
+    location: 'Saudi Arabia (Contract / Remote)',
+    description: 'Built responsive web applications using Django and ReactJS, translating Figma designs into pixel-perfect production UIs. Architected scalable RESTful APIs and integrated third-party services.',
+    achievements: [
+      'Pixel-perfect UI from Figma designs using Django and ReactJS',
+      'Scalable RESTful APIs reducing backend response time',
+      'Third-party service integrations improving data reliability',
+    ],
+    stack: ['Django', 'React', 'Python', 'REST API', 'Figma'],
+  },
+  {
+    role: 'Full-Stack Web Developer',
     company: 'Hexabitz',
     url: 'https://hexabitz.com',
-    period: '2021 – 2022',
-    location: 'Syria (Remote)',
-    description: 'Developed a browser-based IoT hardware programming IDE using React and Monaco Editor. Built the company marketing website and integrated hardware documentation systems.',
+    period: '06/2022 – 05/2023',
+    location: 'USA, Tulsa, Oklahoma',
+    description: 'Engineered a web-based IDE using Laravel and Babylon.js for IoT & AI hardware projects, enabling real-time device interaction. Built sensor data visualization dashboards improving engineering efficiency.',
     achievements: [
-      'Built custom browser-based IDE for IoT hardware',
-      'React + Monaco Editor integration',
-      'SEO-optimized product documentation pages',
+      'Browser-based IDE for IoT hardware with real-time device interaction',
+      'Sensor data visualization dashboards for hardware debugging',
+      'Improved hardware debugging efficiency for engineering teams',
     ],
-    stack: ['React', 'TypeScript', 'Django', 'Python', 'Monaco Editor'],
+    stack: ['Laravel', 'Babylon.js', 'JavaScript', 'PHP', 'IoT'],
   },
   {
-    role: 'SEO Specialist',
-    company: 'Caresine',
-    url: 'https://caresine.com',
-    period: '2020 – 2022',
-    location: 'Remote',
-    description: 'Led technical SEO and content strategy for an e-commerce platform, driving organic traffic through structured data, performance optimization, and keyword-targeted content.',
+    role: 'Full-Stack Web Developer',
+    company: 'Seetah Award',
+    url: '#',
+    period: '09/2021 – 01/2022',
+    location: 'Riyadh, Saudi Arabia',
+    description: 'Delivered full-stack web and SEO solutions using Laravel and CodeIgniter, increasing client website visibility in the Riyadh market through server-side optimizations.',
     achievements: [
-      'Implemented schema markup across 500+ product pages',
-      'Improved Core Web Vitals scores',
-      'Developed content strategy for Arabic and English markets',
+      'Increased website visibility in the Riyadh market',
+      'Server-side JavaScript optimizations reducing page load times significantly',
     ],
-    stack: ['PrestaShop', 'Screaming Frog', 'Google Analytics', 'Search Console'],
+    stack: ['Laravel', 'CodeIgniter', 'JavaScript', 'SEO'],
+  },
+  {
+    role: 'Online IT Engineer',
+    company: 'Bonzuttner',
+    url: '#',
+    period: '06/2021 – 05/2022',
+    location: 'Tokyo, Japan (Remote)',
+    description: 'Developed modular Django web applications following DRY principles, producing reusable and maintainable code. Collaborated in Agile cross-functional engineering teams.',
+    achievements: [
+      'Modular Django applications following DRY principles',
+      'Delivered web solutions on schedule in Agile environment',
+    ],
+    stack: ['Django', 'Python', 'Agile', 'REST API'],
+    video: 'https://www.youtube.com/watch?v=UhHuoMAKMLc',
   },
 ]
 
 const certificates = [
+  { title: 'Django Web Framework', issuer: 'Meta/Coursera', icon: '🐍', url: '/cv/WebDevelopment/Web_Django_Framework.pdf' },
+  { title: 'Fundamentals of NuxtJS', issuer: 'Udemy', icon: '💚', url: '/cv/WebDevelopment/NuxtJS.pdf' },
+  { title: 'Introduction to SEO', issuer: 'Coursera', icon: '🔎', url: '/cv/WebDevelopment/SEO/Introduction_to_SEO.pdf' },
   { title: 'Google SEO Fundamentals', issuer: 'Google/Coursera', icon: '🔍', url: '/cv/WebDevelopment/SEO/Google_SEO_Fundamentals.pdf' },
   { title: 'Optimizing for Google Search', issuer: 'Google/Coursera', icon: '📊', url: '/cv/WebDevelopment/SEO/Optimizing_a_Website_for_Google_Search.pdf' },
   { title: 'Google SEO Capstone Project', issuer: 'Google/Coursera', icon: '🏆', url: '/cv/WebDevelopment/SEO/Google_SEO_Capstone_Project.pdf' },
   { title: 'Advanced Content & Social Tactics', issuer: 'Coursera', icon: '📣', url: '/cv/WebDevelopment/SEO/Advanced_Content_and_Social_Tactics_to_Optimize.pdf' },
-  { title: 'Mastering Laravel & PHP', issuer: 'Udemy', icon: '⚡', url: '/cv/WebDevelopment/Mastering_PHP_and_Laravel.pdf' },
-  { title: 'Advanced React', issuer: 'Meta/Coursera', icon: '⚛️', url: '/cv/WebDevelopment/Advanced_React.pdf' },
+  { title: 'Increase SEO Traffic with WordPress', issuer: 'Coursera', icon: '📝', url: '/cv/WebDevelopment/Increase_SEO_Traffic_with_WordPress.pdf' },
   { title: 'Principles of UX/UI Design', issuer: 'Meta/Coursera', icon: '🎨', url: '/cv/WebDevelopment/Principles_of_UX_UI_Design.pdf' },
+  { title: 'Mastering Laravel & PHP', issuer: 'Udemy', icon: '⚡', url: '/cv/WebDevelopment/Mastering_PHP_and_Laravel.pdf' },
+  { title: 'React Basics', issuer: 'Meta/Coursera', icon: '⚛️', url: '/cv/WebDevelopment/React_Basics.pdf' },
+  { title: 'Advanced React', issuer: 'Meta/Coursera', icon: '⚛️', url: '/cv/WebDevelopment/Advanced_React.pdf' },
+  { title: 'AngularJS', issuer: 'Coursera', icon: '🅰️', url: '/cv/WebDevelopment/AngularJS.pdf' },
+  { title: 'VueJS', issuer: 'Udemy', icon: '💚', url: '/cv/WebDevelopment/VueJS.pdf' },
+  { title: 'Full-Stack Web Developer', issuer: 'Coursera', icon: '🌐', url: '/cv/WebDevelopment/Full_Stack_Web_Developer.pdf' },
+  { title: 'Bootstrap 4', issuer: 'Coursera', icon: '🅱️', url: '/cv/WebDevelopment/Front_End_Web_UI_Frameworks_and_Tools_Bootstrap_4.pdf' },
+  { title: 'HTML5 / CSS3 / JavaScript', issuer: 'Coursera', icon: '💻', url: '/cv/WebDevelopment/HTML5_CSS3_JS_Certificate.pdf' },
+  { title: 'Python', issuer: 'Coursera', icon: '🐍', url: '/cv/WebDevelopment/Python.pdf' },
+  { title: 'Python to Access Web Data', issuer: 'Coursera', icon: '🕸️', url: '/cv/WebDevelopment/Python_to_Access_Web_Data.pdf' },
+  { title: 'Perform Sentiment Analysis with scikit-learn', issuer: 'Coursera', icon: '🤖', url: '/cv/WebDevelopment/Coursera_Perform_Sentiment_Analysis_with_scikit-learn.pdf' },
+  { title: 'Go (Golang)', issuer: 'Coursera', icon: '🔵', url: '/cv/WebDevelopment/Go.pdf' },
+  { title: 'Ruby on Rails', issuer: 'Coursera', icon: '💎', url: '/cv/WebDevelopment/ruby-on-rails.pdf' },
+  { title: 'Introduction to Dart', issuer: 'Coursera', icon: '🎯', url: '/cv/WebDevelopment/Coursera_Introduction_to_Dart.pdf' },
+  { title: 'R Language', issuer: 'Coursera', icon: '📊', url: '/cv/WebDevelopment/R_Language.pdf' },
+  { title: 'Flutter & Dart', issuer: 'Udemy', icon: '🦋', url: '/cv/AndroidDevelopment/flutter-1.pdf' },
+  { title: 'Android Developer', issuer: 'Google', icon: '📱', url: '/cv/AndroidDevelopment/Android_Developer.pdf' },
+  { title: 'CCNA Networking', issuer: 'Cisco', icon: '🌐', url: '/cv/Networking/0001.jpg' },
+  { title: 'Controlling Gauge System', issuer: 'Industrial Training', icon: '⚙️', url: '/cv/controlling/controlling_guage_system.jpg' },
+  { title: 'Engineering Certificate', issuer: 'Tishreen University', icon: '🎓', url: '/cv/Engineering/IMG_20191022_155503.jpg' },
+  { title: 'LinkedIn Premium Quick Tips', issuer: 'LinkedIn Learning', icon: '💼', url: '/cv/LinkedIn/CertificateOfCompletion_LinkedIn%20Premium%20Quick%20Tips.pdf' },
   { title: 'Gemini Certified Educator', issuer: 'Google', icon: '🤖', url: '/cv/Gemini/Gemini_Certified_Educator.jpg' },
+  { title: 'Gemini Certified University Student', issuer: 'Google', icon: '🎓', url: '/cv/Gemini/GeminiCertified_student.jpg' },
+  { title: 'Experience Certificate – FastCaisse', issuer: 'FastCaisse (Belgium)', icon: '🏅', url: '/cv/FAST_CAISSE_Experience_Certificate_Azzam_Aziz_Ali-signed.pdf' },
+  { title: 'Experience Certificate – Hexabitz', issuer: 'Hexabitz (USA)', icon: '🏅', url: '/cv/Azzams_Experience_CERTIFICATE_in_Hexabitz_Full-Stack_Web_Developer.pdf' },
+  { title: 'SEO Specialist Certificate – Caresine', issuer: 'Caresine', icon: '🔍', url: '/cv/Caresine_SEO_Specialist_Caresine_company_Azzam.pdf' },
 ]
 </script>
 
@@ -131,11 +199,23 @@ const certificates = [
                   {{ achievement }}
                 </li>
               </ul>
-              <div class="flex flex-wrap gap-1.5">
+              <div class="flex flex-wrap gap-1.5" :class="{ 'mb-4': job.video }">
                 <span v-for="tech in job.stack" :key="tech" class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 font-medium">
                   {{ tech }}
                 </span>
               </div>
+              <a
+                v-if="job.video"
+                :href="job.video"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-sm font-semibold text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 transition-colors"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                Watch Job Interview
+              </a>
             </div>
           </div>
         </div>

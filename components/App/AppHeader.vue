@@ -29,15 +29,8 @@ const otherLocaleLabel = computed(() => locale.value === 'en' ? 'ع' : 'EN')
 const toggleMenu = () => { isMenuOpen.value = !isMenuOpen.value }
 const closeMenu = () => { isMenuOpen.value = false }
 
-const toggleTheme = async () => {
-  const html = document.documentElement
-  const isDarkNow = html.classList.contains('dark')
-  const newMode = isDarkNow ? 'light' : 'dark'
-  
-  html.classList.remove('light', 'dark')
-  html.classList.add(newMode)
-  localStorage.setItem('nuxt-color-mode', newMode)
-  
+const toggleTheme = () => {
+  const newMode = colorMode.preference === 'dark' ? 'light' : 'dark'
   colorMode.preference = newMode
 }
 

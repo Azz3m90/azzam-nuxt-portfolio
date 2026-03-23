@@ -1,4 +1,5 @@
 ﻿<script setup lang="ts">
+import emailjs from '@emailjs/browser'
 const { t } = useI18n()
 
 useSeo({
@@ -9,6 +10,7 @@ useSeo({
 const form = reactive({
   name: '',
   email: '',
+  phone: '',
   subject: '',
   message: '',
 })
@@ -18,12 +20,18 @@ const status = ref<'idle' | 'sending' | 'success' | 'error'>('idle')
 const handleSubmit = async () => {
   status.value = 'sending'
   try {
-    await $fetch('/api/contact', {
-      method: 'POST',
-      body: form,
-    })
+    const templateParams = {
+      from_name: form.name,
+      from_email: form.email,
+      phone: form.phone,
+      subject: form.subject,
+      message: form.message,
+      reply_to: form.email,
+    }
+    await emailjs.send('service_ujqbs18', 'template_t6b94oj', templateParams, 'XIjkv4D3fR2kaOGbt')
+    await emailjs.send('service_ujqbs18', 'template_980cf6f', templateParams, 'XIjkv4D3fR2kaOGbt')
     status.value = 'success'
-    Object.assign(form, { name: '', email: '', subject: '', message: '' })
+    Object.assign(form, { name: '', email: '', phone: '', subject: '', message: '' })
   } catch {
     status.value = 'error'
   }
@@ -164,6 +172,15 @@ const socials = [
                     class="input-field"
                   >
                 </div>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">{{ t('contact.form.phone') }}</label>
+                <input
+                  v-model="form.phone"
+                  type="tel"
+                  :placeholder="t('contact.form.phonePlaceholder')"
+                  class="input-field"
+                >
               </div>
               <div>
                 <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">{{ t('contact.form.subject') }}</label>

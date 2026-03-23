@@ -2,8 +2,9 @@ export interface Project {
   id: number
   title: string
   titleAr: string
-  category: 'saas' | 'ecommerce' | 'web' | 'design'
+  category: 'saas' | 'ecommerce' | 'web' | 'design' | 'ai'
   image: string
+  images?: string[]
   url: string
   github?: string
   date: string
@@ -242,6 +243,21 @@ export const useProjects = () => {
       date: '2021-02',
       dateLabel: 'February 2021',
       tags: ['Python', 'Django', 'NLP', 'ML'],
+    },
+    {
+      id: 23,
+      title: 'Opinion Mining in Social Media – YouTube',
+      titleAr: 'استخراج الآراء من وسائل التواصل الاجتماعي – يوتيوب',
+      category: 'ai',
+      image: '/images/projects/opinion mining1.png',
+      images: ['/images/projects/opinion mining1.png', '/images/projects/opinion mining3.png'],
+      url: 'https://www.youtube.com/watch?v=z0T01nyIbXI',
+      date: '2021-01',
+      dateLabel: 'January 2021',
+      tags: ['Python', 'Django', 'Sentiment Analysis', 'Machine Learning', 'NLP', 'Data Science'],
+      featured: false,
+      description: 'Sentiment analysis system that mines and classifies opinions from YouTube social media comments using NLP and machine learning techniques.',
+      descriptionAr: 'نظام تحليل مشاعر يستخرج ويصنّف الآراء من تعليقات يوتيوب باستخدام معالجة اللغة الطبيعية وتقنيات التعلم الآلي.',
     },
     {
       id: 21,

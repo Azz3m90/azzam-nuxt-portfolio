@@ -59,7 +59,8 @@
     "ecommerce": "تجارة إلكترونية",
     "web": "تطبيقات ويب",
     "design": "تصميم",
-    "featured": "أبرز المشاريع"
+    "featured": "أبرز المشاريع",
+    "ai": "الذكاء الاصطناعي"
   },
   "caseStudies": {
     "subtitle": "دراسات الحالة",
@@ -85,6 +86,8 @@
     "form": {
       "name": "اسمك",
       "email": "بريدك الإلكتروني",
+      "phone": "رقم الهاتف",
+      "phonePlaceholder": "+963 9XX XXX XXX",
       "subject": "الموضوع",
       "message": "رسالتك",
       "submit": "إرسال الرسالة",
