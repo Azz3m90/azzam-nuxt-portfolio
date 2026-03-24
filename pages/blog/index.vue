@@ -7,7 +7,7 @@ useSeo({
 })
 
 const { data: posts } = await useAsyncData('blog', () =>
-  queryContent('/blog').sort({ date: -1 }).find(),
+  queryCollection('blog').order('date', 'DESC').all(),
 )
 </script>
 
@@ -27,8 +27,8 @@ const { data: posts } = await useAsyncData('blog', () =>
       <div v-if="posts && posts.length > 0" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         <NuxtLink
           v-for="post in posts"
-          :key="post._path"
-          :to="post._path"
+          :key="post.path"
+          :to="post.path"
           class="card card-hover overflow-hidden group"
         >
           <div v-if="post.image" class="h-48 overflow-hidden">
