@@ -20,16 +20,19 @@ const status = ref<'idle' | 'sending' | 'success' | 'error'>('idle')
 const handleSubmit = async () => {
   status.value = 'sending'
   try {
-    const templateParams = {
-      from_name: form.name,
-      from_email: form.email,
+    await emailjs.send('service_ujqbs18', 'template_t6b94oj', {
+      to_email: 'Azzamazezali@gmail.com',
+      name: form.name,
+      email: form.email,
       phone: form.phone,
       subject: form.subject,
       message: form.message,
-      reply_to: form.email,
-    }
-    await emailjs.send('service_ujqbs18', 'template_t6b94oj', templateParams, 'XIjkv4D3fR2kaOGbt')
-    await emailjs.send('service_ujqbs18', 'template_980cf6f', templateParams, 'XIjkv4D3fR2kaOGbt')
+    }, 'XIjkv4D3fR2kaOGbt')
+    await emailjs.send('service_ujqbs18', 'template_980cf6f', {
+      to_email: form.email,
+      name: form.name,
+      sender_email: form.email,
+    }, 'XIjkv4D3fR2kaOGbt')
     status.value = 'success'
     Object.assign(form, { name: '', email: '', phone: '', subject: '', message: '' })
   } catch {

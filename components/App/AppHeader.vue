@@ -73,10 +73,14 @@ watch(route, closeMenu)
       <div class="flex items-center gap-1.5 sm:gap-2">
         <NuxtLink
           :to="switchLocalePath(otherLocale)"
-          class="header-icon-btn inline-flex items-center justify-center"
+          class="header-icon-btn inline-flex items-center justify-center gap-1"
           :title="otherLocale === 'ar' ? 'العربية' : 'English'"
         >
-          {{ otherLocaleLabel }}
+          <svg class="w-[18px] h-[18px] shrink-0" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+          <span class="text-xs font-bold leading-none">{{ otherLocaleLabel }}</span>
         </NuxtLink>
 
         <button
@@ -165,7 +169,7 @@ watch(route, closeMenu)
 }
 
 .header-icon-btn {
-  @apply w-9 h-9 rounded-xl text-sm font-bold
+  @apply h-9 px-2 rounded-xl text-sm font-bold
          text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400
          hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-200;
 }
