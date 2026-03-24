@@ -2,6 +2,10 @@
   publish = ".output/public"
   command = "pnpm run generate"
 
+[build.environment]
+  NODE_VERSION = "20"
+  PNPM_VERSION = "9"
+
 [[redirects]]
   from    = "https://coruscating-blini-0b4753.netlify.app/*"
   to      = "https://azzamazizali.sy/:splat"
