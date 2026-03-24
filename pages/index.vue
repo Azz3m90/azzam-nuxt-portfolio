@@ -3,13 +3,10 @@ const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const { featuredProjects } = useProjects()
 
-const config = useRuntimeConfig()
-const siteUrl = config.public.siteUrl as string
-
 useSeo({
   title: t('meta.home.title'),
   description: t('meta.home.description'),
-  image: `${siteUrl}/images/og-home.jpg`,
+  image: 'https://azzamazizali.sy/images/Azzam.jpg',
   imageAlt: 'Azzam Aziz Ali — Senior Full Stack Developer & SEO Specialist',
   type: 'profile',
 })

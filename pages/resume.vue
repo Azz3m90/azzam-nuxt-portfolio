@@ -1,15 +1,12 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
-const config = useRuntimeConfig()
-const siteUrl = config.public.siteUrl as string
-
 useSeo({
   title: t('meta.resume.title'),
   description: t('meta.resume.description'),
-  image: `${siteUrl}/images/og-resume.jpg`,
+  image: 'https://azzamazizali.sy/images/Azzam.jpg',
   imageAlt: 'Resume — Azzam Aziz Ali Senior Full Stack Developer',
-  breadcrumb: [{ name: 'Resume', url: `${siteUrl}/resume` }],
+  breadcrumb: [{ name: 'Resume', url: 'https://azzamazizali.sy/resume' }],
 })
 
 const techStack = {

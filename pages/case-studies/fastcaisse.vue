@@ -2,18 +2,15 @@
 const { t } = useI18n()
 const localePath = useLocalePath()
 
-const config = useRuntimeConfig()
-const siteUrl = config.public.siteUrl as string
-
 useSeo({
   title: 'FastCaisse SaaS Case Study | 34% User Growth & 75% Organic Traffic – Azzam Aziz Ali',
   description: 'How I built FastCaisse — a multi-restaurant SaaS ordering platform — achieving 34.6% weekly user growth and 75% organic traffic increase through Laravel, Vue 3, and technical SEO.',
-  image: `${siteUrl}/images/og-fastcaisse.jpg`,
+  image: 'https://azzamazizali.sy/images/Azzam.jpg',
   imageAlt: 'FastCaisse SaaS Case Study — 34% User Growth by Azzam Aziz Ali',
   type: 'article',
   breadcrumb: [
-    { name: 'Case Studies', url: `${siteUrl}/case-studies` },
-    { name: 'FastCaisse', url: `${siteUrl}/case-studies/fastcaisse` },
+    { name: 'Case Studies', url: 'https://azzamazizali.sy/case-studies' },
+    { name: 'FastCaisse', url: 'https://azzamazizali.sy/case-studies/fastcaisse' },
   ],
   article: {
     publishedTime: '2024-01-01',

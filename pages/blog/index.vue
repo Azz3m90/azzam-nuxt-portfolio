@@ -1,15 +1,12 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
-const config = useRuntimeConfig()
-const siteUrl = config.public.siteUrl as string
-
 useSeo({
   title: t('meta.blog.title'),
   description: t('meta.blog.description'),
-  image: `${siteUrl}/images/og-blog.jpg`,
+  image: 'https://azzamazizali.sy/images/Azzam.jpg',
   imageAlt: 'Blog — Full Stack Dev & SEO Insights by Azzam Aziz Ali',
-  breadcrumb: [{ name: 'Blog', url: `${siteUrl}/blog` }],
+  breadcrumb: [{ name: 'Blog', url: 'https://azzamazizali.sy/blog' }],
 })
 
 const { data: posts } = await useAsyncData('blog', () =>

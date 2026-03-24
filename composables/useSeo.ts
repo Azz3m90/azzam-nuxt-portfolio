@@ -16,6 +16,7 @@ interface SeoOptions {
 const SITE_NAME = 'Azzam Aziz Ali Portfolio'
 const AUTHOR_NAME = 'Azzam Aziz Ali'
 const TWITTER_HANDLE = '@azzamazizali'
+const CANONICAL_DOMAIN = 'https://azzamazizali.sy'
 
 export const useSeo = (options: SeoOptions = {}) => {
   const config = useRuntimeConfig()
@@ -23,8 +24,8 @@ export const useSeo = (options: SeoOptions = {}) => {
   const { locale } = useI18n()
 
   const siteUrl = config.public.siteUrl as string
-  const fullUrl = `${siteUrl}${route.path}`
-  const defaultImage = `${siteUrl}/images/og-default.jpg`
+  const fullUrl = `${CANONICAL_DOMAIN}${route.path}`
+  const defaultImage = `${CANONICAL_DOMAIN}/images/Azzam.jpg`
 
   const title = options.title ?? `${AUTHOR_NAME} | Full Stack Developer & SEO Specialist`
   const description = options.description ?? 'Senior Full Stack Developer with 10+ years building SaaS platforms using Laravel, React, Vue & Django. SEO Specialist achieving 75% organic traffic growth.'

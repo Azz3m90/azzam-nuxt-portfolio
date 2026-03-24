@@ -4,14 +4,12 @@ import emailjs from '@emailjs/browser'
 const { t } = useI18n()
 const { success: toastSuccess, error: toastError } = useToast()
 const config = useRuntimeConfig()
-const siteUrl = config.public.siteUrl as string
-
 useSeo({
   title: t('meta.contact.title'),
   description: t('meta.contact.description'),
-  image: `${siteUrl}/images/og-contact.jpg`,
+  image: 'https://azzamazizali.sy/images/Azzam.jpg',
   imageAlt: 'Contact Azzam Aziz Ali — Full Stack Developer & SEO Specialist',
-  breadcrumb: [{ name: 'Contact', url: `${siteUrl}/contact` }],
+  breadcrumb: [{ name: 'Contact', url: 'https://azzamazizali.sy/contact' }],
 })
 
 useHead({

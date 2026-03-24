@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+    http://www.sitemaps.org/schemas/sitemap/0.9
+    http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+    http://www.google.com/schemas/sitemap-image/1.1
+    http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
+
+  <!-- ==================== HOME ==================== -->
+  <url>
+    <loc>https://azzamazizali.sy/</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azzamazizali.sy/"/>
+    <xhtml:link rel="alternate" hreflang="ar-SA" href="https://azzamazizali.sy/ar"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azzamazizali.sy/"/>
+    <image:image>
+      <image:loc>https://azzamazizali.sy/images/Azzam.jpg</image:loc>
+      <image:title>Azzam Aziz Ali — Senior Full Stack Developer &amp; SEO Specialist</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://azzamazizali.sy/ar</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azzamazizali.sy/"/>
+    <xhtml:link rel="alternate" hreflang="ar-SA" href="https://azzamazizali.sy/ar"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azzamazizali.sy/"/>
+  </url>
+
+  <!-- ==================== ABOUT ==================== -->
+  <url>
+    <loc>https://azzamazizali.sy/about</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azzamazizali.sy/about"/>
+    <xhtml:link rel="alternate" hreflang="ar-SA" href="https://azzamazizali.sy/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azzamazizali.sy/about"/>
+    <image:image>
+      <image:loc>https://azzamazizali.sy/images/Azzam.jpg</image:loc>
+      <image:title>About Azzam Aziz Ali — Full Stack Developer &amp; SEO Expert</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://azzamazizali.sy/ar/about</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azzamazizali.sy/about"/>
+    <xhtml:link rel="alternate" hreflang="ar-SA" href="https://azzamazizali.sy/ar/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azzamazizali.sy/about"/>
+  </url>
+
+  <!-- ==================== PROJECTS ==================== -->
+  <url>
+    <loc>https://azzamazizali.sy/projects</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azzamazizali.sy/projects"/>
+    <xhtml:link rel="alternate" hreflang="ar-SA" href="https://azzamazizali.sy/ar/projects"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azzamazizali.sy/projects"/>
+  </url>
+
+  <url>
+    <loc>https://azzamazizali.sy/ar/projects</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azzamazizali.sy/projects"/>
+    <xhtml:link rel="alternate" hreflang="ar-SA" href="https://azzamazizali.sy/ar/projects"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azzamazizali.sy/projects"/>
+  </url>
+
+  <!-- ==================== SEO SERVICES ==================== -->
+  <url>
+    <loc>https://azzamazizali.sy/seo-services</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azzamazizali.sy/seo-services"/>
+    <xhtml:link rel="alternate" hreflang="ar-SA" href="https://azzamazizali.sy/ar/seo-services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azzamazizali.sy/seo-services"/>
+  </url>
+
+  <url>
+    <loc>https://azzamazizali.sy/ar/seo-services</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azzamazizali.sy/seo-services"/>
+    <xhtml:link rel="alternate" hreflang="ar-SA" href="https://azzamazizali.sy/ar/seo-services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azzamazizali.sy/seo-services"/>
+  </url>
+
+  <!-- ==================== BLOG ==================== -->
+  <url>
+    <loc>https://azzamazizali.sy/blog</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azzamazizali.sy/blog"/>
+    <xhtml:link rel="alternate" hreflang="ar-SA" href="https://azzamazizali.sy/ar/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azzamazizali.sy/blog"/>
+  </url>
+
+  <url>
+    <loc>https://azzamazizali.sy/ar/blog</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azzamazizali.sy/blog"/>
+    <xhtml:link rel="alternate" hreflang="ar-SA" href="https://azzamazizali.sy/ar/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azzamazizali.sy/blog"/>
+  </url>
+
+  <!-- ==================== CASE STUDIES ==================== -->
+  <url>
+    <loc>https://azzamazizali.sy/case-studies</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azzamazizali.sy/case-studies"/>
+    <xhtml:link rel="alternate" hreflang="ar-SA" href="https://azzamazizali.sy/ar/case-studies"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azzamazizali.sy/case-studies"/>
+  </url>
+
+  <url>
+    <loc>https://azzamazizali.sy/ar/case-studies</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azzamazizali.sy/case-studies"/>
+    <xhtml:link rel="alternate" hreflang="ar-SA" href="https://azzamazizali.sy/ar/case-studies"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azzamazizali.sy/case-studies"/>
+  </url>
+
+  <url>
+    <loc>https://azzamazizali.sy/case-studies/fastcaisse</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azzamazizali.sy/case-studies/fastcaisse"/>
+    <xhtml:link rel="alternate" hreflang="ar-SA" href="https://azzamazizali.sy/ar/case-studies/fastcaisse"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azzamazizali.sy/case-studies/fastcaisse"/>
+  </url>
+
+  <url>
+    <loc>https://azzamazizali.sy/ar/case-studies/fastcaisse</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azzamazizali.sy/case-studies/fastcaisse"/>
+    <xhtml:link rel="alternate" hreflang="ar-SA" href="https://azzamazizali.sy/ar/case-studies/fastcaisse"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azzamazizali.sy/case-studies/fastcaisse"/>
+  </url>
+
+  <!-- ==================== RESUME ==================== -->
+  <url>
+    <loc>https://azzamazizali.sy/resume</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azzamazizali.sy/resume"/>
+    <xhtml:link rel="alternate" hreflang="ar-SA" href="https://azzamazizali.sy/ar/resume"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azzamazizali.sy/resume"/>
+  </url>
+
+  <url>
+    <loc>https://azzamazizali.sy/ar/resume</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azzamazizali.sy/resume"/>
+    <xhtml:link rel="alternate" hreflang="ar-SA" href="https://azzamazizali.sy/ar/resume"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azzamazizali.sy/resume"/>
+  </url>
+
+  <!-- ==================== CONTACT ==================== -->
+  <url>
+    <loc>https://azzamazizali.sy/contact</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azzamazizali.sy/contact"/>
+    <xhtml:link rel="alternate" hreflang="ar-SA" href="https://azzamazizali.sy/ar/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azzamazizali.sy/contact"/>
+  </url>
+
+  <url>
+    <loc>https://azzamazizali.sy/ar/contact</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azzamazizali.sy/contact"/>
+    <xhtml:link rel="alternate" hreflang="ar-SA" href="https://azzamazizali.sy/ar/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azzamazizali.sy/contact"/>
+  </url>
+
+  <!-- ==================== PRIVACY POLICY ==================== -->
+  <url>
+    <loc>https://azzamazizali.sy/privacy-policy</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azzamazizali.sy/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="ar-SA" href="https://azzamazizali.sy/ar/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azzamazizali.sy/privacy-policy"/>
+  </url>
+
+  <url>
+    <loc>https://azzamazizali.sy/ar/privacy-policy</loc>
+    <lastmod>2026-03-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://azzamazizali.sy/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="ar-SA" href="https://azzamazizali.sy/ar/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://azzamazizali.sy/privacy-policy"/>
+  </url>
+
+</urlset>

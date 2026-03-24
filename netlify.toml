@@ -15,6 +15,12 @@
   force  = true
 
 [[redirects]]
+  from   = "https://coruscating-blini-0b4753.netlify.app/*"
+  to     = "https://azzamazizali.sy/:splat"
+  status = 301
+  force  = true
+
+[[redirects]]
   from   = "http://azzamazizali.sy/*"
   to     = "https://azzamazizali.sy/:splat"
   status = 301
