@@ -98,7 +98,15 @@ const socials = [
 
       <div class="border-t border-slate-200 dark:border-slate-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
         <p>© {{ currentYear }} Azzam Aziz Ali. {{ t('footer.rights') }}</p>
-        <p>{{ t('footer.madeWith') }}</p>
+        <div class="flex items-center gap-4">
+          <NuxtLink
+            :to="localePath('/privacy-policy')"
+            class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+          >
+            {{ t('gdpr.learnMore') }}
+          </NuxtLink>
+          <p>{{ t('footer.madeWith') }}</p>
+        </div>
       </div>
     </div>
   </footer>

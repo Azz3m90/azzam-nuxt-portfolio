@@ -62,6 +62,7 @@ export default defineNuxtConfig({
       { loc: '/resume', priority: 0.8, changefreq: 'monthly' },
       { loc: '/blog', priority: 0.85, changefreq: 'daily' },
       { loc: '/contact', priority: 0.8, changefreq: 'monthly' },
+      { loc: '/privacy-policy', priority: 0.3, changefreq: 'yearly' },
     ],
   },
 

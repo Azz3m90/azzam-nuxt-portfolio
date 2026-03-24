@@ -37,6 +37,7 @@ function scrollToTop() {
       <slot />
     </main>
     <AppFooter />
+    <AppCookieConsent />
 
     <Transition name="back-to-top">
       <button
