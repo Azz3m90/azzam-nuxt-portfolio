@@ -1,10 +1,21 @@
 ﻿<script setup lang="ts">
 import emailjs from '@emailjs/browser'
 const { t } = useI18n()
+const config = useRuntimeConfig()
 
 useSeo({
   title: t('meta.contact.title'),
   description: t('meta.contact.description'),
+})
+
+useHead({
+  script: [
+    {
+      src: 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTurnstileLoad',
+      async: true,
+      defer: true,
+    },
+  ],
 })
 
 const form = reactive({
@@ -16,10 +27,50 @@ const form = reactive({
 })
 
 const status = ref<'idle' | 'sending' | 'success' | 'error'>('idle')
+const captchaError = ref(false)
+const turnstileWidgetId = ref<string | null>(null)
+const turnstileContainer = ref<HTMLElement | null>(null)
+
+declare const turnstile: {
+  render: (el: HTMLElement, options: Record<string, unknown>) => string
+  reset: (id: string) => void
+}
+
+const getTurnstileTheme = () =>
+  document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+
+const renderTurnstile = () => {
+  if (!turnstileContainer.value || typeof turnstile === 'undefined') return
+  turnstileWidgetId.value = turnstile.render(turnstileContainer.value, {
+    sitekey: config.public.turnstileSiteKey,
+    theme: getTurnstileTheme(),
+  })
+}
+
+onMounted(() => {
+  if (typeof window !== 'undefined') {
+    ;(window as unknown as Record<string, unknown>).onTurnstileLoad = renderTurnstile
+    if (typeof turnstile !== 'undefined') renderTurnstile()
+  }
+})
 
 const handleSubmit = async () => {
+  const tokenInput = document.querySelector<HTMLInputElement>('[name="cf-turnstile-response"]')
+  if (!tokenInput?.value) {
+    captchaError.value = true
+    return
+  }
+  captchaError.value = false
   status.value = 'sending'
   try {
+    await $fetch('/api/contact', {
+      method: 'POST',
+      body: {
+        name: form.name,
+        email: form.email,
+        turnstileToken: tokenInput.value,
+      },
+    })
     await emailjs.send('service_ujqbs18', 'template_t6b94oj', {
       to_email: 'Azzamazezali@gmail.com',
       name: form.name,
@@ -35,8 +86,10 @@ const handleSubmit = async () => {
     }, 'XIjkv4D3fR2kaOGbt')
     status.value = 'success'
     Object.assign(form, { name: '', email: '', phone: '', subject: '', message: '' })
+    if (turnstileWidgetId.value) turnstile.reset(turnstileWidgetId.value)
   } catch {
     status.value = 'error'
+    if (turnstileWidgetId.value) turnstile.reset(turnstileWidgetId.value)
   }
 }
 
@@ -204,6 +257,13 @@ const socials = [
                   class="input-field resize-none"
                 ></textarea>
               </div>
+              <div>
+                <div ref="turnstileContainer"></div>
+                <p v-if="captchaError" class="mt-2 text-sm text-red-500 dark:text-red-400">
+                  Please complete the captcha verification before sending.
+                </p>
+              </div>
+
               <button
                 type="submit"
                 :disabled="status === 'sending'"

@@ -26,7 +26,6 @@ export default defineNuxtConfig({
       { code: 'ar', language: 'ar-SA', name: 'العربية', dir: 'rtl', file: 'ar.json' },
     ],
     defaultLocale: 'en',
-    lazy: false,
     langDir: 'locales/',
     strategy: 'prefix_except_default',
     detectBrowserLanguage: false,
@@ -48,9 +47,20 @@ export default defineNuxtConfig({
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
+      meta: [
+        { name: 'theme-color', content: '#2563eb', media: '(prefers-color-scheme: light)' },
+        { name: 'theme-color', content: '#0f172a', media: '(prefers-color-scheme: dark)' },
+        { name: 'author', content: 'Azzam Aziz Ali' },
+        { name: 'color-scheme', content: 'dark light' },
+        { name: 'mobile-web-app-capable', content: 'yes' },
+        { name: 'apple-mobile-web-app-capable', content: 'yes' },
+        { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
+        { name: 'apple-mobile-web-app-title', content: 'Azzam Ali' },
+      ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'icon', type: 'image/png', href: '/favicon.png', sizes: '32x32' },
+        { rel: 'apple-touch-icon', href: '/favicon.png' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         {
