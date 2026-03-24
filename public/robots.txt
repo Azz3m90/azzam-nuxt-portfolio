@@ -1,5 +1,16 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /_nuxt/
+Disallow: /cdn-cgi/
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
 
 Sitemap: https://azzamazizali.sy/sitemap.xml
+Sitemap: https://azzamazizali.sy/sitemap_index.xml

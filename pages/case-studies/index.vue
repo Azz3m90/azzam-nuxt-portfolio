@@ -2,9 +2,15 @@
 const { t } = useI18n()
 const localePath = useLocalePath()
 
+const config = useRuntimeConfig()
+const siteUrl = config.public.siteUrl as string
+
 useSeo({
   title: t('meta.caseStudies.title'),
   description: t('meta.caseStudies.description'),
+  image: `${siteUrl}/images/og-case-studies.jpg`,
+  imageAlt: 'Case Studies — FastCaisse SaaS by Azzam Aziz Ali',
+  breadcrumb: [{ name: 'Case Studies', url: `${siteUrl}/case-studies` }],
 })
 </script>
 

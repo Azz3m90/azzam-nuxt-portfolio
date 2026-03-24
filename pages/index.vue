@@ -3,9 +3,20 @@ const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const { featuredProjects } = useProjects()
 
+const config = useRuntimeConfig()
+const siteUrl = config.public.siteUrl as string
+
 useSeo({
   title: t('meta.home.title'),
   description: t('meta.home.description'),
+  image: `${siteUrl}/images/og-home.jpg`,
+  imageAlt: 'Azzam Aziz Ali — Senior Full Stack Developer & SEO Specialist',
+  type: 'profile',
+})
+
+const personSchema = usePersonSchema()
+useHead({
+  script: [{ type: 'application/ld+json', innerHTML: JSON.stringify(personSchema) }],
 })
 
 const stats = [

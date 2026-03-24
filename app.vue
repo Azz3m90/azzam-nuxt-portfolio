@@ -52,7 +52,9 @@ useHead({
 </script>
 
 <template>
+  <NuxtLoadingIndicator color="#3b82f6" :height="3" :duration="2000" :throttle="100" />
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
+  <AppToast />
 </template>

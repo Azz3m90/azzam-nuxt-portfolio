@@ -131,35 +131,35 @@
   },
   "meta": {
     "home": {
-      "title": "عزّام عزيز علي | مطوّر Full Stack أول وأخصائي SEO",
+      "title": "عزّام عزيز علي | مطوّر Full Stack وأخصائي SEO",
       "description": "أكثر من 10 سنوات في بناء منصات SaaS. FastCaisse: نمو 34% أسبوعيًا، زيادة 75% في الزيارات العضوية."
     },
     "about": {
-      "title": "نبذة عن عزّام عزيز علي | مطوّر Full Stack وخبير SEO",
+      "title": "مطوّر Full Stack وخبير SEO | عزّام عزيز علي",
       "description": "مطوّر Full Stack أول بخبرة تزيد على 10 سنوات. رفع الزيارات العضوية بنسبة 75%."
     },
     "projects": {
-      "title": "المشاريع | معرض أعمال Full Stack — عزّام عزيز علي",
+      "title": "مشاريع ومعرض أعمال Full Stack | عزّام عزيز علي",
       "description": "أكثر من 22 مشروع منجز: SaaS، أنظمة طلب طعام، تجارة إلكترونية، أنظمة صيدليات في بلجيكا وألمانيا والشرق الأوسط."
     },
     "caseStudies": {
-      "title": "دراسات الحالة | منصة FastCaisse SaaS — عزّام عزيز علي",
+      "title": "دراسة حالة FastCaisse SaaS | عزّام عزيز علي",
       "description": "FastCaisse: نمو 34% أسبوعيًا في المستخدمين، زيادة 75% في البحث العضوي. دراسة حالة كاملة حول بناء وتوسيع منصة SaaS متعددة المطاعم."
     },
     "seoServices": {
-      "title": "خدمات SEO التقنية | أخصائي معتمد من Google — عزّام عزيز علي",
+      "title": "خدمات SEO التقني | عزّام عزيز علي",
       "description": "تدقيقات SEO تقنية، تحسين مؤشرات الويب الأساسية، واستراتيجية محتوى من أخصائي SEO معتمد بخلفية تطوير Full Stack."
     },
     "contact": {
-      "title": "تواصل | وظّف مطوّر Full Stack وأخصائي SEO — عزّام عزيز علي",
+      "title": "وظّف مطوّر Full Stack وأخصائي SEO | عزّام عزيز علي",
       "description": "متاح لتطوير Full Stack، استشارات SEO، وأدوار الشريك التقني المؤسس. الرد خلال 24 ساعة."
     },
     "resume": {
-      "title": "السيرة الذاتية — عزّام عزيز علي | مطوّر Full Stack أول",
+      "title": "السيرة الذاتية | عزّام عزيز علي مطوّر Full Stack",
       "description": "أكثر من 10 سنوات في تطوير Full Stack، Laravel، React، Vue، Django، SEO تقني. أكثر من 20 مشروع، أكثر من 40 عميل راضٍ."
     },
     "blog": {
-      "title": "المدونة | رؤى في تطوير Full Stack وSEO — عزّام عزيز علي",
+      "title": "مدونة Full Stack وSEO | عزّام عزيز علي",
       "description": "مقالات تقنية عن Laravel، React، Vue، Django، SEO التقني، وتطوير SaaS من مطوّر Full Stack أول."
     }
   }

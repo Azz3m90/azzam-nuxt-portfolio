@@ -2,9 +2,16 @@
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
 
+const config = useRuntimeConfig()
+const siteUrl = config.public.siteUrl as string
+
 useSeo({
   title: t('meta.about.title'),
   description: t('meta.about.description'),
+  image: `${siteUrl}/images/og-about.jpg`,
+  imageAlt: 'About Azzam Aziz Ali — Senior Full Stack Developer',
+  type: 'profile',
+  breadcrumb: [{ name: 'About', url: `${siteUrl}/about` }],
 })
 
 const experience = [

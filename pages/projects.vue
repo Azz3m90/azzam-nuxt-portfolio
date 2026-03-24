@@ -2,9 +2,15 @@
 const { t, locale } = useI18n()
 const { projects, filterProjects } = useProjects()
 
+const config = useRuntimeConfig()
+const siteUrl = config.public.siteUrl as string
+
 useSeo({
   title: t('meta.projects.title'),
   description: t('meta.projects.description'),
+  image: `${siteUrl}/images/og-projects.jpg`,
+  imageAlt: 'Projects Portfolio — Azzam Aziz Ali Full Stack Developer',
+  breadcrumb: [{ name: 'Projects', url: `${siteUrl}/projects` }],
 })
 
 const activeFilter = ref('all')

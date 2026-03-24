@@ -2,9 +2,15 @@
 const { t } = useI18n()
 const localePath = useLocalePath()
 
+const config = useRuntimeConfig()
+const siteUrl = config.public.siteUrl as string
+
 useSeo({
   title: t('meta.seoServices.title'),
   description: t('meta.seoServices.description'),
+  image: `${siteUrl}/images/og-seo-services.jpg`,
+  imageAlt: 'Technical SEO Services by Azzam Aziz Ali',
+  breadcrumb: [{ name: 'SEO Services', url: `${siteUrl}/seo-services` }],
 })
 
 const services = [

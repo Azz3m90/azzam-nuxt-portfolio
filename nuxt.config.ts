@@ -43,10 +43,37 @@ export default defineNuxtConfig({
     markdown: { toc: { depth: 3, searchDepth: 3 } },
   },
 
+  sitemap: {
+    siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://azzamazizali.sy',
+    strictNuxtContentPaths: true,
+    xsl: false,
+    defaults: {
+      changefreq: 'weekly',
+      priority: 0.8,
+      lastmod: new Date().toISOString().split('T')[0],
+    },
+    urls: [
+      { loc: '/', priority: 1.0, changefreq: 'weekly' },
+      { loc: '/about', priority: 0.9, changefreq: 'monthly' },
+      { loc: '/projects', priority: 0.9, changefreq: 'weekly' },
+      { loc: '/case-studies', priority: 0.85, changefreq: 'monthly' },
+      { loc: '/case-studies/fastcaisse', priority: 0.85, changefreq: 'monthly' },
+      { loc: '/seo-services', priority: 0.9, changefreq: 'monthly' },
+      { loc: '/resume', priority: 0.8, changefreq: 'monthly' },
+      { loc: '/blog', priority: 0.85, changefreq: 'daily' },
+      { loc: '/contact', priority: 0.8, changefreq: 'monthly' },
+    ],
+  },
+
   app: {
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
+      script: [
+        {
+          children: `if(location.hostname==='coruscating-blini-0b4753.netlify.app'){location.replace('https://azzamazizali.sy'+location.pathname+location.search+location.hash)}`,
+        },
+      ],
       meta: [
         { name: 'theme-color', content: '#2563eb', media: '(prefers-color-scheme: light)' },
         { name: 'theme-color', content: '#0f172a', media: '(prefers-color-scheme: dark)' },
@@ -56,6 +83,7 @@ export default defineNuxtConfig({
         { name: 'apple-mobile-web-app-capable', content: 'yes' },
         { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
         { name: 'apple-mobile-web-app-title', content: 'Azzam Ali' },
+        { name: 'google-site-verification', content: process.env.NUXT_PUBLIC_GSC_VERIFICATION || '' },
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
@@ -79,11 +107,13 @@ export default defineNuxtConfig({
     public: {
       turnstileSiteKey: process.env.NUXT_PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAACjhI98Fk0RqnlYp',
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://azzamazizali.sy',
+      gaId: process.env.NUXT_PUBLIC_GA_ID || '',
+      gscVerification: process.env.NUXT_PUBLIC_GSC_VERIFICATION || '',
     },
   },
 
   nitro: {
-    prerender: { routes: ['/sitemap.xml'] },
+    prerender: { routes: ['/sitemap.xml', '/sitemap_index.xml'] },
   },
 
   typescript: { strict: true, shim: false },
