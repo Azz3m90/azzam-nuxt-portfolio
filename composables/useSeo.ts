@@ -64,8 +64,8 @@ export const useSeo = (options: SeoOptions = {}) => {
       ? {
           articlePublishedTime: options.article.publishedTime,
           articleModifiedTime: options.article.modifiedTime ?? new Date().toISOString(),
-          articleAuthor: AUTHOR_NAME,
-          articleTag: options.article.tags?.join(', '),
+          articleAuthor: [AUTHOR_NAME],
+          articleTag: options.article.tags,
         }
       : {}),
   })

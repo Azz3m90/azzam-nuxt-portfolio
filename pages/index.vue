@@ -317,14 +317,14 @@ onMounted(() => {
           Trusted by Teams Across Europe & Beyond
         </h2>
         <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          <div v-for="t in testimonials" :key="t.name" class="card p-8">
-            <div class="text-3xl mb-4">{{ t.avatar }}</div>
+          <div v-for="testimonial in testimonials" :key="testimonial.name" class="card p-8">
+            <div class="text-3xl mb-4">{{ testimonial.avatar }}</div>
             <blockquote class="text-slate-600 dark:text-slate-300 mb-6 italic leading-relaxed">
-              "{{ t.text }}"
+              "{{ testimonial.text }}"
             </blockquote>
             <div>
-              <p class="font-bold text-slate-900 dark:text-white">{{ t.name }}</p>
-              <p class="text-sm text-primary-600 dark:text-primary-400">{{ t.role }}</p>
+              <p class="font-bold text-slate-900 dark:text-white">{{ testimonial.name }}</p>
+              <p class="text-sm text-primary-600 dark:text-primary-400">{{ testimonial.role }}</p>
             </div>
           </div>
         </div>

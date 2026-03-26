@@ -39,13 +39,15 @@ export default defineNuxtConfig({
   },
 
   content: {
-    highlight: { theme: 'github-dark' },
-    markdown: { toc: { depth: 3, searchDepth: 3 } },
+    build: {
+      markdown: {
+        toc: { depth: 3, searchDepth: 3 },
+        highlight: { theme: 'github-dark' },
+      },
+    },
   },
 
   sitemap: {
-    siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://azzamazizali.sy',
-    strictNuxtContentPaths: true,
     xsl: false,
     defaults: {
       changefreq: 'monthly' as const,
@@ -56,11 +58,11 @@ export default defineNuxtConfig({
       { loc: '/', priority: 1.0, changefreq: 'weekly' as const, lastmod: new Date().toISOString().split('T')[0] },
       { loc: '/about', priority: 0.9, changefreq: 'monthly' as const, lastmod: new Date().toISOString().split('T')[0] },
       { loc: '/projects', priority: 0.9, changefreq: 'weekly' as const, lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/case-studies', priority: 0.85, changefreq: 'monthly' as const, lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/case-studies/fastcaisse', priority: 0.85, changefreq: 'monthly' as const, lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/case-studies', priority: 0.8, changefreq: 'monthly' as const, lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/case-studies/fastcaisse', priority: 0.8, changefreq: 'monthly' as const, lastmod: new Date().toISOString().split('T')[0] },
       { loc: '/seo-services', priority: 0.9, changefreq: 'monthly' as const, lastmod: new Date().toISOString().split('T')[0] },
       { loc: '/resume', priority: 0.8, changefreq: 'monthly' as const, lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/blog', priority: 0.85, changefreq: 'daily' as const, lastmod: new Date().toISOString().split('T')[0] },
+      { loc: '/blog', priority: 0.8, changefreq: 'daily' as const, lastmod: new Date().toISOString().split('T')[0] },
       { loc: '/contact', priority: 0.8, changefreq: 'monthly' as const, lastmod: new Date().toISOString().split('T')[0] },
       { loc: '/privacy-policy', priority: 0.3, changefreq: 'yearly' as const, lastmod: new Date().toISOString().split('T')[0] },
     ],
@@ -72,7 +74,7 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1',
       script: [
         {
-          children: `if(location.hostname==='coruscating-blini-0b4753.netlify.app'){location.replace('https://azzamazizali.sy'+location.pathname+location.search+location.hash)}`,
+          innerHTML: `if(location.hostname==='coruscating-blini-0b4753.netlify.app'){location.replace('https://azzamazizali.sy'+location.pathname+location.search+location.hash)}`,
         },
       ],
       meta: [
