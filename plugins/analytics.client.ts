@@ -6,20 +6,20 @@ export default defineNuxtPlugin(() => {
 
   window.dataLayer = window.dataLayer || []
 
-  function gtag(...args: unknown[]) {
-    window.dataLayer.push(args)
+  // Must use `arguments` object — gtag internals depend on it, not a plain array
+  window.gtag = function gtag() {
+    // eslint-disable-next-line prefer-rest-params
+    window.dataLayer.push(arguments)
   }
 
-  window.gtag = gtag
-
-  gtag('consent', 'default', {
+  window.gtag('consent', 'default', {
     analytics_storage: 'denied',
     ad_storage: 'denied',
     wait_for_update: 500,
   })
 
-  gtag('js', new Date())
-  gtag('config', gaId, {
+  window.gtag('js', new Date())
+  window.gtag('config', gaId, {
     anonymize_ip: true,
     cookie_flags: 'SameSite=None;Secure',
     send_page_view: false,
@@ -32,17 +32,20 @@ export default defineNuxtPlugin(() => {
 
   const stored = localStorage.getItem('cookie-consent')
   if (stored === 'accepted') {
-    gtag('consent', 'update', {
+    window.gtag('consent', 'update', {
       analytics_storage: 'granted',
       ad_storage: 'denied',
+    })
+    window.gtag('event', 'page_view', {
+      page_path: window.location.pathname + window.location.search,
+      page_title: document.title,
     })
   }
 
   const router = useRouter()
   router.afterEach((to) => {
-    const consentState = localStorage.getItem('cookie-consent')
-    if (consentState === 'accepted') {
-      gtag('event', 'page_view', {
+    if (localStorage.getItem('cookie-consent') === 'accepted') {
+      window.gtag('event', 'page_view', {
         page_path: to.fullPath,
         page_title: document.title,
       })
