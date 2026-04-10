@@ -87,11 +87,16 @@ export default defineNuxtConfig({
         { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
         { name: 'apple-mobile-web-app-title', content: 'Azzam Ali' },
         { name: 'google-site-verification', content: process.env.NUXT_PUBLIC_GSC_VERIFICATION || '' },
+        { name: 'thumbnail', content: 'https://azzamazizali.sy/images/Azzam.jpg' },
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'icon', type: 'image/png', href: '/favicon.png', sizes: '32x32' },
-        { rel: 'apple-touch-icon', href: '/favicon.png' },
+        { rel: 'icon', type: 'image/jpeg', href: '/images/Azzam.jpg', sizes: '400x400' },
+        { rel: 'shortcut icon', href: '/favicon.png' },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/images/Azzam.jpg' },
+        { rel: 'image_src', href: 'https://azzamazizali.sy/images/Azzam.jpg' },
+        { rel: 'manifest', href: '/site.webmanifest' },
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         {

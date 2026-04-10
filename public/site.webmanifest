@@ -1,0 +1,22 @@
+{
+  "name": "Azzam Aziz Ali",
+  "short_name": "Azzam Ali",
+  "description": "Senior Full Stack Developer & SEO Specialist",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/Azzam.jpg",
+      "sizes": "400x400",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}
