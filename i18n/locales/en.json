@@ -36,7 +36,73 @@
     "downloadResume": "Download Resume",
     "viewCertificates": "View Certificates",
     "experienceCert": "Experience Certificate",
-    "seoCert": "SEO Certificate"
+    "seoCert": "SEO Certificate",
+    "watchInterview": "Watch Job Interview",
+    "ctaTitle": "Let's Build Something Together",
+    "ctaDesc": "Looking for a senior developer who delivers measurable results? Let's talk.",
+    "viewResume": "View Full Resume",
+    "jobs": {
+      "astramind": {
+        "role": "Lead Web Developer & Project Manager",
+        "location": "Germany (Full-Time / Remote)",
+        "description": "Directed end-to-end development for AstraMind.de on Nuxt 3 and TypeScript, and orchestrated digital transformation of Lindenberg-Apotheke migrating to Next.js 14 with mobile-first Tailwind CSS.",
+        "achievements": [
+          "40% improvement in Lighthouse scores",
+          "SEO architecture with Schema.org markup and i18n for the German market",
+          "Secure healthcare integrations using Nodemailer, EmailJS, and Cloudflare Turnstile",
+          "99.9% availability via Netlify and Vercel deployment with pnpm and Git",
+          "25% decrease in bounce rates with Framer Motion interactive UI"
+        ]
+      },
+      "fastcaisse": {
+        "role": "Full-Stack Web Developer & SEO Specialist",
+        "location": "Belgium (Freelance / Remote)",
+        "description": "Architected and executed SEO strategies and full-stack solutions for a restaurant SaaS platform. Delivered measurable improvements in organic search rankings, site speed, and mobile responsiveness.",
+        "achievements": [
+          "Improved organic traffic and search rankings through keyword analysis and content optimization",
+          "Full-stack solutions using Node.js, Laravel, and PHP with measurable speed gains",
+          "Reduced customer acquisition costs and increased conversion rates via competitive analysis"
+        ]
+      },
+      "emtethal": {
+        "role": "Full-Stack Web Developer",
+        "location": "Saudi Arabia (Contract / Remote)",
+        "description": "Built responsive web applications using Django and ReactJS, translating Figma designs into pixel-perfect production UIs. Architected scalable RESTful APIs and integrated third-party services.",
+        "achievements": [
+          "Pixel-perfect UI from Figma designs using Django and ReactJS",
+          "Scalable RESTful APIs reducing backend response time",
+          "Third-party service integrations improving data reliability"
+        ]
+      },
+      "hexabitz": {
+        "role": "Full-Stack Web Developer",
+        "location": "USA, Tulsa, Oklahoma",
+        "description": "Engineered a web-based IDE using Laravel and Babylon.js for IoT & AI hardware projects, enabling real-time device interaction. Built sensor data visualization dashboards improving engineering efficiency.",
+        "achievements": [
+          "Browser-based IDE for IoT hardware with real-time device interaction",
+          "Sensor data visualization dashboards for hardware debugging",
+          "Improved hardware debugging efficiency for engineering teams"
+        ]
+      },
+      "seetah": {
+        "role": "Full-Stack Web Developer",
+        "location": "Riyadh, Saudi Arabia",
+        "description": "Delivered full-stack web and SEO solutions using Laravel and CodeIgniter, increasing client website visibility in the Riyadh market through server-side optimizations.",
+        "achievements": [
+          "Increased website visibility in the Riyadh market",
+          "Server-side JavaScript optimizations reducing page load times significantly"
+        ]
+      },
+      "bonzuttner": {
+        "role": "Online IT Engineer",
+        "location": "Tokyo, Japan (Remote)",
+        "description": "Developed modular Django web applications following DRY principles, producing reusable and maintainable code. Collaborated in Agile cross-functional engineering teams.",
+        "achievements": [
+          "Modular Django applications following DRY principles",
+          "Delivered web solutions on schedule in Agile environment"
+        ]
+      }
+    }
   },
   "skills": {
     "subtitle": "My Expertise",
@@ -70,20 +136,207 @@
     "strategy": "Strategy & Approach",
     "stack": "Tech Stack",
     "results": "Results & Metrics",
-    "readCaseStudy": "Read Full Case Study"
+    "readCaseStudy": "Read Full Case Study",
+    "moreTitle": "More Case Studies",
+    "moreDesc": "CareSine e-commerce SEO, Hexabitz IoT IDE, and more case studies coming soon.",
+    "fastcaisse": {
+      "subtitle": "Multi-Restaurant Ordering System",
+      "description": "How I built and scaled a multi-restaurant SaaS ordering platform from zero to users in 4 countries using Laravel, Vue 3, and technical SEO.",
+      "weeklyGrowth": "Weekly User Growth",
+      "organicTraffic": "Organic Traffic Increase"
+    },
+    "fastcaisseDetail": {
+      "back": "Back to Case Studies",
+      "heroTitle": "FastCaisse: Building a Multi-Restaurant SaaS Platform with 34% Weekly User Growth",
+      "heroDesc": "A complete story of engineering a scalable ordering system from scratch — and driving global organic visibility with technical SEO.",
+      "metrics": {
+        "weeklyUserGrowth": "Weekly User Growth",
+        "organicTrafficIncrease": "Organic Traffic Increase",
+        "eventCountGrowth": "Event Count Growth",
+        "pageViewsIncrease": "Page Views Increase"
+      },
+      "problem": {
+        "intro": "Restaurant owners in Belgium were struggling with fragmented ordering solutions — each location managing separate menus, payment providers, and delivery zones. There was no unified, multi-restaurant SaaS platform serving the French, Dutch, and Arabic-speaking market with kiosk support.",
+        "bullets": [
+          "No multi-restaurant management from a single admin panel",
+          "No SEO-optimized marketing pages to drive organic traffic",
+          "No kiosk/self-service ordering mode",
+          "Fragmented payment and delivery integrations"
+        ]
+      },
+      "strategy": {
+        "intro": "The architecture was designed around three core pillars: scalability, multi-tenancy, and SEO.",
+        "architecture": {
+          "title": "🏗️ Architecture",
+          "items": [
+            "Laravel multi-tenant backend with restaurant isolation",
+            "Vue 3 SPA for ordering UI with Composition API",
+            "Nuxt 3 SSR for SEO-optimized marketing pages",
+            "Redis for session/cart management"
+          ]
+        },
+        "seo": {
+          "title": "🔍 SEO Strategy",
+          "items": [
+            "Restaurant schema markup (LocalBusiness, Menu)",
+            "Hreflang for FR/NL/EN/AR language targeting",
+            "Core Web Vitals optimization (LCP < 2.5s)",
+            "Keyword-targeted landing pages per city"
+          ]
+        },
+        "payments": {
+          "title": "💳 Payments & Integrations",
+          "items": [
+            "Stripe + Mollie payment integration",
+            "Webhook-based order status updates",
+            "Print receipt API for kiosk mode"
+          ]
+        },
+        "multilang": {
+          "title": "🌍 Multi-language",
+          "items": [
+            "Full RTL support for Arabic",
+            "Laravel localization + Vue i18n",
+            "SEO-friendly URL structure per locale"
+          ]
+        }
+      },
+      "results": {
+        "activeUsers": "Active Users (7-day)",
+        "eventsTracked": "Events Tracked",
+        "pageViews": "Page Views",
+        "userGrowth": "User Growth",
+        "organicSessions": "Organic Sessions",
+        "countries": "Countries Reached",
+        "activeUsersVal": "70 active users",
+        "eventsTrackedVal": "356 events",
+        "pageViewsVal": "111 views",
+        "userGrowthVal": "+34.6% week-over-week",
+        "organicSessionsVal": "+75% increase",
+        "countriesVal": "BE, SG, CN, US",
+        "positioningTitle": "Positioning Statement",
+        "positioningQuote": "Built and scaled FastCaisse, a multi-restaurant SaaS platform generating 34% weekly user growth and 75% organic traffic increase through technical SEO and performance optimization — achieving cross-country organic visibility in under 12 months."
+      },
+      "cta": {
+        "title": "Need Similar Results for Your Project?",
+        "desc": "Let's talk about your SaaS, your organic growth goals, or your technical challenges.",
+        "bookConsultation": "Book a Consultation",
+        "seoServices": "SEO Services"
+      }
+    }
+  },
+  "home": {
+    "featuredCaseStudy": "Featured Case Study",
+    "featuredTitle": "FastCaisse — Multi-Restaurant SaaS Platform",
+    "featuredDesc": "Built and scaled a full-stack ordering SaaS serving restaurants across 4 countries, with measurable organic growth driven by technical SEO.",
+    "metrics": {
+      "weeklyUsers": "Weekly Active Users Growth",
+      "organicSessions": "Organic Search Sessions Increase",
+      "eventCount": "Event Count Increase",
+      "countries": "Countries (BE, SG, CN, US)"
+    },
+    "viewAllProjects": "View All Projects",
+    "socialProof": "Social Proof",
+    "trustedTitle": "Trusted by Teams Across Europe & Beyond",
+    "testimonials": {
+      "fastcaisse": {
+        "text": "Azzam built our entire ordering platform from scratch. Multi-restaurant, multi-language, SEO-optimized. Exceptional work.",
+        "role": "SaaS Platform — Belgium"
+      },
+      "hexabitz": {
+        "text": "Delivered a custom browser-based IDE for hardware programming. Clean code, on time, zero compromises.",
+        "role": "IoT Company"
+      }
+    },
+    "ctaTitle": "Ready to Scale Your Product?",
+    "ctaDesc": "Let's discuss your project — full stack development, SEO audit, or technical co-founder role.",
+    "getInTouch": "Get in Touch",
+    "whatsappMe": "WhatsApp Me"
   },
   "seoServices": {
     "subtitle": "SEO Services",
     "title": "Technical SEO That Drives Revenue",
     "description": "I don't just fix broken links — I build organic growth engines. As an SEO Specialist with a developer background, I deliver what agencies can't: deep technical audits + full implementation.",
     "cta": "Get a Free SEO Audit",
-    "certified": "Google-Certified SEO Specialist"
+    "certified": "Google-Certified SEO Specialist",
+    "badges": {
+      "developer": "Developer Background",
+      "proven": "Proven SaaS Results"
+    },
+    "getStarted": "Get Started →",
+    "services": {
+      "audit": {
+        "title": "Technical SEO Audit",
+        "description": "Full crawl analysis, Core Web Vitals optimization, indexation issues, schema markup review, and internal linking strategy. I find what's hurting your rankings and fix it.",
+        "price": "From $299",
+        "features": ["Screaming Frog crawl analysis", "Core Web Vitals (LCP, CLS, FID)", "Schema markup audit", "Redirect chain resolution", "Mobile usability"]
+      },
+      "speed": {
+        "title": "Page Speed Optimization",
+        "description": "I write the code myself. No handoff to another team. Reduce LCP, eliminate CLS, optimize TTFB, lazy-load assets, and implement modern image formats.",
+        "price": "From $499",
+        "features": ["LCP under 2.5s guaranteed", "Image optimization (WebP/AVIF)", "Critical CSS extraction", "JavaScript code splitting", "Server-side caching setup"]
+      },
+      "onPage": {
+        "title": "On-Page SEO & Content Strategy",
+        "description": "Keyword research, search intent mapping, optimized content briefs, H1/H2 hierarchy, and semantic HTML implementation.",
+        "price": "From $199",
+        "features": ["Keyword research & clustering", "Competitor gap analysis", "Content briefs", "Meta tag optimization", "Internal linking strategy"]
+      },
+      "international": {
+        "title": "International & Multilingual SEO",
+        "description": "Hreflang implementation, GBP optimization, multi-language URL structure, and country-specific targeting. Proven results for Arabic + European markets.",
+        "price": "From $399",
+        "features": ["Hreflang setup & validation", "RTL (Arabic) SEO", "Country-level targeting", "GBP optimization", "Multilingual sitemap"]
+      },
+      "analytics": {
+        "title": "SEO Analytics & Reporting",
+        "description": "GA4 setup, Search Console configuration, custom dashboards, and monthly reporting with actionable insights — not just vanity metrics.",
+        "price": "From $149/mo",
+        "features": ["GA4 configuration", "Search Console setup", "Looker Studio dashboards", "Monthly ranking reports", "Conversion tracking"]
+      },
+      "full": {
+        "title": "Full SEO Implementation",
+        "description": "The full package: audit + implementation + monitoring. Best for businesses that want results without managing multiple agencies.",
+        "price": "Custom Quote",
+        "features": ["Everything in all services", "Weekly check-ins", "Priority support", "A/B testing", "Quarterly strategy review"]
+      }
+    },
+    "provenTrack": {
+      "title": "Proven Track Record",
+      "organic": "Organic traffic growth",
+      "userGrowth": "Weekly user growth",
+      "countries": "Countries ranking",
+      "experience": "Years experience"
+    },
+    "whyHire": {
+      "title": "Why Hire a Developer-SEO?",
+      "faster": { "title": "Faster Implementation", "desc": "I write code. No waiting on developers to implement recommendations." },
+      "technical": { "title": "Technical Depth", "desc": "I can debug crawl issues, fix server configs, and optimize database queries." },
+      "data": { "title": "Data-Driven", "desc": "Every decision backed by GA4, Search Console, and crawl data." },
+      "direct": { "title": "Direct Communication", "desc": "No account managers. You talk directly to the person doing the work." }
+    },
+    "faqTitle": "Frequently Asked Questions",
+    "faq": {
+      "q1": "What makes you different from an SEO agency?",
+      "a1": "I'm a developer first. I don't hand off recommendations to a dev team — I implement them myself. That means faster execution, no miscommunication, and direct accountability for results.",
+      "q2": "Can you work on non-English sites?",
+      "a2": "Yes. I have hands-on experience with Arabic (RTL), French, Dutch, and German websites. I've implemented hreflang setups for multi-country SaaS platforms.",
+      "q3": "How long until I see results?",
+      "a3": "Technical fixes often show results in 4–8 weeks. Content and authority-building strategies typically take 3–6 months. I provide transparent reporting throughout.",
+      "q4": "Do you work with WordPress sites?",
+      "a4": "Yes. I'm certified in WordPress SEO and have worked with WooCommerce, PrestaShop, and custom Laravel/Nuxt applications."
+    },
+    "ctaTitle": "Ready to Grow Your Organic Traffic?",
+    "ctaDesc": "Get a free 30-minute SEO audit call. I'll analyze your site and give you actionable insights — no strings attached.",
+    "caseStudies": "See Case Studies"
   },
   "contact": {
     "subtitle": "Contact",
     "title": "Let's Build Something Great",
     "description": "Whether you need a full stack developer, an SEO audit, or a technical co-founder — I'm open to conversations.",
     "form": {
+      "sendTitle": "Send a Message",
       "name": "Your Name",
       "email": "Your Email",
       "phone": "Phone Number",
@@ -96,10 +349,13 @@
       "error": "Something went wrong. Please try again."
     },
     "info": {
+      "title": "Contact Info",
       "location": "Tartus, Syria (Remote-first)",
       "email": "azzam[at]azzamazizali.com",
       "whatsapp": "+963 991 576 641",
-      "response": "Usually responds within 24h"
+      "response": "Usually responds within 24h",
+      "available": "Available for new projects",
+      "social": "Connect on Social"
     }
   },
   "resume": {
@@ -110,7 +366,64 @@
     "experience": "Work Experience",
     "education": "Education",
     "certifications": "Certifications",
-    "skills": "Technical Skills"
+    "skills": "Technical Skills",
+    "interview": "Job Interview",
+    "interviewTitle": "Live Technical Interview",
+    "interviewDesc": "Watch a recorded technical interview showcasing problem-solving and communication skills.",
+    "jobs": {
+      "astramind": {
+        "role": "Lead Web Developer & Project Manager",
+        "location": "Germany (Full-Time / Remote)",
+        "bullets": [
+          "Directed end-to-end Nuxt 3 development for AstraMind.de, achieving 40% improvement in Lighthouse scores",
+          "Spearheaded SEO architecture with Schema.org markup and i18n for German market",
+          "Engineered secure healthcare integrations using Nodemailer, EmailJS, and Cloudflare Turnstile",
+          "Managed Netlify/Vercel deployments ensuring 99.9% availability",
+          "Implemented Framer Motion interactive UI, decreasing bounce rates by 25%"
+        ]
+      },
+      "fastcaisse": {
+        "role": "Full-Stack Web Developer & SEO Specialist",
+        "location": "Belgium (Freelance / Remote)",
+        "bullets": [
+          "Architected SEO strategies via keyword analysis and content optimization, improving organic rankings",
+          "Delivered full-stack solutions using Node.js, Laravel, and PHP with measurable speed and responsiveness gains",
+          "Conducted competitive analysis reducing customer acquisition costs and increasing conversion rates"
+        ]
+      },
+      "emtethal": {
+        "role": "Full-Stack Web Developer",
+        "location": "Saudi Arabia (Contract / Remote)",
+        "bullets": [
+          "Built responsive Django + ReactJS web application translating Figma designs into pixel-perfect UIs",
+          "Architected scalable RESTful APIs and third-party integrations reducing backend response time"
+        ]
+      },
+      "hexabitz": {
+        "role": "Full-Stack Web Developer",
+        "location": "USA, Tulsa, Oklahoma",
+        "bullets": [
+          "Engineered web-based IDE using Laravel and Babylon.js for IoT & AI hardware projects",
+          "Built sensor data visualization dashboards improving hardware debugging efficiency"
+        ]
+      },
+      "seetah": {
+        "role": "Full-Stack Web Developer",
+        "location": "Riyadh, Saudi Arabia",
+        "bullets": [
+          "Delivered full-stack web and SEO solutions using Laravel and CodeIgniter",
+          "Applied server-side JavaScript optimizations reducing page load times significantly"
+        ]
+      },
+      "bonzuttner": {
+        "role": "Online IT Engineer",
+        "location": "Tokyo, Japan (Remote)",
+        "bullets": [
+          "Developed modular Django web applications following DRY principles",
+          "Collaborated in Agile cross-functional engineering teams delivering solutions on schedule"
+        ]
+      }
+    }
   },
   "blog": {
     "subtitle": "Technical Blog",

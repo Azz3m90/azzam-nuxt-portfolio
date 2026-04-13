@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { t, locale } = useI18n()
+const { t, tm, rt, locale } = useI18n()
 const localePath = useLocalePath()
 
 useSeo({
@@ -11,93 +11,69 @@ useSeo({
   breadcrumb: [{ name: 'About', url: 'https://azzamazizali.sy/about' }],
 })
 
-const experience = [
+const experience = computed(() => [
   {
-    role: 'Lead Web Developer & Project Manager',
-    company: 'AstraMind & Lindenberg-Apotheke',
+    role: t('about.jobs.astramind.role'),
+    company: 'AstraMind',
     url: 'https://astramind.de',
     period: '11/2025 – Present',
-    location: 'Germany (Full-Time / Remote)',
-    description: 'Directed end-to-end development for AstraMind.de on Nuxt 3 and TypeScript, and orchestrated digital transformation of Lindenberg-Apotheke migrating to Next.js 14 with mobile-first Tailwind CSS.',
-    achievements: [
-      '40% improvement in Lighthouse scores',
-      'SEO architecture with Schema.org markup and i18n for the German market',
-      'Secure healthcare integrations using Nodemailer, EmailJS, and Cloudflare Turnstile',
-      '99.9% availability via Netlify and Vercel deployment with pnpm and Git',
-      '25% decrease in bounce rates with Framer Motion interactive UI',
-    ],
+    location: t('about.jobs.astramind.location'),
+    description: t('about.jobs.astramind.description'),
+    achievements: (tm('about.jobs.astramind.achievements') as any[]).map(rt),
     stack: ['Nuxt 3', 'Next.js 14', 'Vue.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vercel'],
   },
   {
-    role: 'Full-Stack Web Developer & SEO Specialist',
+    role: t('about.jobs.fastcaisse.role'),
     company: 'FastCaisse',
     url: 'https://fastcaisse.be',
     period: '01/2023 – Present',
-    location: 'Belgium (Freelance / Remote)',
-    description: 'Architected and executed SEO strategies and full-stack solutions for a restaurant SaaS platform. Delivered measurable improvements in organic search rankings, site speed, and mobile responsiveness.',
-    achievements: [
-      'Improved organic traffic and search rankings through keyword analysis and content optimization',
-      'Full-stack solutions using Node.js, Laravel, and PHP with measurable speed gains',
-      'Reduced customer acquisition costs and increased conversion rates via competitive analysis',
-    ],
+    location: t('about.jobs.fastcaisse.location'),
+    description: t('about.jobs.fastcaisse.description'),
+    achievements: (tm('about.jobs.fastcaisse.achievements') as any[]).map(rt),
     stack: ['Laravel', 'Node.js', 'PHP', 'Vue 3', 'MySQL', 'Redis'],
   },
   {
-    role: 'Full-Stack Web Developer',
+    role: t('about.jobs.emtethal.role'),
     company: 'Emtethal',
     url: '#',
     period: '06/2025 – 10/2025',
-    location: 'Saudi Arabia (Contract / Remote)',
-    description: 'Built responsive web applications using Django and ReactJS, translating Figma designs into pixel-perfect production UIs. Architected scalable RESTful APIs and integrated third-party services.',
-    achievements: [
-      'Pixel-perfect UI from Figma designs using Django and ReactJS',
-      'Scalable RESTful APIs reducing backend response time',
-      'Third-party service integrations improving data reliability',
-    ],
+    location: t('about.jobs.emtethal.location'),
+    description: t('about.jobs.emtethal.description'),
+    achievements: (tm('about.jobs.emtethal.achievements') as any[]).map(rt),
     stack: ['Django', 'React', 'Python', 'REST API', 'Figma'],
   },
   {
-    role: 'Full-Stack Web Developer',
+    role: t('about.jobs.hexabitz.role'),
     company: 'Hexabitz',
     url: 'https://hexabitz.com',
     period: '06/2022 – 05/2023',
-    location: 'USA, Tulsa, Oklahoma',
-    description: 'Engineered a web-based IDE using Laravel and Babylon.js for IoT & AI hardware projects, enabling real-time device interaction. Built sensor data visualization dashboards improving engineering efficiency.',
-    achievements: [
-      'Browser-based IDE for IoT hardware with real-time device interaction',
-      'Sensor data visualization dashboards for hardware debugging',
-      'Improved hardware debugging efficiency for engineering teams',
-    ],
+    location: t('about.jobs.hexabitz.location'),
+    description: t('about.jobs.hexabitz.description'),
+    achievements: (tm('about.jobs.hexabitz.achievements') as any[]).map(rt),
     stack: ['Laravel', 'Babylon.js', 'JavaScript', 'PHP', 'IoT'],
   },
   {
-    role: 'Full-Stack Web Developer',
+    role: t('about.jobs.seetah.role'),
     company: 'Seetah Award',
     url: '#',
     period: '09/2021 – 01/2022',
-    location: 'Riyadh, Saudi Arabia',
-    description: 'Delivered full-stack web and SEO solutions using Laravel and CodeIgniter, increasing client website visibility in the Riyadh market through server-side optimizations.',
-    achievements: [
-      'Increased website visibility in the Riyadh market',
-      'Server-side JavaScript optimizations reducing page load times significantly',
-    ],
+    location: t('about.jobs.seetah.location'),
+    description: t('about.jobs.seetah.description'),
+    achievements: (tm('about.jobs.seetah.achievements') as any[]).map(rt),
     stack: ['Laravel', 'CodeIgniter', 'JavaScript', 'SEO'],
   },
   {
-    role: 'Online IT Engineer',
+    role: t('about.jobs.bonzuttner.role'),
     company: 'Bonzuttner',
     url: '#',
     period: '06/2021 – 05/2022',
-    location: 'Tokyo, Japan (Remote)',
-    description: 'Developed modular Django web applications following DRY principles, producing reusable and maintainable code. Collaborated in Agile cross-functional engineering teams.',
-    achievements: [
-      'Modular Django applications following DRY principles',
-      'Delivered web solutions on schedule in Agile environment',
-    ],
+    location: t('about.jobs.bonzuttner.location'),
+    description: t('about.jobs.bonzuttner.description'),
+    achievements: (tm('about.jobs.bonzuttner.achievements') as any[]).map(rt),
     stack: ['Django', 'Python', 'Agile', 'REST API'],
     video: 'https://www.youtube.com/watch?v=UhHuoMAKMLc',
   },
-]
+])
 
 const certificates = [
   { title: 'Django Web Framework', issuer: 'Meta/Coursera', icon: '🐍', url: '/cv/WebDevelopment/Web_Django_Framework.pdf' },
@@ -218,7 +194,7 @@ const certificates = [
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                 </svg>
-                Watch Job Interview
+                {{ t('about.watchInterview') }}
               </a>
             </div>
           </div>
@@ -253,14 +229,14 @@ const certificates = [
 
       <div class="card p-8 text-center bg-gradient-to-br from-primary-50 to-accent/5 dark:from-primary-900/20 dark:to-accent/10 border-primary-200 dark:border-primary-800">
         <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mb-4">
-          Let's Build Something Together
+          {{ t('about.ctaTitle') }}
         </h2>
         <p class="text-slate-600 dark:text-slate-300 mb-8 max-w-xl mx-auto">
-          Looking for a senior developer who delivers measurable results? Let's talk.
+          {{ t('about.ctaDesc') }}
         </p>
         <div class="flex flex-wrap gap-4 justify-center">
           <NuxtLink :to="localePath('/contact')" class="btn-primary">{{ t('nav.bookConsultation') }}</NuxtLink>
-          <NuxtLink :to="localePath('/resume')" class="btn-secondary">View Full Resume</NuxtLink>
+          <NuxtLink :to="localePath('/resume')" class="btn-secondary">{{ t('about.viewResume') }}</NuxtLink>
         </div>
       </div>
     </div>

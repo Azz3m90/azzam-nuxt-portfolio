@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { t } = useI18n()
+const { t, tm, rt } = useI18n()
 
 useSeo({
   title: t('meta.resume.title'),
@@ -19,73 +19,50 @@ const techStack = {
   'Collaboration': ['ClickUp', 'Slack', 'FileZilla', 'DBeaver', 'Android Studio'],
 }
 
-const experience = [
+const experience = computed(() => [
   {
-    role: 'Lead Web Developer & Project Manager',
-    company: 'AstraMind & Lindenberg-Apotheke',
+    role: t('resume.jobs.astramind.role'),
+    company: 'AstraMind',
     period: '11/2025 – Present',
-    location: 'Germany (Full-Time / Remote)',
-    bullets: [
-      'Directed Nuxt 3 development for AstraMind.de, achieving 40% improvement in Lighthouse scores',
-      'Led Next.js 14 migration for Lindenberg-Apotheke with mobile-first Tailwind CSS',
-      'Spearheaded SEO architecture with Schema.org markup and i18n for German market',
-      'Engineered secure healthcare integrations using Nodemailer, EmailJS, and Cloudflare Turnstile',
-      'Managed Netlify/Vercel deployments ensuring 99.9% availability',
-      'Implemented Framer Motion interactive UI, decreasing bounce rates by 25%',
-    ],
+    location: t('resume.jobs.astramind.location'),
+    bullets: (tm('resume.jobs.astramind.bullets') as any[]).map(rt),
   },
   {
-    role: 'Full-Stack Web Developer & SEO Specialist',
+    role: t('resume.jobs.fastcaisse.role'),
     company: 'FastCaisse',
     period: '01/2023 – Present',
-    location: 'Belgium (Freelance / Remote)',
-    bullets: [
-      'Architected SEO strategies via keyword analysis and content optimization, improving organic rankings',
-      'Delivered full-stack solutions using Node.js, Laravel, and PHP with measurable speed and responsiveness gains',
-      'Conducted competitive analysis reducing customer acquisition costs and increasing conversion rates',
-    ],
+    location: t('resume.jobs.fastcaisse.location'),
+    bullets: (tm('resume.jobs.fastcaisse.bullets') as any[]).map(rt),
   },
   {
-    role: 'Full-Stack Web Developer',
+    role: t('resume.jobs.emtethal.role'),
     company: 'Emtethal',
     period: '06/2025 – 10/2025',
-    location: 'Saudi Arabia (Contract / Remote)',
-    bullets: [
-      'Built responsive Django + ReactJS web application translating Figma designs into pixel-perfect UIs',
-      'Architected scalable RESTful APIs and third-party integrations reducing backend response time',
-    ],
+    location: t('resume.jobs.emtethal.location'),
+    bullets: (tm('resume.jobs.emtethal.bullets') as any[]).map(rt),
   },
   {
-    role: 'Full-Stack Web Developer',
+    role: t('resume.jobs.hexabitz.role'),
     company: 'Hexabitz',
     period: '06/2022 – 05/2023',
-    location: 'USA, Tulsa, Oklahoma',
-    bullets: [
-      'Engineered web-based IDE using Laravel and Babylon.js for IoT & AI hardware projects',
-      'Built sensor data visualization dashboards improving hardware debugging efficiency',
-    ],
+    location: t('resume.jobs.hexabitz.location'),
+    bullets: (tm('resume.jobs.hexabitz.bullets') as any[]).map(rt),
   },
   {
-    role: 'Full-Stack Web Developer',
+    role: t('resume.jobs.seetah.role'),
     company: 'Seetah Award',
     period: '09/2021 – 01/2022',
-    location: 'Riyadh, Saudi Arabia',
-    bullets: [
-      'Delivered full-stack web and SEO solutions using Laravel and CodeIgniter',
-      'Applied server-side JavaScript optimizations reducing page load times significantly',
-    ],
+    location: t('resume.jobs.seetah.location'),
+    bullets: (tm('resume.jobs.seetah.bullets') as any[]).map(rt),
   },
   {
-    role: 'Online IT Engineer',
+    role: t('resume.jobs.bonzuttner.role'),
     company: 'Bonzuttner',
     period: '06/2021 – 05/2022',
-    location: 'Tokyo, Japan (Remote)',
-    bullets: [
-      'Developed modular Django web applications following DRY principles',
-      'Collaborated in Agile cross-functional engineering teams delivering solutions on schedule',
-    ],
+    location: t('resume.jobs.bonzuttner.location'),
+    bullets: (tm('resume.jobs.bonzuttner.bullets') as any[]).map(rt),
   },
-]
+])
 
 const education = [
   {
@@ -115,8 +92,8 @@ const education = [
           <p class="text-xl text-primary-600 dark:text-primary-400 font-semibold mt-2">{{ t('resume.jobTitle') }}</p>
           <div class="flex flex-wrap gap-3 mt-4 text-sm text-slate-500 dark:text-slate-400">
             <span class="flex items-center gap-1">📍 Tartus, Syria (Remote)</span>
-            <span class="flex items-center gap-1">✉️ azzam@azzamazizali.com</span>
-            <span class="flex items-center gap-1">💬 +963 991 576 641</span>
+            <span class="flex items-center gap-1">✉️ Azzamazezali@gmail.com</span>
+            <span class="flex items-center gap-1">💬 <span dir="ltr">+963 991 576 641</span></span>
           </div>
         </div>
         <a
@@ -235,6 +212,31 @@ const education = [
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
             </svg>
           </a>
+        </div>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white mb-6 pb-2 border-b border-slate-200 dark:border-slate-700">
+          {{ t('resume.interview') }}
+        </h2>
+        <div class="card p-6">
+          <div class="flex flex-wrap items-start gap-4 mb-4">
+            <div class="flex-1 min-w-0">
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">{{ t('resume.interviewTitle') }}</h3>
+              <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">{{ t('resume.interviewDesc') }}</p>
+            </div>
+          </div>
+          <div class="relative w-full rounded-xl overflow-hidden" style="padding-bottom: 56.25%;">
+            <iframe
+              class="absolute inset-0 w-full h-full"
+              src="https://www.youtube.com/embed/UhHuoMAKMLc"
+              title="Job Interview — Azzam Aziz Ali"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
         </div>
       </section>
 

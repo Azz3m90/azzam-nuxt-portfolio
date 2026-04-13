@@ -158,7 +158,7 @@ const socials = [
       <div class="grid lg:grid-cols-5 gap-12 max-w-5xl mx-auto">
         <div class="lg:col-span-2 space-y-6">
           <div class="card p-6">
-            <h2 class="font-bold text-slate-900 dark:text-white mb-5">Contact Info</h2>
+            <h2 class="font-bold text-slate-900 dark:text-white mb-5">{{ t('contact.info.title') }}</h2>
             <ul class="space-y-4">
               <li class="flex items-start gap-3">
                 <div class="w-8 h-8 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center shrink-0">
@@ -169,8 +169,8 @@ const socials = [
                 </div>
                 <div>
                   <p class="text-xs text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wide mb-0.5">Email</p>
-                  <a href="mailto:azzam@azzamazizali.com" class="text-slate-800 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm font-medium">
-                    azzam@azzamazizali.com
+                  <a href="mailto:Azzamazezali@gmail.com" class="text-slate-800 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm font-medium">
+                    Azzamazezali@gmail.com
                   </a>
                 </div>
               </li>
@@ -182,7 +182,7 @@ const socials = [
                 </div>
                 <div>
                   <p class="text-xs text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wide mb-0.5">WhatsApp</p>
-                  <a href="https://wa.me/+963991576641" target="_blank" rel="noopener noreferrer" class="text-slate-800 dark:text-white hover:text-emerald-600 transition-colors text-sm font-medium">
+                  <a href="https://wa.me/+963991576641" target="_blank" rel="noopener noreferrer" dir="ltr" class="text-slate-800 dark:text-white hover:text-emerald-600 transition-colors text-sm font-medium inline-block">
                     +963 991 576 641
                   </a>
                 </div>
@@ -204,13 +204,13 @@ const socials = [
           <div class="card p-6">
             <div class="flex items-center gap-2 mb-4">
               <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true"></span>
-              <p class="text-sm font-semibold text-slate-900 dark:text-white">Available for new projects</p>
+              <p class="text-sm font-semibold text-slate-900 dark:text-white">{{ t('contact.info.available') }}</p>
             </div>
             <p class="text-xs text-slate-500 dark:text-slate-400">{{ t('contact.info.response') }}</p>
           </div>
 
           <div class="card p-6">
-            <h3 class="font-bold text-slate-900 dark:text-white mb-4 text-sm">Connect on Social</h3>
+            <h3 class="font-bold text-slate-900 dark:text-white mb-4 text-sm">{{ t('contact.info.social') }}</h3>
             <div class="flex flex-wrap gap-2">
               <a
                 v-for="social in socials"
@@ -229,7 +229,7 @@ const socials = [
 
         <div class="lg:col-span-3">
           <div class="card p-8">
-            <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-6">Send a Message</h2>
+            <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-6">{{ t('contact.form.sendTitle') }}</h2>
 
             <form novalidate class="space-y-5" @submit.prevent="handleSubmit" aria-label="Contact form">
               <div class="grid sm:grid-cols-2 gap-5">

@@ -31,20 +31,20 @@ const skillGroups = computed(() => [
   { key: 'tools', label: t('skills.tools'), items: ['Git', 'NPM', 'Webpack', 'VS Code', 'ClickUp', 'Slack', 'DBeaver', 'FileZilla', 'Android Studio', 'Composer', 'WordPress', 'PrestaShop'] },
 ])
 
-const testimonials = [
+const testimonials = computed(() => [
   {
     name: 'FastCaisse Team',
-    role: 'SaaS Platform — Belgium',
-    text: 'Azzam built our entire ordering platform from scratch. Multi-restaurant, multi-language, SEO-optimized. Exceptional work.',
+    role: t('home.testimonials.fastcaisse.role'),
+    text: t('home.testimonials.fastcaisse.text'),
     avatar: '🏢',
   },
   {
     name: 'Hexabitz',
-    role: 'IoT Company',
-    text: 'Delivered a custom browser-based IDE for hardware programming. Clean code, on time, zero compromises.',
+    role: t('home.testimonials.hexabitz.role'),
+    text: t('home.testimonials.hexabitz.text'),
     avatar: '⚡',
   },
-]
+])
 
 const isVisible = ref(false)
 onMounted(() => {
@@ -202,31 +202,31 @@ onMounted(() => {
     <section class="py-12 sm:py-16 lg:py-24 bg-slate-50 dark:bg-slate-900/50" id="fastcaisse-metrics">
       <div class="container-custom">
         <div class="text-center mb-12">
-          <p class="section-label mx-auto justify-center">Featured Case Study</p>
+          <p class="section-label mx-auto justify-center">{{ t('home.featuredCaseStudy') }}</p>
           <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
-            FastCaisse — Multi-Restaurant SaaS Platform
+            {{ t('home.featuredTitle') }}
           </h2>
           <p class="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">
-            Built and scaled a full-stack ordering SaaS serving restaurants across 4 countries, with measurable organic growth driven by technical SEO.
+            {{ t('home.featuredDesc') }}
           </p>
         </div>
 
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
           <div class="metric-card card-hover">
             <div class="metric-value">34.6%</div>
-            <div class="metric-label">Weekly Active Users Growth</div>
+            <div class="metric-label">{{ t('home.metrics.weeklyUsers') }}</div>
           </div>
           <div class="metric-card card-hover">
             <div class="metric-value">75%</div>
-            <div class="metric-label">Organic Search Sessions Increase</div>
+            <div class="metric-label">{{ t('home.metrics.organicSessions') }}</div>
           </div>
           <div class="metric-card card-hover">
             <div class="metric-value">62.6%</div>
-            <div class="metric-label">Event Count Increase</div>
+            <div class="metric-label">{{ t('home.metrics.eventCount') }}</div>
           </div>
           <div class="metric-card card-hover">
             <div class="metric-value">4</div>
-            <div class="metric-label">Countries (BE, SG, CN, US)</div>
+            <div class="metric-label">{{ t('home.metrics.countries') }}</div>
           </div>
         </div>
 
@@ -238,7 +238,7 @@ onMounted(() => {
 
         <div class="text-center">
           <NuxtLink :to="localePath('/case-studies')" class="btn-primary">
-            Read Full Case Study
+            {{ t('caseStudies.readCaseStudy') }}
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
@@ -257,7 +257,7 @@ onMounted(() => {
             </h2>
           </div>
           <NuxtLink :to="localePath('/projects')" class="btn-ghost hidden sm:flex">
-            View All Projects
+            {{ t('home.viewAllProjects') }}
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
@@ -305,16 +305,16 @@ onMounted(() => {
         </div>
 
         <div class="text-center mt-10 sm:hidden">
-          <NuxtLink :to="localePath('/projects')" class="btn-primary">View All Projects</NuxtLink>
+          <NuxtLink :to="localePath('/projects')" class="btn-primary">{{ t('home.viewAllProjects') }}</NuxtLink>
         </div>
       </div>
     </section>
 
     <section class="py-12 sm:py-16 lg:py-24 bg-slate-50 dark:bg-slate-900/50" id="testimonials">
       <div class="container-custom">
-        <p class="section-label justify-center">Social Proof</p>
+        <p class="section-label justify-center">{{ t('home.socialProof') }}</p>
         <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white text-center mb-8 sm:mb-12">
-          Trusted by Teams Across Europe & Beyond
+          {{ t('home.trustedTitle') }}
         </h2>
         <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           <div v-for="testimonial in testimonials" :key="testimonial.name" class="card p-8">
@@ -336,17 +336,17 @@ onMounted(() => {
       <div class="absolute inset-0 opacity-10" style="background-image: url(&quot;data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='white'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e&quot;)"></div>
       <div class="container-custom relative z-10 text-center">
         <h2 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4">
-          Ready to Scale Your Product?
+          {{ t('home.ctaTitle') }}
         </h2>
         <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
-          Let's discuss your project — full stack development, SEO audit, or technical co-founder role.
+          {{ t('home.ctaDesc') }}
         </p>
         <div class="flex flex-wrap gap-4 justify-center">
           <NuxtLink :to="localePath('/contact')" class="btn-secondary bg-white text-primary-700 border-white hover:bg-white/90 text-sm sm:text-base px-6 sm:px-8 py-3">
-            Get in Touch
+            {{ t('home.getInTouch') }}
           </NuxtLink>
           <a href="https://wa.me/+963991576641" target="_blank" rel="noopener noreferrer" class="btn-secondary text-white border-white/40 hover:border-white hover:bg-white/10 text-sm sm:text-base px-6 sm:px-8 py-3">
-            WhatsApp Me
+            {{ t('home.whatsappMe') }}
           </a>
         </div>
       </div>

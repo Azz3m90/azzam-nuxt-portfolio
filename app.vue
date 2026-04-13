@@ -32,7 +32,7 @@ useHead({
         image: 'https://azzamazizali.sy/images/Azzam.jpg',
         jobTitle: 'Senior Full Stack Developer & SEO Specialist',
         description: 'Senior Full Stack Developer with 10+ years building SaaS platforms using Laravel, React, Vue & Django. SEO Specialist achieving 75% organic traffic growth.',
-        email: 'azzam@azzamazizali.com',
+        email: 'Azzamazezali@gmail.com',
         telephone: '+963991576641',
         knowsAbout: ['Laravel', 'React', 'Vue.js', 'Nuxt', 'Django', 'TypeScript', 'SEO', 'SaaS Development'],
         sameAs: [

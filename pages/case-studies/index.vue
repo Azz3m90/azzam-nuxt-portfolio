@@ -35,22 +35,22 @@ useSeo({
               <h2 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                 FastCaisse SaaS Platform
               </h2>
-              <p class="text-sm text-slate-500">Multi-Restaurant Ordering System</p>
+              <p class="text-sm text-slate-500">{{ t('caseStudies.fastcaisse.subtitle') }}</p>
             </div>
           </div>
 
           <p class="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
-            How I built and scaled a multi-restaurant SaaS ordering platform from zero to users in 4 countries using Laravel, Vue 3, and technical SEO.
+            {{ t('caseStudies.fastcaisse.description') }}
           </p>
 
           <div class="grid grid-cols-2 gap-3 mb-6">
             <div class="bg-slate-50 dark:bg-slate-800 rounded-xl p-3 text-center">
               <p class="text-2xl font-extrabold gradient-text">34.6%</p>
-              <p class="text-xs text-slate-500">Weekly User Growth</p>
+              <p class="text-xs text-slate-500">{{ t('caseStudies.fastcaisse.weeklyGrowth') }}</p>
             </div>
             <div class="bg-slate-50 dark:bg-slate-800 rounded-xl p-3 text-center">
               <p class="text-2xl font-extrabold gradient-text">75%</p>
-              <p class="text-xs text-slate-500">Organic Traffic Increase</p>
+              <p class="text-xs text-slate-500">{{ t('caseStudies.fastcaisse.organicTraffic') }}</p>
             </div>
           </div>
 
@@ -68,9 +68,9 @@ useSeo({
 
         <div class="card p-8 border-dashed flex flex-col items-center justify-center text-center gap-4 opacity-60">
           <div class="w-12 h-12 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-2xl">🔜</div>
-          <h2 class="text-xl font-bold text-slate-900 dark:text-white">More Case Studies</h2>
+          <h2 class="text-xl font-bold text-slate-900 dark:text-white">{{ t('caseStudies.moreTitle') }}</h2>
           <p class="text-slate-500 dark:text-slate-400 text-sm">
-            CareSine e-commerce SEO, Hexabitz IoT IDE, and more case studies coming soon.
+            {{ t('caseStudies.moreDesc') }}
           </p>
         </div>
       </div>
