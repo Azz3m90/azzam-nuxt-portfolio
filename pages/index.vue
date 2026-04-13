@@ -345,7 +345,7 @@ onMounted(() => {
           <NuxtLink :to="localePath('/contact')" class="btn-secondary bg-white text-primary-700 border-white hover:bg-white/90 text-sm sm:text-base px-6 sm:px-8 py-3">
             {{ t('home.getInTouch') }}
           </NuxtLink>
-          <a href="https://wa.me/+963991576641" target="_blank" rel="noopener noreferrer" class="btn-secondary text-white border-white/40 hover:border-white hover:bg-white/10 text-sm sm:text-base px-6 sm:px-8 py-3">
+          <a href="https://wa.me/+963983847632" target="_blank" rel="noopener noreferrer" class="btn-secondary text-white border-white/40 hover:border-white hover:bg-white/10 text-sm sm:text-base px-6 sm:px-8 py-3">
             {{ t('home.whatsappMe') }}
           </a>
         </div>

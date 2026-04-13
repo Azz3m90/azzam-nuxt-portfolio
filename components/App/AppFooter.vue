@@ -16,7 +16,7 @@ const navLinks = [
 const socials = [
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/azzamazizali/', icon: 'linkedin' },
   { name: 'GitHub', url: 'https://github.com/Azz3m90', icon: 'github' },
-  { name: 'WhatsApp', url: 'https://wa.me/+963991576641', icon: 'whatsapp' },
+  { name: 'WhatsApp', url: 'https://wa.me/+963983847632', icon: 'whatsapp' },
   { name: 'YouTube', url: 'https://www.youtube.com/@azzamazizali', icon: 'youtube' },
 ]
 </script>

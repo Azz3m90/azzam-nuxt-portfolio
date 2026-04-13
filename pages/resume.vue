@@ -93,7 +93,7 @@ const education = [
           <div class="flex flex-wrap gap-3 mt-4 text-sm text-slate-500 dark:text-slate-400">
             <span class="flex items-center gap-1">📍 Tartus, Syria (Remote)</span>
             <span class="flex items-center gap-1">✉️ Azzamazezali@gmail.com</span>
-            <span class="flex items-center gap-1">💬 <span dir="ltr">+963 991 576 641</span></span>
+            <span class="flex items-center gap-1">💬 <span dir="ltr">+963 983 847 632</span></span>
           </div>
         </div>
         <a

@@ -170,7 +170,7 @@ export const usePersonSchema = () => ({
   jobTitle: 'Senior Full Stack Developer & SEO Specialist',
   description: 'Senior Full Stack Developer with 10+ years building SaaS. Google-certified SEO Specialist.',
   email: 'Azzamazezali@gmail.com',
-  telephone: '+963991576641',
+  telephone: '+963983847632',
   sameAs: [
     'https://www.linkedin.com/in/azzamazizali/',
     'https://github.com/Azz3m90',

@@ -135,7 +135,7 @@ const handleSubmit = async () => {
 const socials = [
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/azzamazizali/', color: 'text-blue-600' },
   { name: 'GitHub', url: 'https://github.com/Azz3m90', color: 'text-slate-800 dark:text-white' },
-  { name: 'WhatsApp', url: 'https://wa.me/+963991576641', color: 'text-emerald-600' },
+  { name: 'WhatsApp', url: 'https://wa.me/+963983847632', color: 'text-emerald-600' },
   { name: 'YouTube', url: 'https://www.youtube.com/@azzamazizali', color: 'text-red-600' },
   { name: 'Facebook', url: 'https://www.facebook.com/azzam.ali.9484', color: 'text-blue-700' },
   { name: 'Stack Overflow', url: 'https://stackoverflow.com/users/10049474/azzam-ali', color: 'text-orange-500' },
@@ -182,8 +182,8 @@ const socials = [
                 </div>
                 <div>
                   <p class="text-xs text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wide mb-0.5">WhatsApp</p>
-                  <a href="https://wa.me/+963991576641" target="_blank" rel="noopener noreferrer" dir="ltr" class="text-slate-800 dark:text-white hover:text-emerald-600 transition-colors text-sm font-medium inline-block">
-                    +963 991 576 641
+                  <a href="https://wa.me/+963983847632" target="_blank" rel="noopener noreferrer" dir="ltr" class="text-slate-800 dark:text-white hover:text-emerald-600 transition-colors text-sm font-medium inline-block">
+                    +963 983 847 632
                   </a>
                 </div>
               </li>
