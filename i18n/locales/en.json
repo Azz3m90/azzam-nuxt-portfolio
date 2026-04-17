@@ -128,6 +128,22 @@
     "featured": "Featured Projects",
     "ai": "AI & ML"
   },
+  "projectDetail": {
+    "backToProjects": "Back to Projects",
+    "viewLive": "View Live",
+    "viewCode": "View Code",
+    "keyFeatures": "Key Features",
+    "challenges": "Challenges Solved",
+    "myRole": "My Role",
+    "techStack": "Tech Stack",
+    "tags": "Tags",
+    "date": "Date",
+    "featured": "Featured",
+    "prevImage": "Previous image",
+    "nextImage": "Next image",
+    "prev": "Previous",
+    "next": "Next"
+  },
   "caseStudies": {
     "subtitle": "Case Studies",
     "title": "Real Problems. Measurable Results.",

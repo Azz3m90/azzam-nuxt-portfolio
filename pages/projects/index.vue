@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { t, locale } = useI18n()
+const localePath = useLocalePath()
 const { projects, filterProjects } = useProjects()
 
 useSeo({
@@ -78,14 +79,11 @@ function stopSlider(project: { id: number; images?: string[] }) {
 
       <Transition name="grid" mode="out-in">
         <div :key="activeFilter" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <a
+          <NuxtLink
             v-for="project in filteredProjects"
             :key="project.id"
-            :href="project.url !== '#' ? project.url : undefined"
-            :target="project.url !== '#' ? '_blank' : undefined"
-            rel="noopener noreferrer"
+            :to="localePath(`/projects/${project.slug}`)"
             class="project-card group"
-            :class="{ 'cursor-default pointer-events-none': project.url === '#' }"
             @mouseenter="startSlider(project)"
             @mouseleave="stopSlider(project)"
           >
@@ -115,18 +113,21 @@ function stopSlider(project: { id: number; images?: string[] }) {
                 <h2 class="font-bold text-slate-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors text-sm">
                   {{ locale === 'ar' && project.titleAr ? project.titleAr : project.title }}
                 </h2>
-                <svg v-if="project.url !== '#'" class="w-3.5 h-3.5 text-slate-400 group-hover:text-primary-500 shrink-0 mt-0.5 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                <svg class="w-3.5 h-3.5 text-slate-400 group-hover:text-primary-500 shrink-0 mt-0.5 transition-transform group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                 </svg>
               </div>
-              <p class="text-xs text-slate-400 mb-3">{{ project.dateLabel }}</p>
+              <p class="text-xs text-slate-400 mb-2">{{ project.dateLabel }}</p>
+              <p v-if="project.description" class="text-xs text-slate-500 dark:text-slate-400 mb-3 line-clamp-2">
+                {{ locale === 'ar' && project.descriptionAr ? project.descriptionAr : project.description }}
+              </p>
               <div class="flex flex-wrap gap-1.5">
                 <span v-for="tag in project.tags.slice(0, 4)" :key="tag" class="text-xs px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 font-medium">
                   {{ tag }}
                 </span>
               </div>
             </div>
-          </a>
+          </NuxtLink>
         </div>
       </Transition>
     </div>

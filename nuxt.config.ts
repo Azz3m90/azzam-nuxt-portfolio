@@ -65,6 +65,9 @@ export default defineNuxtConfig({
       { loc: '/blog', priority: 0.8, changefreq: 'daily' as const, lastmod: new Date().toISOString().split('T')[0] },
       { loc: '/contact', priority: 0.8, changefreq: 'monthly' as const, lastmod: new Date().toISOString().split('T')[0] },
       { loc: '/privacy-policy', priority: 0.3, changefreq: 'yearly' as const, lastmod: new Date().toISOString().split('T')[0] },
+      ...['fastcaisse-ordering-platform', 'fastcaisse-kiosk', 'lindenberg-apotheke', 'astramind', 'emtethal-landing-page', 'fastcaisse-marketing-site', 'little-lemon-booking', 'il-moro-group', 'fastcaisse-online-ordering', 'gelato-naturale', 'seetaha-award-debugger', 'seetah-scc', 'matthias-and-sea', 'geco-consulting', 'hexabitz-code-editor', 'fastcaisse-pos-system', 'hexabitz-ide-system', 'hexabitz', 'caresine-products', 'opinion-mining-system', 'opinion-mining-youtube', 'ecommerce-jackets', 'university-indexer'].map(slug => ({
+        loc: `/projects/${slug}`, priority: 0.7 as const, changefreq: 'monthly' as const, lastmod: new Date().toISOString().split('T')[0],
+      })),
     ],
   },
 
