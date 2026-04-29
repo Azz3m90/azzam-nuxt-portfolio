@@ -34,7 +34,7 @@ export const useProjects = () => {
       titleAr: 'منصة طلب FastCaisse',
       category: 'saas',
       image: '/images/projects/ordering-platform.png',
-      url: 'https://fastcaisse-ordering-platform.vercel.app/en/',
+      url: 'https://stores-fastcaisse.be/en',
       date: '2026-01',
       dateLabel: 'January 2026',
       tags: ['Vue 3', 'Laravel', 'SaaS', 'Multi-language'],
