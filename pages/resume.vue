@@ -21,6 +21,13 @@ const techStack = {
 
 const experience = computed(() => [
   {
+    role: t('resume.jobs.rsk.role'),
+    company: 'rsk-platform.com',
+    period: '06/2026 – Present',
+    location: t('resume.jobs.rsk.location'),
+    bullets: (tm('resume.jobs.rsk.bullets') as any[]).map(rt),
+  },
+  {
     role: t('resume.jobs.astramind.role'),
     company: 'AstraMind',
     period: '11/2025 – Present',

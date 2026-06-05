@@ -42,16 +42,28 @@
     "ctaDesc": "Looking for a senior developer who delivers measurable results? Let's talk.",
     "viewResume": "View Full Resume",
     "jobs": {
-      "astramind": {
-        "role": "Lead Web Developer & Project Manager",
-        "location": "Germany (Full-Time / Remote)",
-        "description": "Directed end-to-end development for AstraMind.de on Nuxt 3 and TypeScript, and orchestrated digital transformation of Lindenberg-Apotheke migrating to Next.js 14 with mobile-first Tailwind CSS.",
+      "rsk": {
+        "role": "Web Manager",
+        "location": "Administration / Operations / Management (Remote)",
+        "description": "Lead and manage digital projects from initiation to delivery for 5+ concurrent platforms, coordinating cross-functional team members, managing resources and risks, and leveraging project management tools to drive operational excellence and transparency.",
         "achievements": [
-          "40% improvement in Lighthouse scores",
-          "SEO architecture with Schema.org markup and i18n for the German market",
-          "Secure healthcare integrations using Nodemailer, EmailJS, and Cloudflare Turnstile",
-          "99.9% availability via Netlify and Vercel deployment with pnpm and Git",
-          "25% decrease in bounce rates with Framer Motion interactive UI"
+          "Lead digital projects from initiation to delivery, defining project scope, objectives, timelines, and deliverables for 5+ concurrent platforms",
+          "Plan and manage resources, budgets, and risks, coordinating 10+ cross-functional team members across development, design, and quality assurance",
+          "Monitor progress, ensure alignment with project goals, and communicate status, issues, and outcomes to stakeholders with 100% transparency",
+          "Ensure delivery meets agreed requirements and timelines, supporting process improvement and raising delivery standards by 25%",
+          "Use project management tools to track tasks and performance, focusing on execution, accountability, and a 15% increase in operational results"
+        ]
+      },
+      "astramind": {
+        "role": "Technical Advisor & Web Consultant",
+        "location": "Germany (Advisory / Remote)",
+        "description": "Provide strategic advisory on the development of AstraMind.de using Nuxt 3, Vue.js, and TypeScript, guiding optimizations that achieved a 40% improvement in Lighthouse scores. Consult on technical SEO architecture, structured data, and internationalization (i18n), resulting in a 50% increase in organic search visibility.",
+        "achievements": [
+          "Provide strategic advisory on the development of AstraMind.de using Nuxt 3, Vue.js, and TypeScript, guiding optimizations that achieved a 40% improvement in Lighthouse scores",
+          "Consult on technical SEO architecture, structured data, and internationalization (i18n), resulting in a 50% increase in organic search visibility",
+          "Guide security and compliance implementations using Cloudflare Turnstile and EmailJS to achieve a 100% reduction in spam submissions",
+          "Advise on CI/CD deployment workflows and cloud environment management, maintaining 99.9% uptime across Netlify and Vercel",
+          "Provide UX/UI design consulting on animations and mobile-first responsive interfaces, supporting a 25% reduction in bounce rates"
         ]
       },
       "fastcaisse": {
@@ -387,15 +399,26 @@
     "interviewTitle": "Live Technical Interview",
     "interviewDesc": "Watch a recorded technical interview showcasing problem-solving and communication skills.",
     "jobs": {
-      "astramind": {
-        "role": "Lead Web Developer & Project Manager",
-        "location": "Germany (Full-Time / Remote)",
+      "rsk": {
+        "role": "Web Manager",
+        "location": "Administration / Operations / Management (Remote)",
         "bullets": [
-          "Directed end-to-end Nuxt 3 development for AstraMind.de, achieving 40% improvement in Lighthouse scores",
-          "Spearheaded SEO architecture with Schema.org markup and i18n for German market",
-          "Engineered secure healthcare integrations using Nodemailer, EmailJS, and Cloudflare Turnstile",
-          "Managed Netlify/Vercel deployments ensuring 99.9% availability",
-          "Implemented Framer Motion interactive UI, decreasing bounce rates by 25%"
+          "Lead digital projects from initiation to delivery, defining project scope, objectives, timelines, and deliverables for 5+ concurrent platforms",
+          "Plan and manage resources, budgets, and risks, coordinating 10+ cross-functional team members across development, design, and quality assurance",
+          "Monitor progress, ensure alignment with project goals, and communicate status, issues, and outcomes to stakeholders with 100% transparency",
+          "Ensure delivery meets agreed requirements and timelines, supporting process improvement and raising delivery standards by 25%",
+          "Use project management tools to track tasks and performance, focusing on execution, accountability, and a 15% increase in operational results"
+        ]
+      },
+      "astramind": {
+        "role": "Technical Advisor & Web Consultant",
+        "location": "Germany (Advisory / Remote)",
+        "bullets": [
+          "Provide strategic advisory on the development of AstraMind.de using Nuxt 3, Vue.js, and TypeScript, guiding optimizations that achieved a 40% improvement in Lighthouse scores",
+          "Consult on technical SEO architecture, structured data, and internationalization (i18n), resulting in a 50% increase in organic search visibility",
+          "Guide security and compliance implementations using Cloudflare Turnstile and EmailJS to achieve a 100% reduction in spam submissions",
+          "Advise on CI/CD deployment workflows and cloud environment management, maintaining 99.9% uptime across Netlify and Vercel",
+          "Provide UX/UI design consulting on animations and mobile-first responsive interfaces, supporting a 25% reduction in bounce rates"
         ]
       },
       "fastcaisse": {
@@ -545,6 +568,10 @@
     "caseStudies": {
       "title": "FastCaisse SaaS Case Study | Azzam Aziz Ali",
       "description": "FastCaisse: 34% weekly user growth, 75% organic search increase. Full case study on building and scaling a multi-restaurant SaaS platform."
+    },
+    "caseStudyFastcaisse": {
+      "title": "FastCaisse SaaS Case Study | 34% User Growth & 75% Organic Traffic – Azzam Aziz Ali",
+      "description": "How I built FastCaisse — a multi-restaurant SaaS ordering platform — achieving 34.6% weekly user growth and 75% organic traffic increase through Laravel, Vue 3, and technical SEO."
     },
     "seoServices": {
       "title": "Technical SEO Services | Azzam Aziz Ali",

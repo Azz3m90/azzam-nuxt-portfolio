@@ -20,13 +20,13 @@ const features = computed(() => isAr.value && project.featuresAr ? project.featu
 const challenges = computed(() => isAr.value && project.challengesAr ? project.challengesAr : (project.challenges ?? []))
 
 useSeo({
-  title: `${project.title} | Azzam Aziz Ali`,
-  description: project.description ?? project.title,
+  title: `${title.value} | Azzam Aziz Ali`,
+  description: desc.value || title.value,
   image: `https://azzamazizali.sy${project.image}`,
-  imageAlt: `${project.title} — Project by Azzam Aziz Ali`,
+  imageAlt: `${title.value} — Project by Azzam Aziz Ali`,
   breadcrumb: [
-    { name: 'Projects', url: 'https://azzamazizali.sy/projects' },
-    { name: project.title, url: `https://azzamazizali.sy/projects/${project.slug}` },
+    { name: isAr.value ? 'المشاريع' : 'Projects', url: 'https://azzamazizali.sy/projects' },
+    { name: title.value, url: `https://azzamazizali.sy/projects/${project.slug}` },
   ],
 })
 

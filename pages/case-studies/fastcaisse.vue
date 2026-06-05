@@ -3,13 +3,13 @@ const { t, tm, rt } = useI18n()
 const localePath = useLocalePath()
 
 useSeo({
-  title: 'FastCaisse SaaS Case Study | 34% User Growth & 75% Organic Traffic – Azzam Aziz Ali',
-  description: 'How I built FastCaisse — a multi-restaurant SaaS ordering platform — achieving 34.6% weekly user growth and 75% organic traffic increase through Laravel, Vue 3, and technical SEO.',
+  title: t('meta.caseStudyFastcaisse.title'),
+  description: t('meta.caseStudyFastcaisse.description'),
   image: 'https://azzamazizali.sy/images/Azzam.jpg',
-  imageAlt: 'FastCaisse SaaS Case Study — 34% User Growth by Azzam Aziz Ali',
+  imageAlt: t('meta.caseStudyFastcaisse.title'),
   type: 'article',
   breadcrumb: [
-    { name: 'Case Studies', url: 'https://azzamazizali.sy/case-studies' },
+    { name: t('caseStudies.subtitle'), url: 'https://azzamazizali.sy/case-studies' },
     { name: 'FastCaisse', url: 'https://azzamazizali.sy/case-studies/fastcaisse' },
   ],
   article: {

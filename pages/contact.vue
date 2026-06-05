@@ -137,7 +137,7 @@ const socials = [
   { name: 'GitHub', url: 'https://github.com/Azz3m90', color: 'text-slate-800 dark:text-white' },
   { name: 'WhatsApp', url: 'https://wa.me/+963983847632', color: 'text-emerald-600' },
   { name: 'YouTube', url: 'https://www.youtube.com/@azzamazizali', color: 'text-red-600' },
-  { name: 'Facebook', url: 'https://www.facebook.com/azzam.ali.9484', color: 'text-blue-700' },
+  { name: 'Facebook', url: 'https://www.facebook.com/share/1DRNUw1GMQ/', color: 'text-blue-700' },
   { name: 'Stack Overflow', url: 'https://stackoverflow.com/users/10049474/azzam-ali', color: 'text-orange-500' },
 ]
 </script>

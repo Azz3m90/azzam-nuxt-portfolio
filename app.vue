@@ -40,7 +40,7 @@ useHead({
           'https://github.com/Azz3m90',
           'https://stackoverflow.com/users/10049474/azzam-ali',
           'https://www.youtube.com/@azzamazizali',
-          'https://www.facebook.com/azzam.ali.9484',
+          'https://www.facebook.com/share/1DRNUw1GMQ/',
         ],
         worksFor: { '@type': 'Organization', name: 'FastCaisse', url: 'https://fastcaisse.be' },
         address: { '@type': 'PostalAddress', addressLocality: 'Tartus', addressCountry: 'SY' },

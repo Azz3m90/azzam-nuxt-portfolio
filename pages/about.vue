@@ -13,6 +13,16 @@ useSeo({
 
 const experience = computed(() => [
   {
+    role: t('about.jobs.rsk.role'),
+    company: 'rsk-platform.com',
+    url: 'https://rsk-platform.com',
+    period: '06/2026 – Present',
+    location: t('about.jobs.rsk.location'),
+    description: t('about.jobs.rsk.description'),
+    achievements: (tm('about.jobs.rsk.achievements') as any[]).map(rt),
+    stack: ['Django', 'Python', 'Nuxt 3', 'Vue 3', 'PostgreSQL', 'Docker', 'Git'],
+  },
+  {
     role: t('about.jobs.astramind.role'),
     company: 'AstraMind',
     url: 'https://astramind.de',
