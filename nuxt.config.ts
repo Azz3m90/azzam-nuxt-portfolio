@@ -75,11 +75,6 @@ export default defineNuxtConfig({
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
-      script: [
-        {
-          innerHTML: `if(location.hostname==='coruscating-blini-0b4753.netlify.app'){location.replace('https://azzamazizali.sy'+location.pathname+location.search+location.hash)}`,
-        },
-      ],
       meta: [
         { name: 'theme-color', content: '#2563eb', media: '(prefers-color-scheme: light)' },
         { name: 'theme-color', content: '#0f172a', media: '(prefers-color-scheme: dark)' },
@@ -115,6 +110,11 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     turnstileSecret: process.env.TURNSTILE_SECRET_KEY || '',
+    smtpHost: process.env.SMTP_HOST || '',
+    smtpPort: process.env.SMTP_PORT || '465',
+    smtpUser: process.env.SMTP_USER || '',
+    smtpPass: process.env.SMTP_PASS || '',
+    contactTo: process.env.CONTACT_TO || 'projects@azzamazizali.sy',
     public: {
       turnstileSiteKey: process.env.NUXT_PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAACjhI98Fk0RqnlYp',
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://azzamazizali.sy',
@@ -124,6 +124,9 @@ export default defineNuxtConfig({
   },
 
   nitro: {
+    preset: 'node-server',
+    minify: true,
+    sourceMap: false,
     prerender: { routes: ['/sitemap.xml', '/sitemap_index.xml'] },
   },
 

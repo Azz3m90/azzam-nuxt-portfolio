@@ -1,6 +1,4 @@
-﻿<script setup lang="ts">
-import emailjs from '@emailjs/browser'
-
+<script setup lang="ts">
 const { t } = useI18n()
 const { success: toastSuccess, error: toastError } = useToast()
 const config = useRuntimeConfig()
@@ -57,8 +55,49 @@ const isValid = computed(() =>
 
 const status = ref<'idle' | 'sending' | 'success' | 'error'>('idle')
 const captchaError = ref(false)
+const attachmentError = ref('')
+const files = ref<File[]>([])
+const fileInput = ref<HTMLInputElement | null>(null)
 const turnstileWidgetId = ref<string | null>(null)
 const turnstileContainer = ref<HTMLElement | null>(null)
+
+const MAX_FILES = 5
+const MAX_FILE_BYTES = 5 * 1024 * 1024
+const ALLOWED_EXT = /\.(pdf|doc|docx|txt|zip|jpe?g|png|webp|gif)$/i
+
+const formatSize = (bytes: number) => {
+  if (bytes < 1024) return `${bytes} B`
+  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`
+}
+
+const onFilesSelected = (event: Event) => {
+  const input = event.target as HTMLInputElement
+  const selected = Array.from(input.files || [])
+  attachmentError.value = ''
+
+  const next = [...files.value]
+  for (const file of selected) {
+    if (next.length >= MAX_FILES) {
+      attachmentError.value = t('contact.form.attachmentsMax')
+      break
+    }
+    if (!ALLOWED_EXT.test(file.name) || file.size > MAX_FILE_BYTES) {
+      attachmentError.value = t('contact.form.attachmentsInvalid')
+      continue
+    }
+    if (next.some(f => f.name === file.name && f.size === file.size)) continue
+    next.push(file)
+  }
+
+  files.value = next
+  if (input) input.value = ''
+}
+
+const removeFile = (index: number) => {
+  files.value = files.value.filter((_, i) => i !== index)
+  attachmentError.value = ''
+}
 
 const getTurnstileTheme = () =>
   document.documentElement.classList.contains('dark') ? 'dark' : 'light'
@@ -97,33 +136,32 @@ const handleSubmit = async () => {
     return
   }
   captchaError.value = false
+  attachmentError.value = ''
   status.value = 'sending'
 
   try {
-    await Promise.all([
-      emailjs.send('service_ujqbs18', 'template_t6b94oj', {
-        to_email: 'Azzamazezali@gmail.com',
-        name: form.name,
-        email: form.email,
-        phone: form.phone || 'Not provided',
-        subject: form.subject || 'No subject',
-        message: form.message,
-        portfolio_url: 'https://azzamazizali.sy',
-        youtube_url: 'https://www.youtube.com/@azzamazizali',
-      }, 'XIjkv4D3fR2kaOGbt'),
-      emailjs.send('service_ujqbs18', 'template_980cf6f', {
-        to_email: form.email,
-        name: form.name,
-        sender_email: form.email,
-        portfolio_url: 'https://azzamazizali.sy',
-        youtube_url: 'https://www.youtube.com/@azzamazizali',
-      }, 'XIjkv4D3fR2kaOGbt'),
-    ])
+    const payload = new FormData()
+    payload.append('name', form.name)
+    payload.append('email', form.email)
+    payload.append('phone', form.phone || 'Not provided')
+    payload.append('subject', form.subject || 'No subject')
+    payload.append('message', form.message)
+    payload.append('turnstileToken', token)
+    for (const file of files.value) {
+      payload.append('attachments', file, file.name)
+    }
+
+    await $fetch('/api/contact', {
+      method: 'POST',
+      body: payload,
+    })
 
     status.value = 'success'
     toastSuccess(t('contact.form.success'))
     Object.assign(form, { name: '', email: '', phone: '', subject: '', message: '' })
     Object.assign(touched, { name: false, email: false, message: false })
+    files.value = []
+    if (fileInput.value) fileInput.value.value = ''
     if (turnstileWidgetId.value) turnstile.reset(turnstileWidgetId.value)
   } catch {
     status.value = 'error'
@@ -169,8 +207,8 @@ const socials = [
                 </div>
                 <div>
                   <p class="text-xs text-slate-500 dark:text-slate-400 font-medium uppercase tracking-wide mb-0.5">Email</p>
-                  <a href="mailto:Azzamazezali@gmail.com" class="text-slate-800 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm font-medium">
-                    Azzamazezali@gmail.com
+                  <a href="mailto:projects@azzamazizali.sy" class="text-slate-800 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors text-sm font-medium">
+                    projects@azzamazizali.sy
                   </a>
                 </div>
               </li>
@@ -319,6 +357,46 @@ const socials = [
                 ></textarea>
                 <p v-if="errors.message" id="error-message" role="alert" class="mt-1.5 text-xs text-red-500 dark:text-red-400">
                   {{ errors.message }}
+                </p>
+              </div>
+
+              <div>
+                <label for="contact-attachments" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">
+                  {{ t('contact.form.attachments') }}
+                </label>
+                <input
+                  id="contact-attachments"
+                  ref="fileInput"
+                  type="file"
+                  multiple
+                  accept=".pdf,.doc,.docx,.txt,.zip,.jpg,.jpeg,.png,.webp,.gif"
+                  class="block w-full text-sm text-slate-600 dark:text-slate-300 file:mr-4 file:rounded-lg file:border-0 file:bg-primary-600 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:file:bg-primary-500"
+                  @change="onFilesSelected"
+                >
+                <p class="mt-1.5 text-xs text-slate-500 dark:text-slate-400">
+                  {{ t('contact.form.attachmentsHint') }}
+                </p>
+                <ul v-if="files.length" class="mt-3 space-y-2">
+                  <li
+                    v-for="(file, index) in files"
+                    :key="`${file.name}-${file.size}-${index}`"
+                    class="flex items-center justify-between gap-3 rounded-lg border border-slate-200 dark:border-slate-700 px-3 py-2 text-sm"
+                  >
+                    <span class="truncate text-slate-700 dark:text-slate-200">
+                      {{ file.name }}
+                      <span class="text-slate-400">({{ formatSize(file.size) }})</span>
+                    </span>
+                    <button
+                      type="button"
+                      class="shrink-0 text-red-500 hover:text-red-400 text-xs font-semibold"
+                      @click="removeFile(index)"
+                    >
+                      {{ t('contact.form.attachmentsRemove') }}
+                    </button>
+                  </li>
+                </ul>
+                <p v-if="attachmentError" role="alert" class="mt-1.5 text-xs text-red-500 dark:text-red-400">
+                  {{ attachmentError }}
                 </p>
               </div>
 

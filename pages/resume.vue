@@ -99,7 +99,7 @@ const education = [
           <p class="text-xl text-primary-600 dark:text-primary-400 font-semibold mt-2">{{ t('resume.jobTitle') }}</p>
           <div class="flex flex-wrap gap-3 mt-4 text-sm text-slate-500 dark:text-slate-400">
             <span class="flex items-center gap-1">📍 Tartus, Syria (Remote)</span>
-            <span class="flex items-center gap-1">✉️ Azzamazezali@gmail.com</span>
+            <span class="flex items-center gap-1">✉️ projects@azzamazizali.sy</span>
             <span class="flex items-center gap-1">💬 <span dir="ltr">+963 983 847 632</span></span>
           </div>
         </div>

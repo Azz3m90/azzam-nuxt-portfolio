@@ -3,6 +3,7 @@
 .nuxt
 .data
 dist
+deploy/cpanel-dist
 
 # Node dependencies
 node_modules

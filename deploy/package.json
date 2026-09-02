@@ -1,0 +1,13 @@
+{
+  "name": "azzam-nuxt-portfolio",
+  "private": true,
+  "type": "module",
+  "main": "server.mjs",
+  "scripts": {
+    "start": "node server.mjs",
+    "postinstall": "npm --prefix .output/server install --omit=dev"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

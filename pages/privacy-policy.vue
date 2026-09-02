@@ -42,7 +42,7 @@ const lastUpdated = '2025-01-01'
       <ul>
         <li><strong>{{ t('privacyPolicy.name') }}:</strong> Azzam Aziz Ali</li>
         <li><strong>{{ t('privacyPolicy.website') }}:</strong> <a href="https://azzamazizali.sy" target="_blank" rel="noopener">azzamazizali.sy</a></li>
-        <li><strong>Email:</strong> <a href="mailto:Azzamazezali@gmail.com">Azzamazezali@gmail.com</a></li>
+        <li><strong>Email:</strong> <a href="mailto:projects@azzamazizali.sy">projects@azzamazizali.sy</a></li>
       </ul>
 
       <h2>{{ t('privacyPolicy.dataCollectedTitle') }}</h2>
@@ -106,10 +106,6 @@ const lastUpdated = '2025-01-01'
           <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">{{ t('privacyPolicy.googlePrivacy') }}</a>.
           <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">{{ t('privacyPolicy.gaOptOut') }}</a>.
         </li>
-        <li>
-          <strong>Netlify</strong> — {{ t('privacyPolicy.netlifyDesc') }}
-          <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener noreferrer">{{ t('privacyPolicy.netlifyPrivacy') }}</a>.
-        </li>
       </ul>
 
       <h2>{{ t('privacyPolicy.retentionTitle') }}</h2>
@@ -126,7 +122,7 @@ const lastUpdated = '2025-01-01'
         <li><strong>{{ t('privacyPolicy.rightObject') }}</strong></li>
         <li><strong>{{ t('privacyPolicy.rightWithdraw') }}</strong></li>
       </ul>
-      <p>{{ t('privacyPolicy.rightsContact') }} <a href="mailto:Azzamazezali@gmail.com">Azzamazezali@gmail.com</a>.</p>
+      <p>{{ t('privacyPolicy.rightsContact') }} <a href="mailto:projects@azzamazizali.sy">projects@azzamazizali.sy</a>.</p>
 
       <h2>{{ t('privacyPolicy.consentManageTitle') }}</h2>
       <p>{{ t('privacyPolicy.consentManageText') }}</p>
@@ -138,7 +134,7 @@ const lastUpdated = '2025-01-01'
       <p>{{ t('privacyPolicy.changesText') }}</p>
 
       <h2>{{ t('privacyPolicy.contactTitle') }}</h2>
-      <p>{{ t('privacyPolicy.contactText') }} <a href="mailto:Azzamazezali@gmail.com">Azzamazezali@gmail.com</a>.</p>
+      <p>{{ t('privacyPolicy.contactText') }} <a href="mailto:projects@azzamazizali.sy">projects@azzamazizali.sy</a>.</p>
     </div>
   </div>
 </template>

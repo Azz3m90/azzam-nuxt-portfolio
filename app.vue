@@ -1,4 +1,4 @@
-﻿<script setup lang="ts">
+<script setup lang="ts">
 const { locale } = useI18n()
 
 useHead({
@@ -32,7 +32,7 @@ useHead({
         image: 'https://azzamazizali.sy/images/Azzam.jpg',
         jobTitle: 'Senior Full Stack Developer & SEO Specialist',
         description: 'Senior Full Stack Developer with 10+ years building SaaS platforms using Laravel, React, Vue & Django. SEO Specialist achieving 75% organic traffic growth.',
-        email: 'Azzamazezali@gmail.com',
+        email: 'projects@azzamazizali.sy',
         telephone: '+963983847632',
         knowsAbout: ['Laravel', 'React', 'Vue.js', 'Nuxt', 'Django', 'TypeScript', 'SEO', 'SaaS Development'],
         sameAs: [
