@@ -11,7 +11,9 @@
     "start": "node server.mjs",
     "postinstall": "nuxt prepare",
     "typecheck": "nuxt typecheck",
-    "pack:cpanel": "node scripts/pack-cpanel.mjs"
+    "pack:cpanel": "node scripts/pack-cpanel.mjs",
+    "indexnow": "node scripts/submit-indexnow.mjs",
+    "optimize:images": "node scripts/optimize-images.mjs"
   },
   "engines": {
     "node": "^22.19.0 || ^24.11.0 || >=26.0.0"
@@ -35,7 +37,8 @@
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^25.5.0",
-    "@types/nodemailer": "^8.0.1"
+    "@types/nodemailer": "^8.0.1",
+    "sharp": "^0.35.4"
   },
   "optionalDependencies": {
     "@rolldown/binding-win32-x64-msvc": "^1.2.6"

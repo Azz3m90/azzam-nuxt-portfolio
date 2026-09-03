@@ -297,37 +297,73 @@
         "title": "Technical SEO Audit",
         "description": "Full crawl analysis, Core Web Vitals optimization, indexation issues, schema markup review, and internal linking strategy. I find what's hurting your rankings and fix it.",
         "price": "From $299",
-        "features": ["Screaming Frog crawl analysis", "Core Web Vitals (LCP, CLS, FID)", "Schema markup audit", "Redirect chain resolution", "Mobile usability"]
+        "features": [
+          "Screaming Frog crawl analysis",
+          "Core Web Vitals (LCP, CLS, FID)",
+          "Schema markup audit",
+          "Redirect chain resolution",
+          "Mobile usability"
+        ]
       },
       "speed": {
         "title": "Page Speed Optimization",
         "description": "I write the code myself. No handoff to another team. Reduce LCP, eliminate CLS, optimize TTFB, lazy-load assets, and implement modern image formats.",
         "price": "From $499",
-        "features": ["LCP under 2.5s guaranteed", "Image optimization (WebP/AVIF)", "Critical CSS extraction", "JavaScript code splitting", "Server-side caching setup"]
+        "features": [
+          "LCP under 2.5s guaranteed",
+          "Image optimization (WebP/AVIF)",
+          "Critical CSS extraction",
+          "JavaScript code splitting",
+          "Server-side caching setup"
+        ]
       },
       "onPage": {
         "title": "On-Page SEO & Content Strategy",
         "description": "Keyword research, search intent mapping, optimized content briefs, H1/H2 hierarchy, and semantic HTML implementation.",
         "price": "From $199",
-        "features": ["Keyword research & clustering", "Competitor gap analysis", "Content briefs", "Meta tag optimization", "Internal linking strategy"]
+        "features": [
+          "Keyword research & clustering",
+          "Competitor gap analysis",
+          "Content briefs",
+          "Meta tag optimization",
+          "Internal linking strategy"
+        ]
       },
       "international": {
         "title": "International & Multilingual SEO",
         "description": "Hreflang implementation, GBP optimization, multi-language URL structure, and country-specific targeting. Proven results for Arabic + European markets.",
         "price": "From $399",
-        "features": ["Hreflang setup & validation", "RTL (Arabic) SEO", "Country-level targeting", "GBP optimization", "Multilingual sitemap"]
+        "features": [
+          "Hreflang setup & validation",
+          "RTL (Arabic) SEO",
+          "Country-level targeting",
+          "GBP optimization",
+          "Multilingual sitemap"
+        ]
       },
       "analytics": {
         "title": "SEO Analytics & Reporting",
         "description": "GA4 setup, Search Console configuration, custom dashboards, and monthly reporting with actionable insights — not just vanity metrics.",
         "price": "From $149/mo",
-        "features": ["GA4 configuration", "Search Console setup", "Looker Studio dashboards", "Monthly ranking reports", "Conversion tracking"]
+        "features": [
+          "GA4 configuration",
+          "Search Console setup",
+          "Looker Studio dashboards",
+          "Monthly ranking reports",
+          "Conversion tracking"
+        ]
       },
       "full": {
         "title": "Full SEO Implementation",
         "description": "The full package: audit + implementation + monitoring. Best for businesses that want results without managing multiple agencies.",
         "price": "Custom Quote",
-        "features": ["Everything in all services", "Weekly check-ins", "Priority support", "A/B testing", "Quarterly strategy review"]
+        "features": [
+          "Everything in all services",
+          "Weekly check-ins",
+          "Priority support",
+          "A/B testing",
+          "Quarterly strategy review"
+        ]
       }
     },
     "provenTrack": {
@@ -339,10 +375,22 @@
     },
     "whyHire": {
       "title": "Why Hire a Developer-SEO?",
-      "faster": { "title": "Faster Implementation", "desc": "I write code. No waiting on developers to implement recommendations." },
-      "technical": { "title": "Technical Depth", "desc": "I can debug crawl issues, fix server configs, and optimize database queries." },
-      "data": { "title": "Data-Driven", "desc": "Every decision backed by GA4, Search Console, and crawl data." },
-      "direct": { "title": "Direct Communication", "desc": "No account managers. You talk directly to the person doing the work." }
+      "faster": {
+        "title": "Faster Implementation",
+        "desc": "I write code. No waiting on developers to implement recommendations."
+      },
+      "technical": {
+        "title": "Technical Depth",
+        "desc": "I can debug crawl issues, fix server configs, and optimize database queries."
+      },
+      "data": {
+        "title": "Data-Driven",
+        "desc": "Every decision backed by GA4, Search Console, and crawl data."
+      },
+      "direct": {
+        "title": "Direct Communication",
+        "desc": "No account managers. You talk directly to the person doing the work."
+      }
     },
     "faqTitle": "Frequently Asked Questions",
     "faq": {
@@ -494,8 +542,8 @@
     "learnMore": "Privacy Policy"
   },
   "privacyPolicy": {
-    "metaTitle": "Privacy Policy | Azzam Aziz Ali",
-    "metaDescription": "Privacy Policy for azzamazizali.sy — how we collect, use, and protect your data in compliance with GDPR.",
+    "metaTitle": "Privacy Policy — Azzam Aziz Ali Portfolio",
+    "metaDescription": "Privacy Policy for azzamazizali.sy — how personal data is collected, used, stored, and protected in line with GDPR. Contact and rights explained clearly.",
     "title": "Privacy Policy",
     "lastUpdated": "Last updated",
     "backHome": "Back to Home",
@@ -557,40 +605,40 @@
   },
   "meta": {
     "home": {
-      "title": "Azzam Aziz Ali | Full Stack Developer & SEO Specialist",
-      "description": "10+ years building SaaS with Laravel, React, Vue & Django. FastCaisse: 34% weekly user growth, 75% organic traffic increase. Available for projects & consulting."
+      "title": "Azzam Aziz Ali — Full Stack Developer & SEO Specialist",
+      "description": "10+ years building SaaS with Laravel, React, Vue & Django. FastCaisse: 34% weekly growth and 75% organic traffic lift. Available for projects and consulting."
     },
     "about": {
-      "title": "Full Stack Developer & SEO Expert | Azzam Aziz Ali",
-      "description": "Senior Full Stack Developer with 10+ years experience. SEO Specialist who grew organic traffic 75% for a multi-country SaaS product."
+      "title": "Full Stack Developer & SEO Expert — Azzam Aziz Ali",
+      "description": "Senior Full Stack Developer with 10+ years experience. SEO specialist who grew organic traffic 75% for a multi-country SaaS — Laravel, React, Vue, Django."
     },
     "projects": {
-      "title": "Full Stack Projects & Portfolio | Azzam Aziz Ali",
-      "description": "22+ delivered projects: SaaS, restaurant ordering, e-commerce, pharmacy systems across Belgium, Germany, and the Middle East."
+      "title": "Full Stack Projects & Portfolio — Azzam Aziz Ali",
+      "description": "22+ delivered projects: SaaS platforms, restaurant ordering, e-commerce, and pharmacy systems across Belgium, Germany, and the Middle East markets."
     },
     "caseStudies": {
-      "title": "FastCaisse SaaS Case Study | Azzam Aziz Ali",
-      "description": "FastCaisse: 34% weekly user growth, 75% organic search increase. Full case study on building and scaling a multi-restaurant SaaS platform."
+      "title": "SaaS Case Studies — Azzam Aziz Ali Portfolio",
+      "description": "FastCaisse case study: 34% weekly user growth and 75% organic search increase. Deep dive into building and scaling a multi-restaurant SaaS platform."
     },
     "caseStudyFastcaisse": {
-      "title": "FastCaisse SaaS Case Study | 34% User Growth & 75% Organic Traffic – Azzam Aziz Ali",
-      "description": "How I built FastCaisse — a multi-restaurant SaaS ordering platform — achieving 34.6% weekly user growth and 75% organic traffic increase through Laravel, Vue 3, and technical SEO."
+      "title": "FastCaisse Case Study — Growth & SEO Results",
+      "description": "How FastCaisse reached 34.6% weekly user growth and 75% more organic traffic with Laravel, Vue 3, and technical SEO across multiple countries."
     },
     "seoServices": {
-      "title": "Technical SEO Services | Azzam Aziz Ali",
-      "description": "Technical SEO audits, Core Web Vitals optimization, and content strategy from a certified SEO specialist with full-stack development skills."
+      "title": "Technical SEO Services by Azzam Aziz Ali",
+      "description": "Technical SEO audits, Core Web Vitals fixes, and content strategy from a certified SEO specialist who also ships full-stack product code."
     },
     "contact": {
-      "title": "Hire a Full Stack Developer & SEO Expert | Azzam Aziz Ali",
-      "description": "Available for full stack development, SEO consulting, and technical co-founder roles. Response within 24 hours."
+      "title": "Hire Full Stack Developer & SEO Expert — Azzam",
+      "description": "Available for full-stack development, technical SEO consulting, and co-founder roles. Laravel, React, Vue, Django — usually replies within 24 hours."
     },
     "resume": {
-      "title": "Full Stack Developer Resume | Azzam Aziz Ali",
-      "description": "10+ years full stack development, Laravel, React, Vue, Django, technical SEO. 20+ projects, 40+ satisfied clients."
+      "title": "Full Stack Developer Resume — Azzam Aziz Ali",
+      "description": "10+ years full-stack development with Laravel, React, Vue, Django, and technical SEO. 20+ shipped projects and 40+ satisfied clients worldwide."
     },
     "blog": {
-      "title": "Full Stack & SEO Blog | Azzam Aziz Ali",
-      "description": "Technical articles on Laravel, React, Vue, Django, technical SEO, and SaaS development from a senior full stack developer."
+      "title": "Full Stack & Technical SEO Blog — Azzam Ali",
+      "description": "Practical articles on Laravel, React, Vue, Django, technical SEO, and SaaS engineering from a senior full-stack developer and SEO specialist."
     }
   }
 }

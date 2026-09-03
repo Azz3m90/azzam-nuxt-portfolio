@@ -1,0 +1,22 @@
+# Azzam Aziz Ali — Full Stack Developer & SEO Specialist
+
+> Senior full-stack engineer (Laravel, React, Vue/Nuxt, Django) and technical SEO specialist.
+> Portfolio, case studies, and services: https://azzamazizali.sy
+
+## Primary pages
+- [Home](https://azzamazizali.sy/): Profile, skills, featured work
+- [About](https://azzamazizali.sy/about): Background and experience
+- [Projects](https://azzamazizali.sy/projects): 22+ shipped products
+- [FastCaisse case study](https://azzamazizali.sy/case-studies/fastcaisse): 34% weekly growth, 75% organic traffic lift
+- [SEO services](https://azzamazizali.sy/seo-services): Technical SEO audits, CWV, i18n SEO
+- [Resume](https://azzamazizali.sy/resume): CV and certifications
+- [Contact](https://azzamazizali.sy/contact): Hire / consulting
+- [Blog](https://azzamazizali.sy/blog): Engineering and SEO notes
+
+## Arabic
+- [العربية](https://azzamazizali.sy/ar/): Arabic locale (RTL)
+
+## Contact
+- Email: projects@azzamazizali.sy
+- LinkedIn: https://www.linkedin.com/in/azzamazizali/
+- GitHub: https://github.com/Azz3m90

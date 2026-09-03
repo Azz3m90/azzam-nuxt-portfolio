@@ -18,21 +18,51 @@ const AUTHOR_NAME = 'Azzam Aziz Ali'
 const TWITTER_HANDLE = '@azzamazizali'
 const CANONICAL_DOMAIN = 'https://azzamazizali.sy'
 
+/** Keep SERP titles in the ~50–60 char sweet spot without cutting mid-word awkwardly. */
+function normalizeTitle(raw: string): string {
+  const title = raw.replace(/\s+/g, ' ').trim()
+  if (title.length <= 60) return title
+  const cut = title.slice(0, 57)
+  const lastSpace = cut.lastIndexOf(' ')
+  return `${(lastSpace > 40 ? cut.slice(0, lastSpace) : cut).trimEnd()}…`
+}
+
+/** Cap meta descriptions at ~160 chars (Screaming Frog / GSC). Callers supply 150+ where possible. */
+function normalizeDescription(raw: string): string {
+  const text = raw.replace(/\s+/g, ' ').trim()
+  if (text.length <= 160) return text
+  const cut = text.slice(0, 157)
+  const lastSpace = cut.lastIndexOf(' ')
+  return `${(lastSpace > 120 ? cut.slice(0, lastSpace) : cut).trimEnd()}…`
+}
+
+function toHttpsAbsolute(url: string): string {
+  if (!url) return CANONICAL_DOMAIN
+  if (url.startsWith('https://')) return url
+  if (url.startsWith('http://')) return url.replace(/^http:\/\//i, 'https://')
+  if (url.startsWith('/')) return `${CANONICAL_DOMAIN}${url}`
+  return url
+}
+
 export const useSeo = (options: SeoOptions = {}) => {
-  const config = useRuntimeConfig()
   const route = useRoute()
   const { locale } = useI18n()
 
-  const siteUrl = config.public.siteUrl as string
-  const fullUrl = `${CANONICAL_DOMAIN}${route.path}`
+  const fullUrl = toHttpsAbsolute(`${CANONICAL_DOMAIN}${route.path === '/' ? '/' : route.path.replace(/\/$/, '')}`)
   const defaultImage = `${CANONICAL_DOMAIN}/images/Azzam.jpg`
 
-  const title = options.title ?? `${AUTHOR_NAME} | Full Stack Developer & SEO Specialist`
-  const description = options.description ?? 'Senior Full Stack Developer with 10+ years building SaaS platforms using Laravel, React, Vue & Django. SEO Specialist achieving 75% organic traffic growth.'
-  const image = options.image ?? defaultImage
+  const title = normalizeTitle(options.title ?? `${AUTHOR_NAME} | Full Stack Developer & SEO Specialist`)
+  const description = normalizeDescription(
+    options.description
+      ?? 'Senior Full Stack Developer with 10+ years building SaaS platforms using Laravel, React, Vue & Django. SEO Specialist achieving 75% organic traffic growth.',
+  )
+  const image = toHttpsAbsolute(options.image ?? defaultImage)
   const imageAlt = options.imageAlt ?? `${AUTHOR_NAME} — Senior Full Stack Developer & SEO Specialist`
   const ogLocale = locale.value === 'ar' ? 'ar_SA' : 'en_US'
   const alternateLocale = locale.value === 'ar' ? 'en_US' : 'ar_SA'
+
+  // titleTemplate '%s' prevents Unhead treating "A | B" as title+template and dropping the suffix
+  useHead({ titleTemplate: '%s' })
 
   useSeoMeta({
     title,
@@ -59,7 +89,7 @@ export const useSeo = (options: SeoOptions = {}) => {
     twitterSite: TWITTER_HANDLE,
     twitterCreator: TWITTER_HANDLE,
     robots: options.noIndex
-      ? 'noindex, nofollow'
+      ? 'noindex, follow'
       : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
     ...(options.type === 'article' && options.article
       ? {
@@ -80,21 +110,21 @@ export const useSeo = (options: SeoOptions = {}) => {
     inLanguage: locale.value === 'ar' ? 'ar-SA' : 'en-US',
     isPartOf: {
       '@type': 'WebSite',
-      '@id': `${siteUrl}/#website`,
-      url: siteUrl,
+      '@id': `${CANONICAL_DOMAIN}/#website`,
+      url: CANONICAL_DOMAIN,
       name: SITE_NAME,
       description: 'Portfolio of Azzam Aziz Ali — Senior Full Stack Developer & SEO Specialist',
       publisher: {
         '@type': 'Person',
-        '@id': `${siteUrl}/#person`,
+        '@id': `${CANONICAL_DOMAIN}/#person`,
         name: AUTHOR_NAME,
       },
     },
     author: {
       '@type': 'Person',
-      '@id': `${siteUrl}/#person`,
+      '@id': `${CANONICAL_DOMAIN}/#person`,
       name: AUTHOR_NAME,
-      url: siteUrl,
+      url: CANONICAL_DOMAIN,
     },
     image: {
       '@type': 'ImageObject',
@@ -117,41 +147,22 @@ export const useSeo = (options: SeoOptions = {}) => {
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
+          { '@type': 'ListItem', position: 1, name: 'Home', item: CANONICAL_DOMAIN },
           ...options.breadcrumb.map((crumb, i) => ({
             '@type': 'ListItem',
             position: i + 2,
             name: crumb.name,
-            item: crumb.url,
+            item: toHttpsAbsolute(crumb.url),
           })),
         ],
       }),
     })
   }
 
-  const enPath = route.path.replace(/^\/ar/, '') || '/'
-  const arPath = `/ar${enPath === '/' ? '' : enPath}`
-
+  // Canonical only — hreflang comes from useLocaleHead in app.vue (reciprocal + self-ref)
   useHead({
     htmlAttrs: { lang: locale.value, dir: locale.value === 'ar' ? 'rtl' : 'ltr' },
-    link: [
-      { rel: 'canonical', href: fullUrl },
-      {
-        rel: 'alternate',
-        hreflang: 'en',
-        href: `${siteUrl}${enPath}`,
-      },
-      {
-        rel: 'alternate',
-        hreflang: 'ar',
-        href: `${siteUrl}${arPath}`,
-      },
-      {
-        rel: 'alternate',
-        hreflang: 'x-default',
-        href: `${siteUrl}${enPath}`,
-      },
-    ],
+    link: [{ rel: 'canonical', href: fullUrl }],
     script: scripts,
   })
 }

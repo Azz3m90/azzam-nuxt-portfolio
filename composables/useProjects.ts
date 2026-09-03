@@ -127,7 +127,7 @@ export const useProjects = () => {
       title: 'FastCaisse Ordering Platform',
       titleAr: 'منصة طلب FastCaisse',
       category: 'saas',
-      image: '/images/projects/ordering-platform.png',
+      image: '/images/projects/ordering-platform.jpg',
       url: 'https://stores-fastcaisse.be/en',
       date: '2026-01',
       dateLabel: 'January 2026',

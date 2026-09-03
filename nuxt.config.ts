@@ -1,3 +1,15 @@
+const SITE_URL = process.env.NUXT_PUBLIC_SITE_URL || 'https://azzamazizali.sy'
+const TODAY = new Date().toISOString().split('T')[0]
+const PROJECT_SLUGS = [
+  'rsk-platform', 'az-containers-belgium', 'fastcaisse-ordering-platform', 'fastcaisse-kiosk',
+  'lindenberg-apotheke', 'astramind', 'emtethal-landing-page', 'fastcaisse-marketing-site',
+  'little-lemon-booking', 'il-moro-group', 'fastcaisse-online-ordering', 'gelato-naturale',
+  'seetaha-award-debugger', 'seetah-scc', 'matthias-and-sea', 'geco-consulting',
+  'hexabitz-code-editor', 'fastcaisse-pos-system', 'hexabitz-ide-system', 'hexabitz',
+  'caresine-products', 'opinion-mining-system', 'opinion-mining-youtube', 'ecommerce-jackets',
+  'university-indexer',
+] as const
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-01-01',
   devtools: { enabled: false },
@@ -13,6 +25,12 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap',
   ],
 
+  // Required by @nuxtjs/sitemap + hreflang absolute URLs
+  site: {
+    url: SITE_URL,
+    name: 'Azzam Aziz Ali Portfolio',
+  },
+
   colorMode: {
     classSuffix: '',
     preference: 'dark',
@@ -21,6 +39,7 @@ export default defineNuxtConfig({
   },
 
   i18n: {
+    baseUrl: SITE_URL,
     locales: [
       { code: 'en', language: 'en-US', name: 'English', dir: 'ltr', file: 'en.json' },
       { code: 'ar', language: 'ar-SA', name: 'العربية', dir: 'rtl', file: 'ar.json' },
@@ -32,7 +51,7 @@ export default defineNuxtConfig({
   },
 
   image: {
-    quality: 85,
+    quality: 80,
     formats: ['webp', 'avif'],
     screens: { xs: 320, sm: 640, md: 768, lg: 1024, xl: 1280, xxl: 1536 },
     provider: 'none',
@@ -47,28 +66,38 @@ export default defineNuxtConfig({
     },
   },
 
+  // Privacy is noindex — keep it out of the sitemap. App sources + dynamic projects cover indexable URLs.
+  // With i18n, @nuxtjs/sitemap emits a sitemap index + per-locale sitemaps (with reciprocal hreflang).
   sitemap: {
     xsl: false,
+    autoLastmod: true,
+    exclude: [
+      '/privacy-policy',
+      '/ar/privacy-policy',
+    ],
     defaults: {
       changefreq: 'monthly' as const,
       priority: 0.8,
-      lastmod: new Date().toISOString().split('T')[0],
+      lastmod: TODAY,
     },
-    urls: [
-      { loc: '/', priority: 1.0, changefreq: 'weekly' as const, lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/about', priority: 0.9, changefreq: 'monthly' as const, lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/projects', priority: 0.9, changefreq: 'weekly' as const, lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/case-studies', priority: 0.8, changefreq: 'monthly' as const, lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/case-studies/fastcaisse', priority: 0.8, changefreq: 'monthly' as const, lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/seo-services', priority: 0.9, changefreq: 'monthly' as const, lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/resume', priority: 0.8, changefreq: 'monthly' as const, lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/blog', priority: 0.8, changefreq: 'daily' as const, lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/contact', priority: 0.8, changefreq: 'monthly' as const, lastmod: new Date().toISOString().split('T')[0] },
-      { loc: '/privacy-policy', priority: 0.3, changefreq: 'yearly' as const, lastmod: new Date().toISOString().split('T')[0] },
-      ...['rsk-platform', 'az-containers-belgium', 'fastcaisse-ordering-platform', 'fastcaisse-kiosk', 'lindenberg-apotheke', 'astramind', 'emtethal-landing-page', 'fastcaisse-marketing-site', 'little-lemon-booking', 'il-moro-group', 'fastcaisse-online-ordering', 'gelato-naturale', 'seetaha-award-debugger', 'seetah-scc', 'matthias-and-sea', 'geco-consulting', 'hexabitz-code-editor', 'fastcaisse-pos-system', 'hexabitz-ide-system', 'hexabitz', 'caresine-products', 'opinion-mining-system', 'opinion-mining-youtube', 'ecommerce-jackets', 'university-indexer'].map(slug => ({
-        loc: `/projects/${slug}`, priority: 0.7 as const, changefreq: 'monthly' as const, lastmod: new Date().toISOString().split('T')[0],
-      })),
-    ],
+    urls: PROJECT_SLUGS.map(slug => ({
+      loc: `/projects/${slug}`,
+      priority: 0.7 as const,
+      changefreq: 'monthly' as const,
+      lastmod: TODAY,
+    })),
+  },
+
+  routeRules: {
+    '/privacy-policy': { robots: 'noindex, follow' },
+    '/ar/privacy-policy': { robots: 'noindex, follow' },
+    '/**': {
+      headers: {
+        'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
+        'X-Content-Type-Options': 'nosniff',
+        'Referrer-Policy': 'strict-origin-when-cross-origin',
+      },
+    },
   },
 
   app: {
@@ -115,11 +144,13 @@ export default defineNuxtConfig({
     smtpUser: process.env.SMTP_USER || '',
     smtpPass: process.env.SMTP_PASS || '',
     contactTo: process.env.CONTACT_TO || 'projects@azzamazizali.sy',
+    indexNowKey: process.env.INDEXNOW_KEY || 'a7f3c9e2b8d14f6a9c0e5b2d8f1a4c7e',
     public: {
       turnstileSiteKey: process.env.NUXT_PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAACjhI98Fk0RqnlYp',
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://azzamazizali.sy',
+      siteUrl: SITE_URL,
       gaId: process.env.NUXT_PUBLIC_GA_ID || '',
       gscVerification: process.env.NUXT_PUBLIC_GSC_VERIFICATION || '',
+      indexNowKey: process.env.INDEXNOW_KEY || 'a7f3c9e2b8d14f6a9c0e5b2d8f1a4c7e',
     },
   },
 
@@ -127,7 +158,8 @@ export default defineNuxtConfig({
     preset: 'node-server',
     minify: true,
     sourceMap: false,
-    prerender: { routes: ['/sitemap.xml', '/sitemap_index.xml'] },
+    compressPublicAssets: true,
+    prerender: { routes: ['/sitemap.xml'] },
   },
 
   typescript: { strict: true, shim: false },

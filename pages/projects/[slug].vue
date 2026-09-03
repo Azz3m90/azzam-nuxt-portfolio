@@ -19,14 +19,33 @@ const role = computed(() => isAr.value && project.roleAr ? project.roleAr : (pro
 const features = computed(() => isAr.value && project.featuresAr ? project.featuresAr : (project.features ?? []))
 const challenges = computed(() => isAr.value && project.challengesAr ? project.challengesAr : (project.challenges ?? []))
 
+const seoDescription = computed(() => {
+  const primary = longDesc.value || desc.value || title.value
+  const tech = project.technologies?.slice(0, 4).join(', ')
+  const suffix = tech
+    ? (isAr.value ? ` تقنيات: ${tech}.` : ` Built with ${tech}.`)
+    : (isAr.value ? ' مشروع Full Stack من عزّام عزيز علي.' : ' Full-stack case project by Azzam Aziz Ali.')
+  return `${primary}${primary.endsWith('.') ? '' : '.'}${suffix}`
+})
+
 useSeo({
-  title: `${title.value} | Azzam Aziz Ali`,
-  description: desc.value || title.value,
+  title: isAr.value
+    ? `${title.value} — مشروع Full Stack — عزّام عزيز علي`
+    : `${title.value} — Full Stack Project — Azzam Aziz Ali`,
+  description: seoDescription.value,
   image: `https://azzamazizali.sy${project.image}`,
   imageAlt: `${title.value} — Project by Azzam Aziz Ali`,
   breadcrumb: [
-    { name: isAr.value ? 'المشاريع' : 'Projects', url: 'https://azzamazizali.sy/projects' },
-    { name: title.value, url: `https://azzamazizali.sy/projects/${project.slug}` },
+    {
+      name: isAr.value ? 'المشاريع' : 'Projects',
+      url: isAr.value ? 'https://azzamazizali.sy/ar/projects' : 'https://azzamazizali.sy/projects',
+    },
+    {
+      name: title.value,
+      url: isAr.value
+        ? `https://azzamazizali.sy/ar/projects/${project.slug}`
+        : `https://azzamazizali.sy/projects/${project.slug}`,
+    },
   ],
 })
 

@@ -1,11 +1,21 @@
 <script setup lang="ts">
 const { locale } = useI18n()
 
-useHead({
+// Reciprocal hreflang + self-refs from @nuxtjs/i18n; pages set their own canonical via useSeo
+const localeHead = useLocaleHead({ addSeoAttributes: true })
+
+useHead(computed(() => ({
+  titleTemplate: '%s',
   htmlAttrs: {
-    lang: locale,
-    dir: computed(() => locale.value === 'ar' ? 'rtl' : 'ltr'),
+    lang: locale.value,
+    dir: locale.value === 'ar' ? 'rtl' : 'ltr',
+    ...(localeHead.value.htmlAttrs || {}),
   },
+  link: (localeHead.value.link ?? []).filter((l: { rel?: string }) => l.rel !== 'canonical'),
+  meta: localeHead.value.meta,
+})))
+
+useHead({
   script: [
     {
       type: 'application/ld+json',

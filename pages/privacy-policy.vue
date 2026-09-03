@@ -2,12 +2,11 @@
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
 
-useHead({
+// Intentionally noindex — also excluded from sitemap via nuxt.config
+useSeo({
   title: t('privacyPolicy.metaTitle'),
-  meta: [
-    { name: 'description', content: t('privacyPolicy.metaDescription') },
-    { name: 'robots', content: 'noindex, follow' },
-  ],
+  description: t('privacyPolicy.metaDescription'),
+  noIndex: true,
 })
 
 const lastUpdated = '2025-01-01'

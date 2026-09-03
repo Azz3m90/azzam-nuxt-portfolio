@@ -9,6 +9,10 @@ defineProps<{
   }
 }>()
 
+useHead({
+  meta: [{ name: 'robots', content: 'noindex, follow' }],
+})
+
 const handleError = () => clearError({ redirect: localePath('/') })
 </script>
 

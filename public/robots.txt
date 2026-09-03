@@ -6,11 +6,27 @@ Disallow: /cdn-cgi/
 
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 1
+
+# AI / answer-engine crawlers (citation & discoverability)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
 
 Sitemap: https://azzamazizali.sy/sitemap.xml
-Sitemap: https://azzamazizali.sy/sitemap_index.xml
