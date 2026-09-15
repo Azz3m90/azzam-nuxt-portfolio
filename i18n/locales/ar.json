@@ -19,7 +19,8 @@
     "cta": "استعرض أعمالي",
     "ctaSecondary": "احجز استشارة",
     "availableForWork": "متاح لمشاريع جديدة",
-    "scrollDown": "مرر للأسفل"
+    "scrollDown": "مرر للأسفل",
+    "globeLabel": "المهارات والمشاريع المميزة"
   },
   "stats": {
     "experience": "سنوات خبرة",

@@ -19,7 +19,8 @@
     "cta": "View My Work",
     "ctaSecondary": "Book a Consultation",
     "availableForWork": "Available for new projects",
-    "scrollDown": "Scroll Down"
+    "scrollDown": "Scroll Down",
+    "globeLabel": "Skills and featured projects"
   },
   "stats": {
     "experience": "Years of Experience",

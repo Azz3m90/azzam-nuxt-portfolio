@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { GlobeItem } from '~/types/globe'
+
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
 const { featuredProjects } = useProjects()
@@ -30,6 +32,44 @@ const skillGroups = computed(() => [
   { key: 'databases', label: t('skills.databases'), items: ['MySQL', 'PostgreSQL', 'Redis', 'Firebase', 'SQLite'] },
   { key: 'tools', label: t('skills.tools'), items: ['Git', 'NPM', 'Webpack', 'VS Code', 'ClickUp', 'Slack', 'DBeaver', 'FileZilla', 'Android Studio', 'Composer', 'WordPress', 'PrestaShop'] },
 ])
+
+/* --- Hero globe: skills + featured projects orbiting the portrait --------- */
+const globeSkills = [
+  'Laravel', 'Django', 'Vue 3', 'Nuxt', 'React', 'Next.js', 'TypeScript', 'Python',
+  'PHP', 'Go', 'Node.js', 'Tailwind', 'PostgreSQL', 'MySQL', 'Redis', 'Docker',
+  'REST API', 'Technical SEO', 'Core Web Vitals', 'Schema Markup',
+]
+
+/** Compact names for the globe — full titles are too long to read while spinning. */
+const projectShortLabels: Record<string, string> = {
+  'rsk-platform': 'RSK Platform',
+  'fastcaisse-ordering-platform': 'FastCaisse',
+  'fastcaisse-kiosk': 'FC Kiosk',
+  'fastcaisse-marketing-site': 'FC Marketing',
+  'hexabitz-code-editor': 'Hexabitz IDE',
+  'caresine-products': 'CareSine',
+}
+
+const globeItems = computed<GlobeItem[]>(() => {
+  const skills: GlobeItem[] = globeSkills.map(label => ({ label, kind: 'skill' }))
+  const projects: GlobeItem[] = featuredProjects.value.slice(0, 6).map(p => ({
+    label: projectShortLabels[p.slug] || p.title.split(' ')[0]!,
+    kind: 'project',
+    to: localePath(`/projects/${p.slug}`),
+  }))
+
+  // Interleave so project chips are spread over the sphere instead of clustered
+  // at one pole (the Fibonacci lattice places points in index order).
+  const total = skills.length + projects.length
+  const out: GlobeItem[] = []
+  let si = 0
+  let pi = 0
+  for (let i = 0; i < total; i++) {
+    if (pi < projects.length && Math.floor((i * projects.length) / total) >= pi) out.push(projects[pi++]!)
+    else out.push(skills[si++]!)
+  }
+  return out
+})
 
 const testimonials = computed(() => [
   {
@@ -104,35 +144,19 @@ onMounted(() => {
           </div>
 
           <div :class="['transition-all duration-700 delay-200 flex justify-center', isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8']">
-            <div class="relative">
-              <div class="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-accent/20 rounded-3xl blur-2xl scale-110"></div>
-              <div class="relative w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 rounded-3xl overflow-hidden border-4 border-white/10 shadow-2xl">
-                <NuxtImg
-                  src="/images/Azzam.jpg"
-                  alt="Azzam Aziz Ali - Senior Full Stack Developer & SEO Specialist"
-                  class="w-full h-full object-cover"
-                  loading="eager"
-                  width="400"
-                  height="400"
-                />
-              </div>
-
-              <div class="absolute -bottom-4 -left-4 card px-3 py-2 sm:px-4 sm:py-3 shadow-xl hidden sm:block">
-                <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-xl bg-primary-600 flex items-center justify-center text-white text-sm font-bold">FC</div>
-                  <div>
-                    <p class="text-xs font-bold text-slate-800 dark:text-white">FastCaisse SaaS</p>
-                    <p class="text-xs text-emerald-600 dark:text-emerald-400">+34% weekly users ↑</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="absolute -top-4 -right-4 card px-3 py-2 sm:px-4 sm:py-3 shadow-xl hidden sm:block">
-                <div class="text-center">
-                  <p class="text-2xl font-extrabold gradient-text">75%</p>
-                  <p class="text-xs text-slate-500 dark:text-slate-400">Organic traffic ↑</p>
-                </div>
-              </div>
+            <div class="relative w-full max-w-[300px] sm:max-w-[380px] lg:max-w-[420px] xl:max-w-[480px]">
+              <HeroGlobe :items="globeItems" :label="t('hero.globeLabel')">
+                <template #core>
+                  <NuxtImg
+                    src="/images/Azzam.jpg"
+                    alt="Azzam Aziz Ali - Senior Full Stack Developer & SEO Specialist"
+                    class="w-full h-full object-cover"
+                    loading="eager"
+                    width="400"
+                    height="400"
+                  />
+                </template>
+              </HeroGlobe>
             </div>
           </div>
         </div>
