@@ -1,14 +1,15 @@
+import { readFileSync, readdirSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
+
 const SITE_URL = process.env.NUXT_PUBLIC_SITE_URL || 'https://azzamazizali.sy'
-const TODAY = new Date().toISOString().split('T')[0]
-const PROJECT_SLUGS = [
-  'rsk-platform', 'az-containers-belgium', 'fastcaisse-ordering-platform', 'fastcaisse-kiosk',
-  'lindenberg-apotheke', 'astramind', 'emtethal-landing-page', 'fastcaisse-marketing-site',
-  'little-lemon-booking', 'il-moro-group', 'fastcaisse-online-ordering', 'gelato-naturale',
-  'seetaha-award-debugger', 'seetah-scc', 'matthias-and-sea', 'geco-consulting',
-  'hexabitz-code-editor', 'fastcaisse-pos-system', 'hexabitz-ide-system', 'hexabitz',
-  'caresine-products', 'opinion-mining-system', 'opinion-mining-youtube', 'ecommerce-jackets',
-  'university-indexer',
-] as const
+// Sitemap sources are read from the content itself, so a new project or post can't be forgotten.
+const PROJECT_SLUGS = [...readFileSync(fileURLToPath(new URL('./composables/useProjects.ts', import.meta.url)), 'utf8')
+  .matchAll(/^\s+slug: '([^']+)',\r?$/gm)].map(m => m[1]!)
+const BLOG_DIR = fileURLToPath(new URL('./content/blog', import.meta.url))
+const BLOG_POSTS = readdirSync(BLOG_DIR).filter(f => f.endsWith('.md')).map(file => ({
+  slug: file.replace(/\.md$/, ''),
+  date: readFileSync(`${BLOG_DIR}/${file}`, 'utf8').match(/^date:\s*["']?(\d{4}-\d{2}-\d{2})/m)?.[1],
+}))
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-01-01',
@@ -52,7 +53,7 @@ export default defineNuxtConfig({
 
   image: {
     quality: 80,
-    formats: ['webp', 'avif'],
+    format: ['webp', 'avif'],
     screens: { xs: 320, sm: 640, md: 768, lg: 1024, xl: 1280, xxl: 1536 },
     provider: 'none',
   },
@@ -66,8 +67,10 @@ export default defineNuxtConfig({
     },
   },
 
-  // Privacy is noindex — keep it out of the sitemap. App sources + dynamic projects cover indexable URLs.
-  // With i18n, @nuxtjs/sitemap emits a sitemap index + per-locale sitemaps (with reciprocal hreflang).
+  // Privacy is noindex — keep it out of the sitemap.
+  // With i18n, @nuxtjs/sitemap emits a sitemap index + per-locale sitemaps (with reciprocal hreflang);
+  // _i18nTransform gives every project/post its /ar/ twin. Only real dates go into lastmod —
+  // a build-date lastmod on every URL teaches Google to ignore the field.
   sitemap: {
     xsl: false,
     autoLastmod: true,
@@ -75,22 +78,21 @@ export default defineNuxtConfig({
       '/privacy-policy',
       '/ar/privacy-policy',
     ],
-    defaults: {
-      changefreq: 'monthly' as const,
-      priority: 0.8,
-      lastmod: TODAY,
-    },
-    urls: PROJECT_SLUGS.map(slug => ({
-      loc: `/projects/${slug}`,
-      priority: 0.7 as const,
-      changefreq: 'monthly' as const,
-      lastmod: TODAY,
-    })),
+    urls: [
+      ...PROJECT_SLUGS.map(slug => ({ loc: `/projects/${slug}`, _i18nTransform: true })),
+      ...BLOG_POSTS.map(post => ({
+        loc: `/blog/${post.slug}`,
+        _i18nTransform: true,
+        ...(post.date ? { lastmod: post.date } : {}),
+      })),
+    ],
   },
 
   routeRules: {
-    '/privacy-policy': { robots: 'noindex, follow' },
-    '/ar/privacy-policy': { robots: 'noindex, follow' },
+    // Static images change rarely; let browsers and CDNs reuse them (Lighthouse "efficient cache policy").
+    '/images/**': { headers: { 'Cache-Control': 'public, max-age=2592000, stale-while-revalidate=86400' } },
+    '/privacy-policy': { headers: { 'X-Robots-Tag': 'noindex, follow' } },
+    '/ar/privacy-policy': { headers: { 'X-Robots-Tag': 'noindex, follow' } },
     '/**': {
       headers: {
         'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
@@ -113,14 +115,15 @@ export default defineNuxtConfig({
         { name: 'apple-mobile-web-app-capable', content: 'yes' },
         { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
         { name: 'apple-mobile-web-app-title', content: 'Azzam Ali' },
-        { name: 'google-site-verification', content: process.env.NUXT_PUBLIC_GSC_VERIFICATION || '' },
+        ...(process.env.NUXT_PUBLIC_GSC_VERIFICATION ? [{ name: 'google-site-verification', content: process.env.NUXT_PUBLIC_GSC_VERIFICATION }] : []),
         { name: 'thumbnail', content: 'https://azzamazizali.sy/images/Azzam.jpg' },
       ],
       link: [
-        { rel: 'icon', type: 'image/png', href: '/apple-touch-icon.png' },
-        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/apple-touch-icon.png' },
-        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/apple-touch-icon.png' },
-        { rel: 'shortcut icon', type: 'image/png', href: '/apple-touch-icon.png' },
+        // Square, 48px-multiple icons: required for Google to show the favicon in search results.
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'icon', type: 'image/png', sizes: '48x48', href: '/favicon-48x48.png' },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+        { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
         { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
         { rel: 'image_src', href: 'https://azzamazizali.sy/images/Azzam.jpg' },
         { rel: 'manifest', href: '/site.webmanifest' },
@@ -128,7 +131,7 @@ export default defineNuxtConfig({
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         {
           rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Kufi+Arabic:wght@300;400;500;600;700;800&display=swap',
+          href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Kufi+Arabic:wght@400;500;600;700;800&display=swap',
         },
       ],
     },

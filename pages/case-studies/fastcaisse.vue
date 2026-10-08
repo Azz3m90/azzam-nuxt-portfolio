@@ -39,7 +39,7 @@ const results = computed(() => [
     <div class="container-custom max-w-4xl">
       <div class="mb-4">
         <NuxtLink :to="localePath('/case-studies')" class="btn-ghost text-sm ps-0">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="rtl:rotate-180 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
           </svg>
           {{ t('caseStudies.fastcaisseDetail.back') }}

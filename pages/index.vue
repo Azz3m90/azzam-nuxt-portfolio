@@ -9,13 +9,8 @@ useSeo({
   title: t('meta.home.title'),
   description: t('meta.home.description'),
   image: 'https://azzamazizali.sy/images/Azzam.jpg',
-  imageAlt: 'Azzam Aziz Ali — Senior Full Stack Developer & SEO Specialist',
+  imageAlt: t('meta.home.title'),
   type: 'profile',
-})
-
-const personSchema = usePersonSchema()
-useHead({
-  script: [{ type: 'application/ld+json', innerHTML: JSON.stringify(personSchema) }],
 })
 
 const stats = [
@@ -109,7 +104,7 @@ onMounted(() => {
             </div>
 
             <h1 class="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold mb-4 leading-[1.05]">
-              <span class="text-slate-800 dark:text-white">{{ t('hero.greeting') }}</span><br>
+              <span class="text-slate-800 dark:text-white">{{ t('hero.greeting') }}</span> <br>
               <span class="gradient-text">{{ t('hero.name') }}</span>
             </h1>
 
@@ -127,7 +122,7 @@ onMounted(() => {
             <div class="flex flex-wrap gap-4">
               <NuxtLink :to="localePath('/projects')" class="btn-primary text-sm sm:text-base px-6 sm:px-8 py-3">
                 {{ t('hero.cta') }}
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="rtl:rotate-180 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                 </svg>
               </NuxtLink>
@@ -198,8 +193,8 @@ onMounted(() => {
             </p>
             <div class="flex flex-wrap gap-3">
               <NuxtLink :to="localePath('/about')" class="btn-primary">
-                Read My Story
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {{ t('home.readMyStory') }}
+                <svg class="rtl:rotate-180 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                 </svg>
               </NuxtLink>
@@ -263,7 +258,7 @@ onMounted(() => {
         <div class="text-center">
           <NuxtLink :to="localePath('/case-studies')" class="btn-primary">
             {{ t('caseStudies.readCaseStudy') }}
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="rtl:rotate-180 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
           </NuxtLink>
@@ -282,7 +277,7 @@ onMounted(() => {
           </div>
           <NuxtLink :to="localePath('/projects')" class="btn-ghost hidden sm:flex">
             {{ t('home.viewAllProjects') }}
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="rtl:rotate-180 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
           </NuxtLink>
@@ -298,14 +293,17 @@ onMounted(() => {
             class="project-card group"
           >
             <div class="h-52 bg-slate-100 dark:bg-slate-800 overflow-hidden">
-              <NuxtImg
-                :src="project.image"
-                :alt="project.title"
+              <img
+                :src="projectImage(project.image).src"
+                :srcset="projectImage(project.image).srcset"
+                sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
+                :alt="locale === 'ar' && project.titleAr ? project.titleAr : project.title"
                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 width="600"
                 height="400"
                 loading="lazy"
-              />
+                decoding="async"
+              >
             </div>
             <div class="p-5">
               <div class="flex items-start justify-between mb-2">

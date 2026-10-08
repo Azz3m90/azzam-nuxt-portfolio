@@ -4,6 +4,7 @@
   "type": "module",
   "main": "server.mjs",
   "scripts": {
+    "prebuild": "node scripts/build-project-images.mjs",
     "build": "nuxt build",
     "dev": "nuxt dev --port 3000",
     "generate": "nuxt generate",
@@ -13,7 +14,9 @@
     "typecheck": "nuxt typecheck",
     "pack:cpanel": "node scripts/pack-cpanel.mjs",
     "indexnow": "node scripts/submit-indexnow.mjs",
-    "optimize:images": "node scripts/optimize-images.mjs"
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "images:projects": "node scripts/build-project-images.mjs",
+    "images:favicons": "node scripts/build-favicons.mjs"
   },
   "engines": {
     "node": "^22.19.0 || ^24.11.0 || >=26.0.0"
@@ -32,13 +35,14 @@
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.2",
     "vue": "^3.5.13",
-    "vue-router": "^4.5.0"
+    "vue-router": "^5.4.0"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^25.5.0",
-    "@types/nodemailer": "^8.0.1",
-    "sharp": "^0.35.4"
+    "@types/nodemailer": "^8.0.2",
+    "sharp": "^0.35.5",
+    "vue-tsc": "^3.3.12"
   },
   "optionalDependencies": {
     "@rolldown/binding-win32-x64-msvc": "^1.2.6"

@@ -4,6 +4,8 @@
  * Usage: node scripts/submit-indexnow.mjs
  * Optional: INDEXNOW_KEY, NUXT_PUBLIC_SITE_URL
  */
+import { readFileSync, readdirSync } from 'node:fs'
+
 const SITE = (process.env.NUXT_PUBLIC_SITE_URL || 'https://azzamazizali.sy').replace(/\/$/, '')
 const KEY = process.env.INDEXNOW_KEY || 'a7f3c9e2b8d14f6a9c0e5b2d8f1a4c7e'
 const HOST = SITE.replace(/^https?:\/\//, '')
@@ -15,21 +17,22 @@ const STATIC_PATHS = [
   '/ar/seo-services', '/ar/resume', '/ar/blog', '/ar/contact',
 ]
 
-const PROJECT_SLUGS = [
-  'rsk-platform', 'az-containers-belgium', 'fastcaisse-ordering-platform', 'fastcaisse-kiosk',
-  'lindenberg-apotheke', 'astramind', 'emtethal-landing-page', 'fastcaisse-marketing-site',
-  'little-lemon-booking', 'il-moro-group', 'fastcaisse-online-ordering', 'gelato-naturale',
-  'seetaha-award-debugger', 'seetah-scc', 'matthias-and-sea', 'geco-consulting',
-  'hexabitz-code-editor', 'fastcaisse-pos-system', 'hexabitz-ide-system', 'hexabitz',
-  'caresine-products', 'opinion-mining-system', 'opinion-mining-youtube', 'ecommerce-jackets',
-  'university-indexer',
-]
+// Same sources as the sitemap in nuxt.config.ts, so new projects and posts are never missed.
+const PROJECT_SLUGS = [...readFileSync(new URL('../composables/useProjects.ts', import.meta.url), 'utf8')
+  .matchAll(/^\s+slug: '([^']+)',\r?$/gm)].map(m => m[1])
+const BLOG_SLUGS = readdirSync(new URL('../content/blog/', import.meta.url))
+  .filter(f => f.endsWith('.md'))
+  .map(f => f.replace(/\.md$/, ''))
 
 const urls = [
   ...STATIC_PATHS.map(p => `${SITE}${p === '/' ? '/' : p}`),
   ...PROJECT_SLUGS.flatMap(slug => [
     `${SITE}/projects/${slug}`,
     `${SITE}/ar/projects/${slug}`,
+  ]),
+  ...BLOG_SLUGS.flatMap(slug => [
+    `${SITE}/blog/${slug}`,
+    `${SITE}/ar/blog/${slug}`,
   ]),
 ]
 

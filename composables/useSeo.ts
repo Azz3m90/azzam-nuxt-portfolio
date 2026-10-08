@@ -6,6 +6,11 @@ interface SeoOptions {
   type?: 'website' | 'article' | 'profile'
   noIndex?: boolean
   breadcrumb?: Array<{ name: string; url: string }>
+  /** Real pixel size of `image`; defaults to the 1200×630 OG format. */
+  imageWidth?: number
+  imageHeight?: number
+  /** Extra JSON-LD nodes for this page (e.g. a CreativeWork for a project). */
+  schemas?: Record<string, unknown>[]
   article?: {
     publishedTime?: string
     modifiedTime?: string
@@ -17,10 +22,26 @@ const SITE_NAME = 'Azzam Aziz Ali Portfolio'
 const AUTHOR_NAME = 'Azzam Aziz Ali'
 const TWITTER_HANDLE = '@azzamazizali'
 const CANONICAL_DOMAIN = 'https://azzamazizali.sy'
+const PERSON_ID = `${CANONICAL_DOMAIN}/#person`
+const WEBSITE_ID = `${CANONICAL_DOMAIN}/#website`
+/** Default share image is the square portrait, not the 1200×630 OG format. */
+const DEFAULT_IMAGE = { url: `${CANONICAL_DOMAIN}/images/Azzam.jpg`, width: 1223, height: 1223 }
 
-/** Keep SERP titles in the ~50–60 char sweet spot without cutting mid-word awkwardly. */
+const imageMime = (url: string) =>
+  /\.png$/i.test(url) ? 'image/png' : /\.webp$/i.test(url) ? 'image/webp' : 'image/jpeg'
+
+/**
+ * Keep SERP titles in the ~50–60 char sweet spot. "Name — Qualifier — Brand" titles drop their
+ * middle segments first so the brand survives; only then is the text cut, never mid-word.
+ */
 function normalizeTitle(raw: string): string {
-  const title = raw.replace(/\s+/g, ' ').trim()
+  let title = raw.replace(/\s+/g, ' ').trim()
+  if (title.length <= 60) return title
+  const parts = title.split(' — ')
+  while (parts.length > 2 && parts.join(' — ').length > 60) parts.splice(parts.length - 2, 1)
+  // A long name is worth more than the brand suffix.
+  while (parts.length > 1 && parts.join(' — ').length > 60) parts.pop()
+  title = parts.join(' — ')
   if (title.length <= 60) return title
   const cut = title.slice(0, 57)
   const lastSpace = cut.lastIndexOf(' ')
@@ -49,14 +70,16 @@ export const useSeo = (options: SeoOptions = {}) => {
   const { locale } = useI18n()
 
   const fullUrl = toHttpsAbsolute(`${CANONICAL_DOMAIN}${route.path === '/' ? '/' : route.path.replace(/\/$/, '')}`)
-  const defaultImage = `${CANONICAL_DOMAIN}/images/Azzam.jpg`
 
   const title = normalizeTitle(options.title ?? `${AUTHOR_NAME} | Full Stack Developer & SEO Specialist`)
   const description = normalizeDescription(
     options.description
       ?? 'Senior Full Stack Developer with 10+ years building SaaS platforms using Laravel, React, Vue & Django. SEO Specialist achieving 75% organic traffic growth.',
   )
-  const image = toHttpsAbsolute(options.image ?? defaultImage)
+  const image = toHttpsAbsolute(options.image ?? DEFAULT_IMAGE.url)
+  const isDefaultImage = image === DEFAULT_IMAGE.url
+  const imageWidth = options.imageWidth ?? (isDefaultImage ? DEFAULT_IMAGE.width : 1200)
+  const imageHeight = options.imageHeight ?? (isDefaultImage ? DEFAULT_IMAGE.height : 630)
   const imageAlt = options.imageAlt ?? `${AUTHOR_NAME} — Senior Full Stack Developer & SEO Specialist`
   const ogLocale = locale.value === 'ar' ? 'ar_SA' : 'en_US'
   const alternateLocale = locale.value === 'ar' ? 'en_US' : 'ar_SA'
@@ -72,9 +95,9 @@ export const useSeo = (options: SeoOptions = {}) => {
     ogDescription: description,
     ogImage: image,
     ogImageAlt: imageAlt,
-    ogImageWidth: 1200,
-    ogImageHeight: 630,
-    ogImageType: 'image/jpeg',
+    ogImageWidth: imageWidth,
+    ogImageHeight: imageHeight,
+    ogImageType: imageMime(image),
     ogImageSecureUrl: image,
     ogType: options.type ?? 'website',
     ogUrl: fullUrl,
@@ -94,65 +117,80 @@ export const useSeo = (options: SeoOptions = {}) => {
     ...(options.type === 'article' && options.article
       ? {
           articlePublishedTime: options.article.publishedTime,
-          articleModifiedTime: options.article.modifiedTime ?? new Date().toISOString(),
+          articleModifiedTime: options.article.modifiedTime ?? options.article.publishedTime,
           articleAuthor: [AUTHOR_NAME],
           articleTag: options.article.tags,
         }
       : {}),
   })
 
+  const imageObject = { '@type': 'ImageObject', url: image, width: imageWidth, height: imageHeight }
+  // Person and WebSite are full nodes in app.vue; referencing them by @id links the graph.
   const webPageSchema = {
     '@context': 'https://schema.org',
-    '@type': options.type === 'article' ? 'Article' : 'WebPage',
+    '@type': options.type === 'profile' ? 'ProfilePage' : 'WebPage',
+    '@id': `${fullUrl}#webpage`,
     name: title,
     description,
     url: fullUrl,
     inLanguage: locale.value === 'ar' ? 'ar-SA' : 'en-US',
-    isPartOf: {
-      '@type': 'WebSite',
-      '@id': `${CANONICAL_DOMAIN}/#website`,
-      url: CANONICAL_DOMAIN,
-      name: SITE_NAME,
-      description: 'Portfolio of Azzam Aziz Ali — Senior Full Stack Developer & SEO Specialist',
-      publisher: {
-        '@type': 'Person',
-        '@id': `${CANONICAL_DOMAIN}/#person`,
-        name: AUTHOR_NAME,
-      },
-    },
-    author: {
-      '@type': 'Person',
-      '@id': `${CANONICAL_DOMAIN}/#person`,
-      name: AUTHOR_NAME,
-      url: CANONICAL_DOMAIN,
-    },
-    image: {
-      '@type': 'ImageObject',
-      url: image,
-      width: 1200,
-      height: 630,
-    },
-    dateModified: options.article?.modifiedTime ?? new Date().toISOString().split('T')[0],
-    ...(options.article?.publishedTime ? { datePublished: options.article.publishedTime } : {}),
+    isPartOf: { '@id': WEBSITE_ID },
+    ...(options.type === 'profile' ? { mainEntity: { '@id': PERSON_ID } } : { author: { '@id': PERSON_ID } }),
+    primaryImageOfPage: imageObject,
   }
 
-  const scripts: Array<{ type: string; innerHTML: string }> = [
+  const scripts: Array<{ type: 'application/ld+json'; innerHTML: string }> = [
     { type: 'application/ld+json', innerHTML: JSON.stringify(webPageSchema) },
   ]
 
+  // Article rich results need headline, image, author and datePublished.
+  if (options.type === 'article') {
+    scripts.push({
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        '@id': `${fullUrl}#article`,
+        headline: title,
+        description,
+        url: fullUrl,
+        mainEntityOfPage: { '@id': `${fullUrl}#webpage` },
+        inLanguage: locale.value === 'ar' ? 'ar-SA' : 'en-US',
+        image: imageObject,
+        author: { '@type': 'Person', '@id': PERSON_ID, name: AUTHOR_NAME, url: CANONICAL_DOMAIN },
+        publisher: { '@id': PERSON_ID },
+        ...(options.article?.publishedTime ? { datePublished: options.article.publishedTime } : {}),
+        dateModified: options.article?.modifiedTime ?? options.article?.publishedTime,
+        ...(options.article?.tags?.length ? { keywords: options.article.tags.join(', ') } : {}),
+      }),
+    })
+  }
+
+  for (const schema of options.schemas ?? []) {
+    scripts.push({ type: 'application/ld+json', innerHTML: JSON.stringify({ '@context': 'https://schema.org', ...schema }) })
+  }
+
   if (options.breadcrumb && options.breadcrumb.length > 0) {
+    // Breadcrumbs on /ar/ pages must point at the /ar/ URLs, or they contradict the canonical.
+    const isAr = locale.value === 'ar'
+    const localizeUrl = (url: string) => {
+      const abs = toHttpsAbsolute(url)
+      if (!isAr || !abs.startsWith(CANONICAL_DOMAIN)) return abs
+      const path = abs.slice(CANONICAL_DOMAIN.length)
+      return path === '/ar' || path.startsWith('/ar/') ? abs : `${CANONICAL_DOMAIN}/ar${path === '/' ? '' : path}`
+    }
     scripts.push({
       type: 'application/ld+json',
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: CANONICAL_DOMAIN },
+          { '@type': 'ListItem', position: 1, name: isAr ? 'الرئيسية' : 'Home', item: isAr ? `${CANONICAL_DOMAIN}/ar` : CANONICAL_DOMAIN },
           ...options.breadcrumb.map((crumb, i) => ({
             '@type': 'ListItem',
             position: i + 2,
             name: crumb.name,
-            item: toHttpsAbsolute(crumb.url),
+            item: localizeUrl(crumb.url),
           })),
         ],
       }),
@@ -173,14 +211,15 @@ export const usePersonSchema = () => ({
   '@id': 'https://azzamazizali.sy/#person',
   name: 'Azzam Aziz Ali',
   url: 'https://azzamazizali.sy',
+  alternateName: 'عزّام عزيز علي',
   image: {
     '@type': 'ImageObject',
-    url: 'https://azzamazizali.sy/images/Azzam.jpg',
-    width: 400,
-    height: 400,
+    url: DEFAULT_IMAGE.url,
+    width: DEFAULT_IMAGE.width,
+    height: DEFAULT_IMAGE.height,
   },
   jobTitle: 'Senior Full Stack Developer & SEO Specialist',
-  description: 'Senior Full Stack Developer with 10+ years building SaaS. Google-certified SEO Specialist.',
+  description: 'Senior Full Stack Developer with 10+ years building SaaS platforms using Laravel, React, Vue & Django. Google-certified SEO Specialist achieving 75% organic traffic growth.',
   email: 'projects@azzamazizali.sy',
   telephone: '+963983847632',
   sameAs: [
@@ -190,19 +229,30 @@ export const usePersonSchema = () => ({
     'https://www.youtube.com/@azzamazizali',
     'https://www.facebook.com/share/1DRNUw1GMQ/',
   ],
-  knowsAbout: ['Laravel', 'React', 'Vue.js', 'Django', 'TypeScript', 'SEO', 'SaaS Development'],
+  knowsAbout: ['Laravel', 'PHP', 'React', 'Next.js', 'Vue.js', 'Nuxt', 'Django', 'Python', 'TypeScript', 'Technical SEO', 'Core Web Vitals', 'Internationalization (i18n)', 'SaaS Development'],
   knowsLanguage: ['en', 'ar'],
   address: { '@type': 'PostalAddress', addressLocality: 'Tartus', addressCountry: 'SY' },
-  worksFor: { '@type': 'Organization', name: 'FastCaisse', url: 'https://fastcaisse.be' },
+  worksFor: [
+    { '@type': 'Organization', name: 'AstraMind', url: 'https://astramind.de' },
+    { '@type': 'Organization', name: 'FastCaisse', url: 'https://fastcaisse.be' },
+  ],
   hasOccupation: {
     '@type': 'Occupation',
     name: 'Full Stack Developer',
     occupationLocation: { '@type': 'Country', name: 'Syria' },
     skills: 'Laravel, React, Vue.js, Django, TypeScript, Node.js, Technical SEO',
   },
-  alumniOf: {
-    '@type': 'EducationalOrganization',
-    name: 'Tishreen University',
-    address: { '@type': 'PostalAddress', addressLocality: 'Lattakia', addressCountry: 'SY' },
-  },
+  alumniOf: [
+    {
+      '@type': 'CollegeOrUniversity',
+      name: 'Syrian Virtual University',
+      url: 'https://svuonline.org',
+      address: { '@type': 'PostalAddress', addressCountry: 'SY' },
+    },
+    {
+      '@type': 'CollegeOrUniversity',
+      name: 'Tishreen University',
+      address: { '@type': 'PostalAddress', addressLocality: 'Lattakia', addressCountry: 'SY' },
+    },
+  ],
 })

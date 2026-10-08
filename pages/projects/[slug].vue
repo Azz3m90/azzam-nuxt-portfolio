@@ -20,12 +20,15 @@ const features = computed(() => isAr.value && project.featuresAr ? project.featu
 const challenges = computed(() => isAr.value && project.challengesAr ? project.challengesAr : (project.challenges ?? []))
 
 const seoDescription = computed(() => {
-  const primary = longDesc.value || desc.value || title.value
-  const tech = project.technologies?.slice(0, 4).join(', ')
+  // The short summary fits the ~160-char snippet; the long description would just be cut off.
+  const primary = desc.value || longDesc.value || title.value
+  const tech = project.stack?.slice(0, 4).join(isAr.value ? '، ' : ', ')
   const suffix = tech
-    ? (isAr.value ? ` تقنيات: ${tech}.` : ` Built with ${tech}.`)
+    ? (isAr.value ? ` التقنيات المستخدمة: ${tech}.` : ` Built with ${tech}.`)
     : (isAr.value ? ' مشروع Full Stack من عزّام عزيز علي.' : ' Full-stack case project by Azzam Aziz Ali.')
-  return `${primary}${primary.endsWith('.') ? '' : '.'}${suffix}`
+  const sentence = `${primary}${primary.endsWith('.') ? '' : '.'}`
+  // Only add the suffix when it fits the ~160-char snippet; otherwise it would be cut mid-word.
+  return `${sentence}${suffix}`.length <= 160 ? `${sentence}${suffix}` : sentence
 })
 
 useSeo({
@@ -33,8 +36,8 @@ useSeo({
     ? `${title.value} — مشروع Full Stack — عزّام عزيز علي`
     : `${title.value} — Full Stack Project — Azzam Aziz Ali`,
   description: seoDescription.value,
-  image: `https://azzamazizali.sy${project.image}`,
-  imageAlt: `${title.value} — Project by Azzam Aziz Ali`,
+  image: `https://azzamazizali.sy${projectImage(project.image).og}`,
+  imageAlt: isAr.value ? `${title.value} — مشروع من تنفيذ عزّام عزيز علي` : `${title.value} — Project by Azzam Aziz Ali`,
   breadcrumb: [
     {
       name: isAr.value ? 'المشاريع' : 'Projects',
@@ -47,6 +50,18 @@ useSeo({
         : `https://azzamazizali.sy/projects/${project.slug}`,
     },
   ],
+  schemas: [{
+    '@type': 'CreativeWork',
+    name: title.value,
+    description: desc.value || longDesc.value,
+    ...(project.url && project.url !== '#' ? { url: project.url } : {}),
+    image: `https://azzamazizali.sy${projectImage(project.image).og}`,
+    dateCreated: project.date,
+    inLanguage: isAr.value ? 'ar-SA' : 'en-US',
+    keywords: [...(project.tags ?? []), ...(project.stack ?? [])].join(', '),
+    creator: { '@id': 'https://azzamazizali.sy/#person' },
+    mainEntityOfPage: { '@id': `https://azzamazizali.sy${isAr.value ? '/ar' : ''}/projects/${project.slug}#webpage` },
+  }],
 })
 
 const allImages = computed(() => {
@@ -113,17 +128,21 @@ const categoryLabels: Record<string, string> = {
         <div class="relative group bg-slate-100 dark:bg-slate-800">
           <div class="relative aspect-video overflow-hidden">
             <TransitionGroup name="slide-fade">
-              <NuxtImg
+              <img
                 v-for="(img, i) in allImages"
                 v-show="currentSlide === i"
                 :key="img"
-                :src="img"
+                :src="projectImage(img).src"
+                :srcset="projectImage(img).srcset"
+                sizes="(min-width: 1024px) 1024px, 100vw"
                 :alt="`${title} — screenshot ${i + 1}`"
                 class="absolute inset-0 w-full h-full object-cover"
                 width="1200"
                 height="675"
                 :loading="i === 0 ? 'eager' : 'lazy'"
-              />
+                :fetchpriority="i === 0 ? 'high' : 'auto'"
+                decoding="async"
+              >
             </TransitionGroup>
           </div>
 
@@ -169,7 +188,7 @@ const categoryLabels: Record<string, string> = {
         <div class="flex flex-wrap items-center gap-2 mb-4">
           <span class="badge">{{ categoryLabels[project.category] || project.category }}</span>
           <span v-if="project.featured" class="badge-green">{{ t('projectDetail.featured') }}</span>
-          <span class="text-sm text-slate-400 dark:text-slate-500">{{ project.dateLabel }}</span>
+          <span class="text-sm text-slate-400 dark:text-slate-500">{{ formatMonthYear(project.date, locale) }}</span>
         </div>
 
         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white mb-4 leading-tight">
@@ -279,7 +298,7 @@ const categoryLabels: Record<string, string> = {
             <h3 class="text-sm font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-2">
               {{ t('projectDetail.date') }}
             </h3>
-            <p class="font-bold text-slate-900 dark:text-white">{{ project.dateLabel }}</p>
+            <p class="font-bold text-slate-900 dark:text-white">{{ formatMonthYear(project.date, locale) }}</p>
           </div>
         </div>
       </div>

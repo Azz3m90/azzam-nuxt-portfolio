@@ -71,7 +71,7 @@ const socials = [
         </div>
 
         <div>
-          <h3 class="text-slate-800 dark:text-white font-semibold mb-4 text-sm uppercase tracking-widest">Quick Contact</h3>
+          <h3 class="text-slate-800 dark:text-white font-semibold mb-4 text-sm uppercase tracking-widest">{{ t('footer.quickContact') }}</h3>
           <ul class="space-y-3 text-sm text-slate-500 dark:text-slate-400">
             <li class="flex items-center gap-2">
               <svg class="w-4 h-4 text-primary-400 shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -84,12 +84,12 @@ const socials = [
               <svg class="w-4 h-4 text-primary-400 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
               </svg>
-              <span>Tartus, Syria (Remote)</span>
+              <span>{{ t('contact.info.location') }}</span>
             </li>
             <li class="mt-4">
               <span class="inline-flex items-center gap-2 badge-green badge text-xs">
                 <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                Available for new projects
+                {{ t('hero.availableForWork') }}
               </span>
             </li>
           </ul>
@@ -97,7 +97,7 @@ const socials = [
       </div>
 
       <div class="border-t border-slate-200 dark:border-slate-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-        <p>© {{ currentYear }} Azzam Aziz Ali. {{ t('footer.rights') }}</p>
+        <p>© {{ currentYear }} {{ t('hero.name') }}. {{ t('footer.rights') }}</p>
         <div class="flex items-center gap-4">
           <NuxtLink
             :to="localePath('/privacy-policy')"

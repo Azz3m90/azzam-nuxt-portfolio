@@ -5,41 +5,59 @@ useSeo({
   title: t('meta.resume.title'),
   description: t('meta.resume.description'),
   image: 'https://azzamazizali.sy/images/Azzam.jpg',
-  imageAlt: 'Resume — Azzam Aziz Ali Senior Full Stack Developer',
-  breadcrumb: [{ name: 'Resume', url: 'https://azzamazizali.sy/resume' }],
+  imageAlt: t('meta.resume.title'),
+  breadcrumb: [{ name: t('nav.resume'), url: 'https://azzamazizali.sy/resume' }],
 })
 
+/** Keys map to resume.skillCategories.* in the locale files. */
 const techStack = {
-  'Backend': ['Laravel', 'PHP', 'Django', 'Python', 'Go', 'Ruby on Rails', 'REST API', 'Node.js'],
-  'Frontend': ['React', 'Vue 3', 'Nuxt 3', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Bootstrap', 'jQuery', 'SASS', 'Axios', 'AngularJS', 'HTML5', 'CSS3', 'Next.js'],
-  'Databases': ['MySQL', 'PostgreSQL', 'Redis', 'Firebase', 'SQLite'],
-  'SEO & Analytics': ['Google Analytics 4', 'Search Console', 'Screaming Frog', 'Schema Markup', 'Hreflang', 'Core Web Vitals', 'Moz'],
-  'DevOps & Tools': ['Git', 'GitHub', 'Docker', 'Linux', 'Nginx', 'VS Code', 'Composer', 'NPM', 'Webpack'],
-  'CMS & E-commerce': ['WordPress', 'PrestaShop', 'WooCommerce'],
-  'Collaboration': ['ClickUp', 'Slack', 'FileZilla', 'DBeaver', 'Android Studio'],
+  backend: ['Laravel', 'PHP', 'Django', 'Python', 'Go', 'Ruby on Rails', 'REST API', 'Node.js'],
+  frontend: ['React', 'Vue 3', 'Nuxt', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'Bootstrap', 'jQuery', 'SASS', 'Axios', 'AngularJS', 'HTML5', 'CSS3', 'Next.js'],
+  databases: ['MySQL', 'PostgreSQL', 'Redis', 'Firebase', 'SQLite'],
+  seo: ['Google Analytics 4', 'Search Console', 'Screaming Frog', 'Schema Markup', 'Hreflang', 'Core Web Vitals', 'Moz'],
+  devops: ['Git', 'GitHub', 'Docker', 'Linux', 'Nginx', 'VS Code', 'Composer', 'NPM', 'Webpack'],
+  cms: ['WordPress', 'PrestaShop', 'WooCommerce'],
+  collaboration: ['ClickUp', 'Slack', 'FileZilla', 'DBeaver', 'Android Studio'],
 }
+
+const stats = computed(() => [
+  { value: '10+', label: t('resume.stats.experience') },
+  { value: '22+', label: t('resume.stats.projects') },
+  { value: '40+', label: t('resume.stats.clients') },
+  { value: '75%', label: t('resume.stats.organic') },
+])
+
+const experienceCertificates = computed(() => [
+  { key: 'fastcaisse', file: '/cv/FAST_CAISSE_Experience_Certificate_Azzam_Aziz_Ali-signed.pdf' },
+  { key: 'hexabitz', file: '/cv/Azzams_Experience_CERTIFICATE_in_Hexabitz_Full-Stack_Web_Developer.pdf' },
+  { key: 'caresine', file: '/cv/Caresine_SEO_Specialist_Caresine_company_Azzam.pdf' },
+].map(cert => ({
+  title: t(`resume.expCerts.${cert.key}.title`),
+  issuer: t(`resume.expCerts.${cert.key}.issuer`),
+  file: cert.file,
+})))
 
 const experience = computed(() => [
   {
-    role: t('resume.jobs.rsk.role'),
-    company: 'rsk-platform.com',
-    period: '06/2026 – Present',
-    location: t('resume.jobs.rsk.location'),
-    bullets: (tm('resume.jobs.rsk.bullets') as any[]).map(rt),
-  },
-  {
     role: t('resume.jobs.astramind.role'),
     company: 'AstraMind',
-    period: '11/2025 – Present',
+    period: `11/2025 – ${t('common.present')}`,
     location: t('resume.jobs.astramind.location'),
     bullets: (tm('resume.jobs.astramind.bullets') as any[]).map(rt),
   },
   {
     role: t('resume.jobs.fastcaisse.role'),
     company: 'FastCaisse',
-    period: '01/2023 – Present',
+    period: `01/2023 – ${t('common.present')}`,
     location: t('resume.jobs.fastcaisse.location'),
     bullets: (tm('resume.jobs.fastcaisse.bullets') as any[]).map(rt),
+  },
+  {
+    role: t('resume.jobs.rsk.role'),
+    company: 'rsk-platform.com',
+    period: '06/2026 – 09/2026',
+    location: t('resume.jobs.rsk.location'),
+    bullets: (tm('resume.jobs.rsk.bullets') as any[]).map(rt),
   },
   {
     role: t('resume.jobs.emtethal.role'),
@@ -71,22 +89,16 @@ const experience = computed(() => [
   },
 ])
 
-const education = [
-  {
-    degree: 'Master in Web Technologies',
-    university: 'Syrian Virtual University',
-    location: 'Syria',
-    period: '2019 – 2021',
-    gpa: '3.25 / 4.0',
-  },
-  {
-    degree: 'B.Sc. Electronics & Communication Engineering',
-    university: 'Tishreen University',
-    location: 'Lattakia, Syria',
-    period: '2008 – 2014',
-    gpa: '2.75 / 4.0',
-  },
-]
+const education = computed(() => [
+  { key: 'svu', period: '2019 – 2021', gpa: '3.25 / 4.0' },
+  { key: 'tishreen', period: '2008 – 2014', gpa: '2.75 / 4.0' },
+].map(edu => ({
+  degree: t(`resume.educationItems.${edu.key}.degree`),
+  university: t(`resume.educationItems.${edu.key}.university`),
+  location: t(`resume.educationItems.${edu.key}.location`),
+  period: edu.period,
+  gpa: edu.gpa,
+})))
 </script>
 
 <template>
@@ -98,7 +110,7 @@ const education = [
           <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white">{{ t('resume.title') }}</h1>
           <p class="text-xl text-primary-600 dark:text-primary-400 font-semibold mt-2">{{ t('resume.jobTitle') }}</p>
           <div class="flex flex-wrap gap-3 mt-4 text-sm text-slate-500 dark:text-slate-400">
-            <span class="flex items-center gap-1">📍 Tartus, Syria (Remote)</span>
+            <span class="flex items-center gap-1">📍 {{ t('contact.info.location') }}</span>
             <span class="flex items-center gap-1">✉️ projects@azzamazizali.sy</span>
             <span class="flex items-center gap-1">💬 <span dir="ltr">+963 983 847 632</span></span>
           </div>
@@ -116,25 +128,13 @@ const education = [
       </div>
 
       <div class="grid grid-cols-2 sm:flex sm:flex-wrap gap-4 mb-8 sm:mb-12 p-4 sm:p-6 card">
-        <div class="text-center px-4">
-          <p class="text-3xl font-extrabold gradient-text">10+</p>
-          <p class="text-xs text-slate-500 dark:text-slate-400">Years Experience</p>
-        </div>
-        <div class="hidden sm:block w-px bg-slate-200 dark:bg-slate-700"></div>
-        <div class="text-center px-4">
-          <p class="text-3xl font-extrabold gradient-text">22+</p>
-          <p class="text-xs text-slate-500 dark:text-slate-400">Projects Delivered</p>
-        </div>
-        <div class="hidden sm:block w-px bg-slate-200 dark:bg-slate-700"></div>
-        <div class="text-center px-4">
-          <p class="text-3xl font-extrabold gradient-text">40+</p>
-          <p class="text-xs text-slate-500 dark:text-slate-400">Happy Clients</p>
-        </div>
-        <div class="hidden sm:block w-px bg-slate-200 dark:bg-slate-700"></div>
-        <div class="text-center px-4">
-          <p class="text-3xl font-extrabold gradient-text">75%</p>
-          <p class="text-xs text-slate-500 dark:text-slate-400">Organic Traffic Growth</p>
-        </div>
+        <template v-for="(stat, i) in stats" :key="stat.label">
+          <div v-if="i > 0" class="hidden sm:block w-px bg-slate-200 dark:bg-slate-700"></div>
+          <div class="text-center px-4">
+            <p class="text-3xl font-extrabold gradient-text">{{ stat.value }}</p>
+            <p class="text-xs text-slate-500 dark:text-slate-400">{{ stat.label }}</p>
+          </div>
+        </template>
       </div>
 
       <section class="mb-12">
@@ -166,7 +166,7 @@ const education = [
         </h2>
         <div class="grid sm:grid-cols-2 gap-4">
           <div v-for="(techs, category) in techStack" :key="category" class="card p-5">
-            <h3 class="text-xs font-bold uppercase tracking-widest text-primary-600 dark:text-primary-400 mb-3">{{ category }}</h3>
+            <h3 class="text-xs font-bold uppercase tracking-widest text-primary-600 dark:text-primary-400 mb-3">{{ t(`resume.skillCategories.${category}`) }}</h3>
             <div class="flex flex-wrap gap-1.5">
               <span v-for="tech in techs" :key="tech" class="text-xs px-2 py-1 rounded-md bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 font-medium">
                 {{ tech }}
@@ -186,7 +186,7 @@ const education = [
               <div>
                 <h3 class="text-lg font-bold text-slate-900 dark:text-white">{{ edu.degree }}</h3>
                 <p class="text-primary-600 dark:text-primary-400 font-semibold">{{ edu.university }} · {{ edu.location }}</p>
-                <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">GPA: {{ edu.gpa }}</p>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">{{ t('resume.gpa') }}: <span dir="ltr">{{ edu.gpa }}</span></p>
               </div>
               <span class="badge text-xs">{{ edu.period }}</span>
             </div>
@@ -196,15 +196,11 @@ const education = [
 
       <section class="mb-12">
         <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white mb-6 pb-2 border-b border-slate-200 dark:border-slate-700">
-          Experience Certificates
+          {{ t('resume.experienceCertificates') }}
         </h2>
         <div class="grid sm:grid-cols-3 gap-4">
           <a
-            v-for="cert in [
-              { title: 'FastCaisse – Full Stack & SEO', issuer: 'FastCaisse, Belgium', file: '/cv/FAST_CAISSE_Experience_Certificate_Azzam_Aziz_Ali-signed.pdf' },
-              { title: 'Hexabitz – Full Stack Developer', issuer: 'Hexabitz, USA', file: '/cv/Azzams_Experience_CERTIFICATE_in_Hexabitz_Full-Stack_Web_Developer.pdf' },
-              { title: 'Caresine – SEO Specialist', issuer: 'Caresine', file: '/cv/Caresine_SEO_Specialist_Caresine_company_Azzam.pdf' },
-            ]"
+            v-for="cert in experienceCertificates"
             :key="cert.title"
             :href="cert.file"
             download
@@ -237,7 +233,7 @@ const education = [
             <iframe
               class="absolute inset-0 w-full h-full"
               src="https://www.youtube.com/embed/UhHuoMAKMLc"
-              title="Job Interview — Azzam Aziz Ali"
+              :title="`${t('resume.interviewTitle')} — ${t('hero.name')}`"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen

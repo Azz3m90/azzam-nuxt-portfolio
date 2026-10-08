@@ -2,7 +2,7 @@
 const { locale } = useI18n()
 
 // Reciprocal hreflang + self-refs from @nuxtjs/i18n; pages set their own canonical via useSeo
-const localeHead = useLocaleHead({ addSeoAttributes: true })
+const localeHead = useLocaleHead({ seo: true })
 
 useHead(computed(() => ({
   titleTemplate: '%s',
@@ -15,6 +15,8 @@ useHead(computed(() => ({
   meta: localeHead.value.meta,
 })))
 
+// Site-wide entities. Page schemas from useSeo reference these by @id.
+// No SearchAction: the site has no search, and Google retired the sitelinks search box in 2024.
 useHead({
   script: [
     {
@@ -22,39 +24,18 @@ useHead({
       innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'WebSite',
+        '@id': 'https://azzamazizali.sy/#website',
         name: 'Azzam Aziz Ali Portfolio',
+        alternateName: ['Azzam Aziz Ali', 'عزّام عزيز علي'],
         url: 'https://azzamazizali.sy',
         description: 'Senior Full Stack Developer & SEO Specialist — Laravel, React, Vue, Django',
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: 'https://azzamazizali.sy/?q={search_term_string}',
-          'query-input': 'required name=search_term_string',
-        },
+        inLanguage: ['en-US', 'ar-SA'],
+        publisher: { '@id': 'https://azzamazizali.sy/#person' },
       }),
     },
     {
       type: 'application/ld+json',
-      innerHTML: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'Person',
-        name: 'Azzam Aziz Ali',
-        url: 'https://azzamazizali.sy',
-        image: 'https://azzamazizali.sy/images/Azzam.jpg',
-        jobTitle: 'Senior Full Stack Developer & SEO Specialist',
-        description: 'Senior Full Stack Developer with 10+ years building SaaS platforms using Laravel, React, Vue & Django. SEO Specialist achieving 75% organic traffic growth.',
-        email: 'projects@azzamazizali.sy',
-        telephone: '+963983847632',
-        knowsAbout: ['Laravel', 'React', 'Vue.js', 'Nuxt', 'Django', 'TypeScript', 'SEO', 'SaaS Development'],
-        sameAs: [
-          'https://www.linkedin.com/in/azzamazizali/',
-          'https://github.com/Azz3m90',
-          'https://stackoverflow.com/users/10049474/azzam-ali',
-          'https://www.youtube.com/@azzamazizali',
-          'https://www.facebook.com/share/1DRNUw1GMQ/',
-        ],
-        worksFor: { '@type': 'Organization', name: 'FastCaisse', url: 'https://fastcaisse.be' },
-        address: { '@type': 'PostalAddress', addressLocality: 'Tartus', addressCountry: 'SY' },
-      }),
+      innerHTML: JSON.stringify(usePersonSchema()),
     },
   ],
 })

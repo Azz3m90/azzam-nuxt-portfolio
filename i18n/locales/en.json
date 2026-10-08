@@ -46,13 +46,13 @@
       "rsk": {
         "role": "Web Manager",
         "location": "Administration / Operations / Management (Remote)",
-        "description": "Lead and manage digital projects from initiation to delivery for 5+ concurrent platforms, coordinating cross-functional team members, managing resources and risks, and leveraging project management tools to drive operational excellence and transparency.",
+        "description": "Led and managed digital projects from initiation to delivery for 5+ concurrent platforms, coordinating cross-functional team members, managing resources and risks, and leveraging project management tools to drive operational excellence and transparency.",
         "achievements": [
-          "Lead digital projects from initiation to delivery, defining project scope, objectives, timelines, and deliverables for 5+ concurrent platforms",
-          "Plan and manage resources, budgets, and risks, coordinating 10+ cross-functional team members across development, design, and quality assurance",
-          "Monitor progress, ensure alignment with project goals, and communicate status, issues, and outcomes to stakeholders with 100% transparency",
-          "Ensure delivery meets agreed requirements and timelines, supporting process improvement and raising delivery standards by 25%",
-          "Use project management tools to track tasks and performance, focusing on execution, accountability, and a 15% increase in operational results"
+          "Led digital projects from initiation to delivery, defining project scope, objectives, timelines, and deliverables for 5+ concurrent platforms",
+          "Planned and managed resources, budgets, and risks, coordinating 10+ cross-functional team members across development, design, and quality assurance",
+          "Monitored progress, ensured alignment with project goals, and communicated status, issues, and outcomes to stakeholders with 100% transparency",
+          "Ensured delivery met agreed requirements and timelines, supporting process improvement and raising delivery standards by 25%",
+          "Used project management tools to track tasks and performance, focusing on execution, accountability, and a 15% increase in operational results"
         ]
       },
       "astramind": {
@@ -64,7 +64,8 @@
           "Consult on technical SEO architecture, structured data, and internationalization (i18n), resulting in a 50% increase in organic search visibility",
           "Guide security and compliance implementations using Cloudflare Turnstile and EmailJS to achieve a 100% reduction in spam submissions",
           "Advise on CI/CD deployment workflows and cloud environment management, maintaining 99.9% uptime across Netlify and Vercel",
-          "Provide UX/UI design consulting on animations and mobile-first responsive interfaces, supporting a 25% reduction in bounce rates"
+          "Provide UX/UI design consulting on animations and mobile-first responsive interfaces, supporting a 25% reduction in bounce rates",
+          "Built, hosted and optimized zahnarztfarahani.de end to end for a dental practice in Karlsruhe: Laravel 12 + Filament CMS with online booking, a Next.js frontend on Netlify, and GDPR-compliant technical SEO"
         ]
       },
       "fastcaisse": {
@@ -115,6 +116,16 @@
           "Delivered web solutions on schedule in Agile environment"
         ]
       }
+    },
+    "certs": {
+      "engineering": "Engineering Certificate",
+      "tishreen": "Tishreen University",
+      "industrialTraining": "Industrial Training",
+      "fastcaisse": "Experience Certificate – FastCaisse",
+      "fastcaisseIssuer": "FastCaisse (Belgium)",
+      "hexabitz": "Experience Certificate – Hexabitz",
+      "hexabitzIssuer": "Hexabitz (USA)",
+      "caresine": "SEO Specialist Certificate – Caresine"
     }
   },
   "skills": {
@@ -172,7 +183,8 @@
       "subtitle": "Multi-Restaurant Ordering System",
       "description": "How I built and scaled a multi-restaurant SaaS ordering platform from zero to users in 4 countries using Laravel, Vue 3, and technical SEO.",
       "weeklyGrowth": "Weekly User Growth",
-      "organicTraffic": "Organic Traffic Increase"
+      "organicTraffic": "Organic Traffic Increase",
+      "title": "FastCaisse SaaS Platform"
     },
     "fastcaisseDetail": {
       "back": "Back to Case Studies",
@@ -280,7 +292,8 @@
     "ctaTitle": "Ready to Scale Your Product?",
     "ctaDesc": "Let's discuss your project — full stack development, SEO audit, or technical co-founder role.",
     "getInTouch": "Get in Touch",
-    "whatsappMe": "WhatsApp Me"
+    "whatsappMe": "WhatsApp Me",
+    "readMyStory": "Read My Story"
   },
   "seoServices": {
     "subtitle": "SEO Services",
@@ -300,7 +313,7 @@
         "price": "From $299",
         "features": [
           "Screaming Frog crawl analysis",
-          "Core Web Vitals (LCP, CLS, FID)",
+          "Core Web Vitals (LCP, INP, CLS)",
           "Schema markup audit",
           "Redirect chain resolution",
           "Mobile usability"
@@ -457,11 +470,11 @@
         "role": "Web Manager",
         "location": "Administration / Operations / Management (Remote)",
         "bullets": [
-          "Lead digital projects from initiation to delivery, defining project scope, objectives, timelines, and deliverables for 5+ concurrent platforms",
-          "Plan and manage resources, budgets, and risks, coordinating 10+ cross-functional team members across development, design, and quality assurance",
-          "Monitor progress, ensure alignment with project goals, and communicate status, issues, and outcomes to stakeholders with 100% transparency",
-          "Ensure delivery meets agreed requirements and timelines, supporting process improvement and raising delivery standards by 25%",
-          "Use project management tools to track tasks and performance, focusing on execution, accountability, and a 15% increase in operational results"
+          "Led digital projects from initiation to delivery, defining project scope, objectives, timelines, and deliverables for 5+ concurrent platforms",
+          "Planned and managed resources, budgets, and risks, coordinating 10+ cross-functional team members across development, design, and quality assurance",
+          "Monitored progress, ensured alignment with project goals, and communicated status, issues, and outcomes to stakeholders with 100% transparency",
+          "Ensured delivery met agreed requirements and timelines, supporting process improvement and raising delivery standards by 25%",
+          "Used project management tools to track tasks and performance, focusing on execution, accountability, and a 15% increase in operational results"
         ]
       },
       "astramind": {
@@ -472,7 +485,8 @@
           "Consult on technical SEO architecture, structured data, and internationalization (i18n), resulting in a 50% increase in organic search visibility",
           "Guide security and compliance implementations using Cloudflare Turnstile and EmailJS to achieve a 100% reduction in spam submissions",
           "Advise on CI/CD deployment workflows and cloud environment management, maintaining 99.9% uptime across Netlify and Vercel",
-          "Provide UX/UI design consulting on animations and mobile-first responsive interfaces, supporting a 25% reduction in bounce rates"
+          "Provide UX/UI design consulting on animations and mobile-first responsive interfaces, supporting a 25% reduction in bounce rates",
+          "Built, hosted and optimized zahnarztfarahani.de end to end for a dental practice in Karlsruhe: Laravel 12 + Filament CMS with online booking, a Next.js frontend on Netlify, and GDPR-compliant technical SEO"
         ]
       },
       "fastcaisse": {
@@ -516,6 +530,49 @@
           "Collaborated in Agile cross-functional engineering teams delivering solutions on schedule"
         ]
       }
+    },
+    "experienceCertificates": "Experience Certificates",
+    "gpa": "GPA",
+    "stats": {
+      "experience": "Years Experience",
+      "projects": "Projects Delivered",
+      "clients": "Happy Clients",
+      "organic": "Organic Traffic Growth"
+    },
+    "skillCategories": {
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "databases": "Databases",
+      "seo": "SEO & Analytics",
+      "devops": "DevOps & Tools",
+      "cms": "CMS & E-commerce",
+      "collaboration": "Collaboration"
+    },
+    "educationItems": {
+      "svu": {
+        "degree": "Master in Web Technologies",
+        "university": "Syrian Virtual University",
+        "location": "Syria"
+      },
+      "tishreen": {
+        "degree": "B.Sc. Electronics & Communication Engineering",
+        "university": "Tishreen University",
+        "location": "Lattakia, Syria"
+      }
+    },
+    "expCerts": {
+      "fastcaisse": {
+        "title": "FastCaisse – Full Stack & SEO",
+        "issuer": "FastCaisse, Belgium"
+      },
+      "hexabitz": {
+        "title": "Hexabitz – Full Stack Developer",
+        "issuer": "Hexabitz, USA"
+      },
+      "caresine": {
+        "title": "Caresine – SEO Specialist",
+        "issuer": "Caresine"
+      }
     }
   },
   "blog": {
@@ -533,7 +590,8 @@
   "footer": {
     "tagline": "Building products that scale and rank.",
     "rights": "All rights reserved.",
-    "madeWith": "Built with Nuxt 3 + TypeScript"
+    "madeWith": "Built with Nuxt 4 + TypeScript",
+    "quickContact": "Quick Contact"
   },
   "gdpr": {
     "title": "We value your privacy",
@@ -641,5 +699,13 @@
       "title": "Full Stack & Technical SEO Blog — Azzam Ali",
       "description": "Practical articles on Laravel, React, Vue, Django, technical SEO, and SaaS engineering from a senior full-stack developer and SEO specialist."
     }
+  },
+  "floatingContact": {
+    "whatsapp": "Chat on WhatsApp",
+    "telegram": "Chat on Telegram",
+    "message": "Hi Azzam, I found your portfolio and would like to talk about a project."
+  },
+  "common": {
+    "present": "Present"
   }
 }

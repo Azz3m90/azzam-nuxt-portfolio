@@ -1,16 +1,21 @@
 <script setup lang="ts">
-const { t } = useI18n()
+const { t, locale } = useI18n()
+const localePath = useLocalePath()
 
 useSeo({
   title: t('meta.blog.title'),
   description: t('meta.blog.description'),
   image: 'https://azzamazizali.sy/images/Azzam.jpg',
-  imageAlt: 'Blog — Full Stack Dev & SEO Insights by Azzam Aziz Ali',
-  breadcrumb: [{ name: 'Blog', url: 'https://azzamazizali.sy/blog' }],
+  imageAlt: t('meta.blog.title'),
+  breadcrumb: [{ name: t('nav.blog'), url: 'https://azzamazizali.sy/blog' }],
 })
 
-const { data: posts } = await useAsyncData('blog', () =>
-  queryCollection('blog').order('date', 'DESC').all(),
+const { data: posts } = await useAsyncData(
+  () => `blog-${locale.value}`,
+  () => locale.value === 'ar'
+    ? queryCollection('blog_ar').order('date', 'DESC').all()
+    : queryCollection('blog').order('date', 'DESC').all(),
+  { watch: [locale] },
 )
 </script>
 
@@ -31,7 +36,7 @@ const { data: posts } = await useAsyncData('blog', () =>
         <NuxtLink
           v-for="post in posts"
           :key="post.path"
-          :to="post.path"
+          :to="localePath(post.path)"
           class="card card-hover overflow-hidden group"
         >
           <div v-if="post.image" class="h-48 overflow-hidden">

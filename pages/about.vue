@@ -6,41 +6,41 @@ useSeo({
   title: t('meta.about.title'),
   description: t('meta.about.description'),
   image: 'https://azzamazizali.sy/images/Azzam.jpg',
-  imageAlt: 'About Azzam Aziz Ali — Senior Full Stack Developer',
+  imageAlt: t('meta.about.title'),
   type: 'profile',
-  breadcrumb: [{ name: 'About', url: 'https://azzamazizali.sy/about' }],
+  breadcrumb: [{ name: t('nav.about'), url: 'https://azzamazizali.sy/about' }],
 })
 
 const experience = computed(() => [
   {
-    role: t('about.jobs.rsk.role'),
-    company: 'rsk-platform.com',
-    url: 'https://rsk-platform.com',
-    period: '06/2026 – Present',
-    location: t('about.jobs.rsk.location'),
-    description: t('about.jobs.rsk.description'),
-    achievements: (tm('about.jobs.rsk.achievements') as any[]).map(rt),
-    stack: ['Django', 'Python', 'Nuxt 3', 'Vue 3', 'PostgreSQL', 'Docker', 'Git'],
-  },
-  {
     role: t('about.jobs.astramind.role'),
     company: 'AstraMind',
     url: 'https://astramind.de',
-    period: '11/2025 – Present',
+    period: `11/2025 – ${t('common.present')}`,
     location: t('about.jobs.astramind.location'),
     description: t('about.jobs.astramind.description'),
     achievements: (tm('about.jobs.astramind.achievements') as any[]).map(rt),
-    stack: ['Nuxt 3', 'Next.js 14', 'Vue.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Vercel'],
+    stack: ['Nuxt 3', 'Next.js', 'Vue.js', 'React', 'TypeScript', 'Laravel', 'Filament', 'Tailwind CSS', 'Framer Motion', 'Vercel', 'Netlify'],
   },
   {
     role: t('about.jobs.fastcaisse.role'),
     company: 'FastCaisse',
     url: 'https://fastcaisse.be',
-    period: '01/2023 – Present',
+    period: `01/2023 – ${t('common.present')}`,
     location: t('about.jobs.fastcaisse.location'),
     description: t('about.jobs.fastcaisse.description'),
     achievements: (tm('about.jobs.fastcaisse.achievements') as any[]).map(rt),
     stack: ['Laravel', 'Node.js', 'PHP', 'Vue 3', 'MySQL', 'Redis'],
+  },
+  {
+    role: t('about.jobs.rsk.role'),
+    company: 'rsk-platform.com',
+    url: 'https://rsk-platform.com',
+    period: '06/2026 – 09/2026',
+    location: t('about.jobs.rsk.location'),
+    description: t('about.jobs.rsk.description'),
+    achievements: (tm('about.jobs.rsk.achievements') as any[]).map(rt),
+    stack: ['Django', 'Python', 'Nuxt 3', 'Vue 3', 'PostgreSQL', 'Docker', 'Git'],
   },
   {
     role: t('about.jobs.emtethal.role'),
@@ -85,7 +85,8 @@ const experience = computed(() => [
   },
 ])
 
-const certificates = [
+// Course names stay in English (official titles); only our own labels are translated.
+const certificates = computed(() => [
   { title: 'Django Web Framework', issuer: 'Meta/Coursera', icon: '🐍', url: '/cv/WebDevelopment/Web_Django_Framework.pdf' },
   { title: 'Fundamentals of NuxtJS', issuer: 'Udemy', icon: '💚', url: '/cv/WebDevelopment/NuxtJS.pdf' },
   { title: 'Introduction to SEO', issuer: 'Coursera', icon: '🔎', url: '/cv/WebDevelopment/SEO/Introduction_to_SEO.pdf' },
@@ -113,15 +114,15 @@ const certificates = [
   { title: 'Flutter & Dart', issuer: 'Udemy', icon: '🦋', url: '/cv/AndroidDevelopment/flutter-1.pdf' },
   { title: 'Android Developer', issuer: 'Google', icon: '📱', url: '/cv/AndroidDevelopment/Android_Developer.pdf' },
   { title: 'CCNA Networking', issuer: 'Cisco', icon: '🌐', url: '/cv/Networking/0001.jpg' },
-  { title: 'Controlling Gauge System', issuer: 'Industrial Training', icon: '⚙️', url: '/cv/controlling/controlling_guage_system.jpg' },
-  { title: 'Engineering Certificate', issuer: 'Tishreen University', icon: '🎓', url: '/cv/Engineering/IMG_20191022_155503.jpg' },
+  { title: 'Controlling Gauge System', issuer: t('about.certs.industrialTraining'), icon: '⚙️', url: '/cv/controlling/controlling_guage_system.jpg' },
+  { title: t('about.certs.engineering'), issuer: t('about.certs.tishreen'), icon: '🎓', url: '/cv/Engineering/IMG_20191022_155503.jpg' },
   { title: 'LinkedIn Premium Quick Tips', issuer: 'LinkedIn Learning', icon: '💼', url: '/cv/LinkedIn/CertificateOfCompletion_LinkedIn%20Premium%20Quick%20Tips.pdf' },
   { title: 'Gemini Certified Educator', issuer: 'Google', icon: '🤖', url: '/cv/Gemini/Gemini_Certified_Educator.jpg' },
   { title: 'Gemini Certified University Student', issuer: 'Google', icon: '🎓', url: '/cv/Gemini/GeminiCertified_student.jpg' },
-  { title: 'Experience Certificate – FastCaisse', issuer: 'FastCaisse (Belgium)', icon: '🏅', url: '/cv/FAST_CAISSE_Experience_Certificate_Azzam_Aziz_Ali-signed.pdf' },
-  { title: 'Experience Certificate – Hexabitz', issuer: 'Hexabitz (USA)', icon: '🏅', url: '/cv/Azzams_Experience_CERTIFICATE_in_Hexabitz_Full-Stack_Web_Developer.pdf' },
-  { title: 'SEO Specialist Certificate – Caresine', issuer: 'Caresine', icon: '🔍', url: '/cv/Caresine_SEO_Specialist_Caresine_company_Azzam.pdf' },
-]
+  { title: t('about.certs.fastcaisse'), issuer: t('about.certs.fastcaisseIssuer'), icon: '🏅', url: '/cv/FAST_CAISSE_Experience_Certificate_Azzam_Aziz_Ali-signed.pdf' },
+  { title: t('about.certs.hexabitz'), issuer: t('about.certs.hexabitzIssuer'), icon: '🏅', url: '/cv/Azzams_Experience_CERTIFICATE_in_Hexabitz_Full-Stack_Web_Developer.pdf' },
+  { title: t('about.certs.caresine'), issuer: 'Caresine', icon: '🔍', url: '/cv/Caresine_SEO_Specialist_Caresine_company_Azzam.pdf' },
+])
 </script>
 
 <template>

@@ -38,6 +38,8 @@ function scrollToTop() {
     </main>
     <AppFooter />
 
+    <AppFloatingContact />
+
     <Transition name="back-to-top">
       <button
         v-if="showBackToTop"

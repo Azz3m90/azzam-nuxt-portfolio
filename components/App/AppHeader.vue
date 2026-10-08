@@ -6,7 +6,10 @@ const route = useRoute()
 const isMenuOpen = ref(false)
 const isScrolled = ref(false)
 
-const isDark = computed(() => colorMode.preference === 'dark')
+// The server can't see the stored preference, so match its 'dark' default until mounted;
+// otherwise hydration mismatches and production keeps the wrong icon and label.
+const isMounted = ref(false)
+const isDark = computed(() => isMounted.value ? colorMode.preference === 'dark' : true)
 const isRtl = computed(() => locale.value === 'ar')
 
 const navLinks = computed(() => [
@@ -35,6 +38,7 @@ const toggleTheme = () => {
 }
 
 onMounted(() => {
+  isMounted.value = true
   window.addEventListener('scroll', () => { isScrolled.value = window.scrollY > 20 })
 })
 

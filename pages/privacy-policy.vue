@@ -19,7 +19,7 @@ const lastUpdated = '2025-01-01'
         :to="localePath('/')"
         class="inline-flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors mb-6"
       >
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="rtl:rotate-180 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
         </svg>
         {{ t('privacyPolicy.backHome') }}
@@ -39,7 +39,7 @@ const lastUpdated = '2025-01-01'
       <h2>{{ t('privacyPolicy.controllerTitle') }}</h2>
       <p>{{ t('privacyPolicy.controllerText') }}</p>
       <ul>
-        <li><strong>{{ t('privacyPolicy.name') }}:</strong> Azzam Aziz Ali</li>
+        <li><strong>{{ t('privacyPolicy.name') }}:</strong> {{ t('hero.name') }}</li>
         <li><strong>{{ t('privacyPolicy.website') }}:</strong> <a href="https://azzamazizali.sy" target="_blank" rel="noopener">azzamazizali.sy</a></li>
         <li><strong>Email:</strong> <a href="mailto:projects@azzamazizali.sy">projects@azzamazizali.sy</a></li>
       </ul>

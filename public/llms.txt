@@ -13,6 +13,18 @@
 - [Contact](https://azzamazizali.sy/contact): Hire / consulting
 - [Blog](https://azzamazizali.sy/blog): Engineering and SEO notes
 
+## Selected projects
+- [Zahnarztpraxis Farahani](https://azzamazizali.sy/projects/zahnarztpraxis-farahani): Dental practice site — Laravel 12 + Filament CMS, Next.js, online booking, GDPR (2026)
+- [RSK Platform](https://azzamazizali.sy/projects/rsk-platform): Digital agency platform with project cost calculator (Nuxt 3, Express)
+- [AZ Containers Belgium](https://azzamazizali.sy/projects/az-containers-belgium): Tri-lingual relaunch and local SEO (Nuxt 3, Laravel + Filament)
+- [FastCaisse Ordering Platform](https://azzamazizali.sy/projects/fastcaisse-ordering-platform): Multi-restaurant ordering SaaS (Vue 3, Laravel)
+
+## Blog
+- [Deploying Nuxt SSR on cPanel: What Actually Worked for Me](https://azzamazizali.sy/blog/deploying-nuxt-ssr-on-cpanel)
+- [The Canonical Tag Mistake That Hid My Arabic Pages From Google](https://azzamazizali.sy/blog/nuxt-i18n-canonical-hreflang-mistakes)
+- [Things I Learned Building Restaurant Software for Real Kitchens](https://azzamazizali.sy/blog/lessons-from-building-a-restaurant-saas)
+- [How I Stopped Contact Form Spam Without Annoying Real Users](https://azzamazizali.sy/blog/stopping-form-spam-with-cloudflare-turnstile)
+
 ## Arabic
 - [العربية](https://azzamazizali.sy/ar/): Arabic locale (RTL)
 

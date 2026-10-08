@@ -7,8 +7,8 @@ useSeo({
   title: t('meta.projects.title'),
   description: t('meta.projects.description'),
   image: 'https://azzamazizali.sy/images/Azzam.jpg',
-  imageAlt: 'Projects Portfolio — Azzam Aziz Ali Full Stack Developer',
-  breadcrumb: [{ name: 'Projects', url: 'https://azzamazizali.sy/projects' }],
+  imageAlt: t('meta.projects.title'),
+  breadcrumb: [{ name: t('nav.projects'), url: 'https://azzamazizali.sy/projects' }],
 })
 
 const activeFilter = ref('all')
@@ -88,14 +88,17 @@ function stopSlider(project: { id: number; images?: string[] }) {
             @mouseleave="stopSlider(project)"
           >
             <div class="relative h-48 bg-slate-100 dark:bg-slate-800 overflow-hidden">
-              <NuxtImg
-                :src="getActiveImage(project)"
+              <img
+                :src="projectImage(getActiveImage(project)).src"
+                :srcset="projectImage(getActiveImage(project)).srcset"
+                sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
                 :alt="locale === 'ar' && project.titleAr ? project.titleAr : project.title"
                 class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
                 width="600"
                 height="400"
                 loading="lazy"
-              />
+                decoding="async"
+              >
               <div
                 v-if="project.images && project.images.length > 1"
                 class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5"
@@ -113,11 +116,11 @@ function stopSlider(project: { id: number; images?: string[] }) {
                 <h2 class="font-bold text-slate-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors text-sm">
                   {{ locale === 'ar' && project.titleAr ? project.titleAr : project.title }}
                 </h2>
-                <svg class="w-3.5 h-3.5 text-slate-400 group-hover:text-primary-500 shrink-0 mt-0.5 transition-transform group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="rtl:rotate-180 w-3.5 h-3.5 text-slate-400 group-hover:text-primary-500 shrink-0 mt-0.5 transition-transform group-hover:translate-x-0.5 rtl:group-hover:-translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                 </svg>
               </div>
-              <p class="text-xs text-slate-400 mb-2">{{ project.dateLabel }}</p>
+              <p class="text-xs text-slate-400 mb-2">{{ formatMonthYear(project.date, locale) }}</p>
               <p v-if="project.description" class="text-xs text-slate-500 dark:text-slate-400 mb-3 line-clamp-2">
                 {{ locale === 'ar' && project.descriptionAr ? project.descriptionAr : project.description }}
               </p>

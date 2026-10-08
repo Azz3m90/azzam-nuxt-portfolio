@@ -6,8 +6,8 @@ useSeo({
   title: t('meta.seoServices.title'),
   description: t('meta.seoServices.description'),
   image: 'https://azzamazizali.sy/images/Azzam.jpg',
-  imageAlt: 'Technical SEO Services by Azzam Aziz Ali',
-  breadcrumb: [{ name: 'SEO Services', url: 'https://azzamazizali.sy/seo-services' }],
+  imageAlt: t('meta.seoServices.title'),
+  breadcrumb: [{ name: t('nav.seoServices'), url: 'https://azzamazizali.sy/seo-services' }],
 })
 
 const services = computed(() => [

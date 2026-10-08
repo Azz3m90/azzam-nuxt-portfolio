@@ -6,8 +6,8 @@ useSeo({
   title: t('meta.caseStudies.title'),
   description: t('meta.caseStudies.description'),
   image: 'https://azzamazizali.sy/images/Azzam.jpg',
-  imageAlt: 'Case Studies — FastCaisse SaaS by Azzam Aziz Ali',
-  breadcrumb: [{ name: 'Case Studies', url: 'https://azzamazizali.sy/case-studies' }],
+  imageAlt: t('meta.caseStudies.title'),
+  breadcrumb: [{ name: t('nav.caseStudies'), url: 'https://azzamazizali.sy/case-studies' }],
 })
 </script>
 
@@ -33,7 +33,7 @@ useSeo({
             <div class="w-12 h-12 rounded-xl bg-primary-600 flex items-center justify-center text-white font-bold text-lg">FC</div>
             <div>
               <h2 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                FastCaisse SaaS Platform
+                {{ t('caseStudies.fastcaisse.title') }}
               </h2>
               <p class="text-sm text-slate-500">{{ t('caseStudies.fastcaisse.subtitle') }}</p>
             </div>
@@ -60,7 +60,7 @@ useSeo({
 
           <div class="flex items-center gap-2 text-primary-600 dark:text-primary-400 font-semibold text-sm group-hover:gap-3 transition-all">
             {{ t('caseStudies.readCaseStudy') }}
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="rtl:rotate-180 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
           </div>
